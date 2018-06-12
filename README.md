@@ -31,7 +31,7 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 **Comandos makefile:**
 	
 	make		 -	Compila o Projeto
-	make project -	Executa o projeto
+	make project     -	Executa o projeto
 	make gcov	 -	Gera arquivos gcov para testes
 	make clean	 -	Apaga arquivos objeto, binários, gcov e outros
 	make all	 -	Compila, executa e gera Arquivos Gcov
