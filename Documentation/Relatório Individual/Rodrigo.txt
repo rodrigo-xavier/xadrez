@@ -1,0 +1,4 @@
+Criei um repositório, defini a estrutura dos diretórios e editei o readme atribuindo tarefas aos membros. Também fiz o makefile e linkei alguns dos módulos do projeto.
+
+Date: 12/06
+Hora de trabalho: 10:00 - 13:00
