@@ -5,8 +5,20 @@
 
 using namespace std;
 
+void test(void);
+
 int main()
 {
-	cout << "\n\nFunciona\n\n";
+	test();
 	return 0;
+}
+
+void test(void)
+{
+	Test_Piece piece;
+
+	if (piece.run())
+		cout << "SUCESSO" << endl();
+	else
+		cout << "FALHA" << endl();
 }

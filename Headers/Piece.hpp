@@ -3,4 +3,10 @@
 
 using namespace std;
 
+class Piece
+{
+  private:
+  public:
+};
+
 #endif
