@@ -36,7 +36,7 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	make clean	 -	Apaga arquivos objeto, binários, gcov e outros
 	make all	 -	Compila, executa e gera Arquivos Gcov
 
-**Links Úteis:**
+**Links do Professor:**
 
 	Tutorial:             https://guides.github.com/activities/hello-world/
 	Biblioteca ncurses:   http://www.tldp.org/HOWTO/NCURSES-Programming-HOWTO/index.html
