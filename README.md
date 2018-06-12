@@ -2,8 +2,9 @@
 Implementação do jogo de xadrez para a disciplina Métodos de Programação
 
 **Tarefas:**
-	Cada um dos membros do grupo deve criar uma branch.
-	Anotar todas as suas Contribuições em um relatório localizado em Documentation/Relatório Individual/.
+	
+	Cada um dos membros do grupo deve criar uma branch
+	Anotar todas as suas Contribuições em um relatório localizado em Documentation/Relatório Individual/
 
 **Os arquivos estão organizados da seguinte forma:**
 
@@ -14,11 +15,12 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	Sources-> Contém os métodos das classes dos arquivos de cabeçalho, a main e o makefile
 
 **Requirements:**
+	
 	Ubuntu version: 18:04
 	C++ version: 11
 	gcc version: 7.3.0
 	make version: 4.1
-
+	
 	Caso necessário, instale os pacotes utilizando "sudo apt-get install make" e "sudo apt-get install g++"
 
 **Para compilar e executar:**
@@ -27,6 +29,7 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	Para executar digite "./Project" ou "make project"
 
 **Comandos makefile:**
+	
 	make		 -	Compila o Projeto
 	make project -	Executa o projeto
 	make gcov	 -	Gera arquivos gcov para testes
