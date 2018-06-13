@@ -1,8 +1,6 @@
 #include "../Headers/Piece.hpp"
 #include "../Headers/Test_Piece.hpp"
 
-#include <iostream>
-
 using namespace std;
 
 void test(void);

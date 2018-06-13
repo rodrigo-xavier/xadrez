@@ -1,6 +1,7 @@
 #ifndef TEST_PIECE_HPP_INCLUDED
 #define TEST_PIECE_HPP_INCLUDED
 
+#include <new>
 #include "Piece.hpp"
 
 using namespace std;

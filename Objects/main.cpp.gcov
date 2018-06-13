@@ -1,31 +1,29 @@
         -:    0:Source:main.cpp
         -:    0:Graph:main.gcno
         -:    0:Data:main.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:5
+        -:    0:Programs:4
         -:    1:#include "../Headers/Piece.hpp"
         -:    2:#include "../Headers/Test_Piece.hpp"
         -:    3:
-        -:    4:#include <iostream>
+        -:    4:using namespace std;
         -:    5:
-        -:    6:using namespace std;
+        -:    6:void test(void);
         -:    7:
-        -:    8:void test(void);
-        -:    9:
-        1:   10:int main()
-        -:   11:{
-        1:   12:	system("clear");
-        -:   13:
-        1:   14:	test();
-        1:   15:	return 0;
-        -:   16:}
-        -:   17:
-        1:   18:void test(void)
-        -:   19:{
-        -:   20:	Test_Piece piece;
-        -:   21:
-        1:   22:	if (piece.run())
-        1:   23:		cout << "SUCESSO" << endl;
-        -:   24:	else
-    #####:   25:		cout << "FALHA" << endl;
-        4:   26:}
+        5:    8:int main()
+        -:    9:{
+        5:   10:	system("clear");
+        -:   11:
+        5:   12:	test();
+        5:   13:	return 0;
+        -:   14:}
+        -:   15:
+        5:   16:void test(void)
+        -:   17:{
+        -:   18:	Test_Piece piece;
+        -:   19:
+        5:   20:	if (piece.run())
+        2:   21:		cout << "SUCESSO" << endl;
+        -:   22:	else
+        3:   23:		cout << "FALHA" << endl;
+       20:   24:}

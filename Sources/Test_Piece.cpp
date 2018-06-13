@@ -8,9 +8,13 @@ void Test_Piece::makePiece(void)
     try
     {
         piece = new Piece();
+
+        if (piece == NULL)
+            estado = FALHA;
     }
-    catch (invalid_argument excecao)
+    catch (bad_alloc &bad_allocation)
     {
+        cerr << "Falha de alocacao causada por: " << bad_allocation.what() << '\n';
         estado = FALHA;
     }
 }
@@ -19,7 +23,11 @@ void Test_Piece::destroyPiece(void)
 {
     try
     {
-        piece = new Piece();
+        delete piece;
+        piece = NULL;
+
+        if (piece != NULL)
+            estado = FALHA;
     }
     catch (invalid_argument excecao)
     {
