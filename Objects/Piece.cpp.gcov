@@ -1,0 +1,14 @@
+        -:    0:Source:Piece.cpp
+        -:    0:Graph:Piece.gcno
+        -:    0:Data:Piece.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "../Headers/Piece.hpp"
+        -:    2:
+        2:    3:Piece::Piece(void)
+        -:    4:{
+        2:    5:}
+        -:    6:
+    #####:    7:Piece::~Piece()
+        -:    8:{
+        3:    9:}

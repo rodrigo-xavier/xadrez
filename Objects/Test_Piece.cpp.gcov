@@ -1,0 +1,43 @@
+        -:    0:Source:Test_Piece.cpp
+        -:    0:Graph:Test_Piece.gcno
+        -:    0:Data:Test_Piece.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "../Headers/Test_Piece.hpp"
+        -:    2:
+        -:    3:const bool Test_Piece::FALHA = false;
+        -:    4:const bool Test_Piece::SUCESSO = true;
+        -:    5:
+        1:    6:void Test_Piece::makePiece(void)
+        -:    7:{
+        -:    8:    try
+        -:    9:    {
+        1:   10:        piece = new Piece();
+        -:   11:    }
+    =====:   12:    catch (invalid_argument excecao)
+        -:   13:    {
+    =====:   14:        estado = FALHA;
+        -:   15:    }
+        1:   16:}
+        -:   17:
+        1:   18:void Test_Piece::destroyPiece(void)
+        -:   19:{
+        -:   20:    try
+        -:   21:    {
+        1:   22:        piece = new Piece();
+        -:   23:    }
+    =====:   24:    catch (invalid_argument excecao)
+        -:   25:    {
+    =====:   26:        estado = FALHA;
+        -:   27:    }
+        1:   28:}
+        -:   29:
+        1:   30:bool Test_Piece::run(void)
+        -:   31:{
+        1:   32:    estado = SUCESSO;
+        -:   33:
+        1:   34:    makePiece();
+        1:   35:    destroyPiece();
+        -:   36:
+        1:   37:    return estado;
+        3:   38:}

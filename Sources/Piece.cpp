@@ -1,3 +1,9 @@
 #include "../Headers/Piece.hpp"
 
-using namespace std;
+Piece::Piece(void)
+{
+}
+
+Piece::~Piece()
+{
+}

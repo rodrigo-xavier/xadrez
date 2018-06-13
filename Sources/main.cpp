@@ -9,6 +9,8 @@ void test(void);
 
 int main()
 {
+	system("clear");
+
 	test();
 	return 0;
 }
@@ -18,7 +20,7 @@ void test(void)
 	Test_Piece piece;
 
 	if (piece.run())
-		cout << "SUCESSO" << endl();
+		cout << "SUCESSO" << endl;
 	else
-		cout << "FALHA" << endl();
+		cout << "FALHA" << endl;
 }

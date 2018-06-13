@@ -10,8 +10,22 @@
         -:    5:
         -:    6:using namespace std;
         -:    7:
-        1:    8:int main()
-        -:    9:{
-        1:   10:	cout << "\n\nFunciona\n\n";
-        1:   11:	return 0;
-        3:   12:}
+        -:    8:void test(void);
+        -:    9:
+        1:   10:int main()
+        -:   11:{
+        1:   12:	system("clear");
+        -:   13:
+        1:   14:	test();
+        1:   15:	return 0;
+        -:   16:}
+        -:   17:
+        1:   18:void test(void)
+        -:   19:{
+        -:   20:	Test_Piece piece;
+        -:   21:
+        1:   22:	if (piece.run())
+        1:   23:		cout << "SUCESSO" << endl;
+        -:   24:	else
+    #####:   25:		cout << "FALHA" << endl;
+        4:   26:}

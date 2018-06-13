@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/7/iostream
-        -:    0:Graph:main.gcno
-        -:    0:Data:main.gcda
+        -:    0:Graph:Test_Piece.gcno
+        -:    0:Data:Test_Piece.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Standard iostream objects -*- C++ -*-
