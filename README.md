@@ -6,6 +6,11 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	Cada um dos membros do grupo deve criar uma branch
 	Anotar todas as suas Contribuições em um relatório localizado em Documentation/Relatório Individual/
 
+**Curso C++**
+
+	Este é o melhor curso de C++ que vocês vão encontrar
+	https://goo.gl/pbwEiV
+
 **Os arquivos estão organizados da seguinte forma:**
 
 	Documentation -> Contém os arquivos de documentação gerados pelo doxygen (Latex e Html) e os relatórios individuais de cada membro do grupo

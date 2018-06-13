@@ -1,4 +1,9 @@
-Criei um repositório, defini a estrutura dos diretórios e editei o readme atribuindo tarefas aos membros. Também fiz o makefile e linkei alguns dos módulos do projeto.
+Criei um repositÃ³rio, defini a estrutura dos diretÃ³rios e editei o readme atribuindo tarefas aos membros. TambÃ©m fiz o makefile e linkei alguns dos mÃ³dulos do projeto.
 
 Date: 12/06
 Hora de trabalho: 10:00 - 13:00
+
+Implementei alguns testes e defini a classe peÃ§a
+
+Date: 12/06
+Hora de Trabalho: 19:00 - 21:30
