@@ -5,11 +5,24 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	
 	Cada um dos membros do grupo deve criar uma branch
 	Anotar todas as suas Contribuições em um relatório localizado em Documentation/Relatório Individual/
+	Definir um diretório para testes (Alterar makefile)
+	Criar a classe peça e fazer com que as peças do xadrez herdem dela
+	Talvez seja necessário criar uma classe para o movimento realizado
+	Criar uma classe para o tabuleiro
+	Designar alguém para criar um módulo de validação (criar um diretório e alterar o makefile)
+	Designar alguém para criar testes
+	Designar alguém para implementar a interface vulgo Paulo Mito
+	ATENÇÃO: O makefile deve sempre estar funcional
+		 Documentar como no doxygen antes de dar push
 
 **Curso C++**
 
 	Este é o melhor curso de C++ que vocês vão encontrar
 	https://goo.gl/pbwEiV
+
+**Tutorial do Paulo de SDL**
+
+	http://lazyfoo.net/tutorials/SDL/index.php
 
 **Os arquivos estão organizados da seguinte forma:**
 
