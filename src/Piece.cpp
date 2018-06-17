@@ -1,4 +1,4 @@
-#include "../Headers/Piece.hpp"
+#include "../include/Piece.hpp"
 
 Piece::Piece(void)
 {

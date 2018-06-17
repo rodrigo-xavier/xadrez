@@ -45,6 +45,8 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	
 	Acesse o diretório "Sources", digite "make all" no terminal e o arquivo "Project" será gerado na estrutura principal do projeto e executado automaticamente gerando relatórios de teste em seguida. 
 	Para executar digite "./Project" ou "make project"
+    
+    * Para compilar o doxygen, entre com o comando "doxygen conf_doxy" neste diretório e serão criadas documentações em docs/doxygen. Para compilar o pdf, vá na pasta docs/doxygen/latex e entre com o comando "make"
 
 **Comandos makefile:**
 	

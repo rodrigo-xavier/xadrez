@@ -1,0 +1,9 @@
+Deixei o framework catch funcional com um exemplo de teste pronto, configurei o doxygen e automatizei a criação do relatório do gcov                                                                                                    
+
+Date: 13/06
+Hora de trabalho: 21:00 - 23:30
+
+Fiz algumas alterações no makefile e criei uma função de teste
+
+Data: 17/06
+Hora de trabalho 11:30 a 12:11
