@@ -1,7 +1,11 @@
 # Xadrez
 Implementação do jogo de xadrez para a disciplina Métodos de Programação
 
-**Regras pull request**
+**Regras do pull request**
+
+* Faça merge com a master antes
+* Corrija os conflitos e deixe funcional
+* Abra o pull request
 
 **Tarefas:**
 	
@@ -31,8 +35,7 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	C++ version: 11
 	gcc version: 7.3.0
 	make version: 4.1
-	
-*	Caso necessário, instale os pacotes utilizando "sudo apt-get install make" e "sudo apt-get install g++"
+	*	Caso necessário, instale os pacotes utilizando "sudo apt-get install make" e "sudo apt-get install g++"
 
 **Para compilar e executar:**
 	
