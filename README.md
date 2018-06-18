@@ -3,7 +3,8 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 
 **Regras do pull request**
 
-* Faça merge com a master antes
+* Atualize sua master local
+* Faça merge da sua branch com a master
 * Corrija os conflitos e deixe funcional
 * Abra o pull request
 
