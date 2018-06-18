@@ -76,3 +76,4 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 **Xadrez**
 
 	https://github.com/nolderosw/xdgp
+	https://github.com/LuisCoder/Xadrez
