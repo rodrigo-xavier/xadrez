@@ -6,6 +6,7 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 * Atualize sua master local
 * Faça merge da sua branch com a master
 * Corrija os conflitos e deixe funcional
+* Faça make clean
 * Abra o pull request
 
 **Tarefas:**
