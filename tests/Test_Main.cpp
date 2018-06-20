@@ -28,3 +28,15 @@ TEST_CASE("Testes das funcoes usadas na main", "Todas as funcoes de funcoes")
         REQUIRE(soma(a,b)== 6); 
     }*/
 }
+
+TEST_CASE("Teste da estrutura basica das peças","Toda estrutura basica da peça")
+{
+	Piece *piece;
+	int* a;
+	piece = new Piece();	
+      	a = piece->GetPosition();
+	REQUIRE(piece->GetColor() == false);
+	REQUIRE(piece->GetName() == 1);
+	REQUIRE(a[0] == 0);
+	REQUIRE(a[1] == 0);
+}

@@ -1,0 +1,9 @@
+Defini melhor quais serão os métodos da classe das peças (e as propriedades), fiz o corpo da classe de cada peça, implementei um teste básico dos métodos genéricos da classe genérica de peça.
+
+Data: 16/06
+Hora de trabalho: 13:00 - 14:11
+
+Ajuste das mudanças para o novo formato da master
+
+Data: 20/06
+Hora de trabalho: 16:00 - 16:24
