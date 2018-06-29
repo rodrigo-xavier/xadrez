@@ -1,11 +1,23 @@
-File 'Board.cpp'
-Lines executed:17.65% of 17
+File 'Bishop.cpp'
+Lines executed:87.50% of 8
 File '/usr/include/c++/5/iostream'
 Lines executed:100.00% of 1
+File 'Board.cpp'
+Lines executed:17.65% of 17
+File 'King.cpp'
+Lines executed:87.50% of 8
+File 'Knight.cpp'
+Lines executed:87.50% of 8
+File 'Pawn.cpp'
+Lines executed:87.50% of 8
 File 'Piece.cpp'
-Lines executed:75.00% of 16
+Lines executed:73.33% of 15
+File 'Queen.cpp'
+Lines executed:87.50% of 8
+File 'Rook.cpp'
+Lines executed:87.50% of 8
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 13
+Lines executed:100.00% of 54
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -13,7 +25,7 @@ Lines executed:92.41% of 145
 File '/usr/include/c++/5/bits/alloc_traits.h'
 Lines executed:62.96% of 27
 File '../lib/catch.hpp'
-Lines executed:29.17% of 4127
+Lines executed:29.13% of 4133
 File '/usr/include/c++/5/bits/stl_iterator.h'
 Lines executed:63.24% of 68
 File '/usr/include/c++/5/ext/aligned_buffer.h'
@@ -67,7 +79,7 @@ Lines executed:22.73% of 22
 File '/usr/include/c++/5/bits/regex.h'
 Lines executed:0.00% of 68
 File '/usr/include/c++/5/bits/stl_tree.h'
-Lines executed:63.77% of 276
+Lines executed:65.22% of 276
 File '/usr/include/c++/5/bits/regex_compiler.h'
 Lines executed:0.00% of 101
 File '/usr/include/c++/5/bitset'
@@ -140,4 +152,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:28.39% of 7447
+Lines executed:29.17% of 7541

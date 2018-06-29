@@ -7,3 +7,8 @@ Ajuste das mudanças para o novo formato da master
 
 Data: 20/06
 Hora de trabalho: 16:00 - 16:24
+
+Inicio da implementação dos métodos das peças
+
+Data: 28/06
+Hora de trabalho: 20:12 - 21:53
