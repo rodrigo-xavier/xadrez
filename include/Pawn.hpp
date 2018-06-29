@@ -12,6 +12,10 @@ using namespace std;
 
 class Pawn : public Piece
 {
+  private:
+    bool hasDiagonalEnemyRight = false;
+    bool hasDiagonalEnemyLeft = false;
+
   public:
     Pawn(bool, int, int);
     ~Pawn();
@@ -19,6 +23,8 @@ class Pawn : public Piece
     using Piece::GetName;
     using Piece::GetPositionX;
     using Piece::GetPositionY;
+    bool IsMovementPossible(int, int);
+    void SetDiagonalEnemy(bool, bool);
 };
 
 #endif

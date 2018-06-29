@@ -12,3 +12,8 @@ Inicio da implementação dos métodos das peças
 
 Data: 28/06
 Hora de trabalho: 20:12 - 21:53
+
+Método de verificação de validade de movimento para o Peão e os testes
+
+Data: 29/06
+Hora de trabalho: 14:50 - 16:09  ~  16:25 - 17:17
