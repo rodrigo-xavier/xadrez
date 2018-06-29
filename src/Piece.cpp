@@ -1,6 +1,6 @@
 #include "../include/Piece.hpp"
 
-Piece::Piece(void)
+Piece::Piece()
 {
 }
 
@@ -10,21 +10,22 @@ Piece::~Piece()
 
 bool Piece::GetColor()
 {
-  return false;
+  return isWhite;
 }
 
-int Piece::GetName()
+PieceName Piece::GetName()
 {
-  return 1;
+  return name;
 }
 
-int * Piece::GetPosition()
+int Piece::GetPositionX()
 {
-  int *a;
-  a = (int *) malloc(2*sizeof(int));
-  a[0] = 0;
-  a[1] = 0;
-  return a;
+  return position_X;
+}
+
+int Piece::GetPositionY()
+{
+  return position_Y;
 }
 
 bool Piece::IsMovementPossible(int *matrix, int row_size, int column_size)

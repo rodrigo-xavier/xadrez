@@ -30,10 +30,10 @@ LIBS = -lm
 ########################## Listas com nomes dos arquivos de código ##########################
 # Define o local dos arquivos de código e arquivos de cabeçalho de código
 
-_HEADERS = Piece.hpp Board.hpp
+_HEADERS = Piece.hpp Board.hpp Pawn.hpp Knight.hpp Bishop.hpp Rook.hpp Queen.hpp King.hpp
 HEADERS = $(patsubst %,$(DIR_HEADERS)/%,$(_HEADERS))
 
-_OBJECTS = main.o Piece.o Board.o
+_OBJECTS = main.o Piece.o Board.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o
 OBJECTS = $(patsubst %,$(DIR_OBJECTS)/%,$(_OBJECTS))
 
 _TESTS = Test_Main.cpp
@@ -43,7 +43,7 @@ TESTS = $(patsubst %,$(DIR_TESTS)/%,$(_TESTS))
 
 ############################################ Make ############################################
 # Aqui são definidas as regras para compilar o código gerando arquivos objetos e binários
-	
+
 # Gera arquivos objeto para todos os .cpp que estão localizados no mesmo diretório do makefile e em seguida compila
 $(DIR_OBJECTS)/%.o: %.cpp $(HEADERS)
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -53,7 +53,7 @@ $(PROJECT_EXE): $(OBJECTS)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 # Chama todos os arquivos objeto, gerando binários e criando o executável de teste, colocar aqui todos os módulos usados no teste
-$(TEST_EXE): $(TESTS) Board.cpp Piece.cpp
+$(TEST_EXE): $(TESTS) Board.cpp Piece.cpp Pawn.cpp Knight.cpp Bishop.cpp Rook.cpp Queen.cpp King.cpp
 	$(CC) -o $@ --coverage $^ $(CFLAGS)
 
 # MiniTutorial
