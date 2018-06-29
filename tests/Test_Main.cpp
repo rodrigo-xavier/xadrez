@@ -36,6 +36,7 @@ TEST_CASE("Teste da classe de estrutura basica das peças","Toda estrutura basic
 	REQUIRE(piece->GetName() == PieceName::Empty);
 	REQUIRE(piece->GetPositionX() == 0);
   REQUIRE(piece->GetPositionY() == 0);
+  REQUIRE(piece->IsMovementPossible(5,8) == false);
 }
 
 TEST_CASE("Teste da classe de Peão","Toda estrutura basica da peça Peão")
@@ -102,4 +103,69 @@ TEST_CASE("Teste da classe do Rei","Toda estrutura basica da peça Rei")
 	REQUIRE(king->GetName() == PieceName::King);
 	REQUIRE(king->GetPositionX() == 8);
   REQUIRE(king->GetPositionY() == 12);
+}
+
+TEST_CASE("Teste da função 'IsMovementPossible' do Peao", "Função determina corretamente quando o movimento é ou não possível")
+{
+  //Testando se quando é branca, reconhece que não pode andar para atrás (apenas para frente) e também não pode ter uma jogada para a mesma posição.
+  Piece *pawn;
+  pawn = new Pawn(true, 0, 1);
+  REQUIRE(pawn->IsMovementPossible(0,2) == true);
+  REQUIRE(pawn->IsMovementPossible(0,0) == false);
+  REQUIRE(pawn->IsMovementPossible(0,1) == false);
+
+  //Testando se quando for a primeira jogada, o peao pode andar 2 casas ou 1 casa. (mas não pode ir mais que duas)
+  pawn = new Pawn(true, 0, 1);
+  REQUIRE(pawn->IsMovementPossible(0,2) == true);
+  REQUIRE(pawn->IsMovementPossible(0,3) == true);
+  REQUIRE(pawn->IsMovementPossible(0,4) == false);
+
+  //Testando andar 2 casas quando não for a primeira jogada.
+  pawn = new Pawn(true, 0, 2);
+  REQUIRE(pawn->IsMovementPossible(0,4) == false);
+
+  //Testando andar 1 casa quando não for a primeira jogada.
+  REQUIRE(pawn->IsMovementPossible(0,3) == true);
+
+  //Testa jogada diagonal, quando há inimigo na direita (x negativo quando branca), esquerda (x positivo quando branca) e quando não ha inimigo.
+  pawn = new Pawn(true, 2, 2);
+  pawn->SetDiagonalEnemy(false, true);
+  REQUIRE(pawn->IsMovementPossible(1,3) == true);
+  REQUIRE(pawn->IsMovementPossible(3,3) == false);
+  pawn->SetDiagonalEnemy(true, false);
+  REQUIRE(pawn->IsMovementPossible(3,3) == true);
+  REQUIRE(pawn->IsMovementPossible(1,3) == false);
+  pawn->SetDiagonalEnemy(false, false);
+  REQUIRE(pawn->IsMovementPossible(3,3) == false);
+
+  //Peça preta, testando primeira jogada 2 andadas ou 1, 1 andada sem ser na primeira jogada, 2 andadas sem ser na primeira jogada.
+  pawn = new Pawn(false, 0, 6);
+  REQUIRE(pawn->IsMovementPossible(0,4) == true);
+  REQUIRE(pawn->IsMovementPossible(0,6) == false);
+  REQUIRE(pawn->IsMovementPossible(0,5) == true);
+  REQUIRE(pawn->IsMovementPossible(0,3) == false);
+
+  pawn = new Pawn(false, 0, 5);
+  REQUIRE(pawn->IsMovementPossible(0,4) == true);
+  REQUIRE(pawn->IsMovementPossible(0,3) == false);
+
+  //Peça preta, testada jogada na diagonal.
+  pawn = new Pawn(false, 1, 5);
+  pawn->SetDiagonalEnemy(false, true);
+  REQUIRE(pawn->IsMovementPossible(2,4) == true);
+  REQUIRE(pawn->IsMovementPossible(0,4) == false);
+  pawn->SetDiagonalEnemy(true, false);
+  REQUIRE(pawn->IsMovementPossible(0,4) == true);
+  REQUIRE(pawn->IsMovementPossible(2,4) == false);
+  pawn->SetDiagonalEnemy(false, false);
+  REQUIRE(pawn->IsMovementPossible(2,4) == false);
+
+  //Teste quando for a primeira jogada e tenta se jogar na diagonal e andar duas casas pra frente (peça preta, mas valido para peça branca)
+  pawn = new Pawn(false, 2, 6);
+  pawn->SetDiagonalEnemy(false, true);
+  REQUIRE(pawn->IsMovementPossible(3,4) == false);
+
+  //Tentando fazer jogada fora do tabuleiro
+  pawn->SetDiagonalEnemy(false, false);
+  REQUIRE(pawn->IsMovementPossible(-1,-2) == false);
 }

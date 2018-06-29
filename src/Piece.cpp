@@ -28,7 +28,11 @@ int Piece::GetPositionY()
   return position_Y;
 }
 
-bool Piece::IsMovementPossible(int *matrix, int row_size, int column_size)
+bool Piece::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {
   return false;
+}
+
+void Piece::SetDiagonalEnemy(bool hasDiagonalEnemyRight, bool hasDiagonalEnemyLeft)
+{
 }
