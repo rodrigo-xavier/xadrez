@@ -169,3 +169,21 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Peao", "Função determina 
   pawn->SetDiagonalEnemy(false, false);
   REQUIRE(pawn->IsMovementPossible(-1,-2) == false);
 }
+
+TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+{
+  Piece *pawn;
+  pawn = new Pawn(true, 0, 1);
+
+  //Seta uma posição possível
+  REQUIRE(pawn->SetPosition(0,3) == true);
+  REQUIRE(pawn->GetPositionX() == 0);
+  REQUIRE(pawn->GetPositionY() == 3);
+
+  //Seta uma posição não possível
+  REQUIRE(pawn->SetPosition(0,0) == false);
+  
+  //Demonstra que a posição não mudou (pois não era possível)
+  REQUIRE(pawn->GetPositionX() == 0);
+  REQUIRE(pawn->GetPositionY() == 3);
+}
