@@ -32,3 +32,8 @@ Método de verificação de validade de movimento e setar movimento para a Torre
 
 Data: 30/06
 Hora de trabalho: 10:45 - 11:06
+
+Método de verificação de validade de movimento e setar movimento para o cavalo e os testes
+
+Data: 30/06
+Hora de trabalho: 11:12 - 11:33

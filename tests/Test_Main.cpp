@@ -283,3 +283,55 @@ TEST_CASE("Teste da função 'SetPosition' da Torre", "Função retorna true se 
   REQUIRE(rook->GetPositionX() == 1);
   REQUIRE(rook->GetPositionY() == 6);
 }
+
+TEST_CASE("Teste da função 'IsMovementPossible' do Cavalo", "A função determina que o Cavalo só pode se mover em 'L', ir e voltar")
+{
+  Piece *knight;
+  knight = new Knight(false, 1, 7);
+
+  //Andar da posição inicial (1x7) para todas casas possíveis
+  REQUIRE(knight->IsMovementPossible(0, 5) == true);
+  REQUIRE(knight->IsMovementPossible(2, 5) == true);
+  REQUIRE(knight->IsMovementPossible(3, 6) == true);
+
+  //Andar em linha reta (vertical/horizontal) - ver que não é possível
+  REQUIRE(knight->IsMovementPossible(1, 6) == false);
+  REQUIRE(knight->IsMovementPossible(2, 7) == false);
+
+  //Ficar na mesma posição que a inicial - ver que não é possível
+  REQUIRE(knight->IsMovementPossible(1, 7) == false);
+
+  //Peça no meio do tabuleiro (4x4), todas as posições possíveis
+  knight = new Knight(false, 4, 4);
+  REQUIRE(knight->IsMovementPossible(3, 2) == true);
+  REQUIRE(knight->IsMovementPossible(5, 2) == true);
+  REQUIRE(knight->IsMovementPossible(2, 3) == true);
+  REQUIRE(knight->IsMovementPossible(6, 3) == true);
+  REQUIRE(knight->IsMovementPossible(3, 6) == true);
+  REQUIRE(knight->IsMovementPossible(5, 6) == true);
+  REQUIRE(knight->IsMovementPossible(2, 5) == true);
+  REQUIRE(knight->IsMovementPossible(6, 5) == true);
+}
+
+TEST_CASE("Teste da função 'SetPosition' do Cavalo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+{
+  Piece *knight;
+  knight = new Knight(false, 1, 7);
+
+  //Andar da posição inicial (1x7) para (2x5)
+  REQUIRE(knight->SetPosition(2,5) == true);
+  REQUIRE(knight->GetPositionX() == 2);
+  REQUIRE(knight->GetPositionY() == 5);
+
+  //Seta uma posição não possível (andar na vertical)
+  REQUIRE(knight->SetPosition(2,4) == false);
+
+  //Demonstra que a posição não mudou (pois não era possível)
+  REQUIRE(knight->GetPositionX() == 2);
+  REQUIRE(knight->GetPositionY() == 5);
+
+  //Da posição que estava (2,5), voltar para a posição inicial (1x7)
+  REQUIRE(knight->SetPosition(1,7) == true);
+  REQUIRE(knight->GetPositionX() == 1);
+  REQUIRE(knight->GetPositionY() == 7);
+}
