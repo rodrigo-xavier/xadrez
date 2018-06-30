@@ -2,32 +2,45 @@
 
 Board::Board(void)
 {
-    int i = 0;
-
-    matrix = new Piece *[LINHAS];
-
-    for (i = 0; i < LINHAS; i++)
-        matrix[i] = new Piece[COLUNAS];
-
+    initBoard();
     // Alocar as peças para o jogo neste construtor
 }
 
 Board::~Board()
 {
-    int i = 0;
-
-    for (i = 0; i < LINHAS; i++)
-    {
-        delete[] matrix[i];
-        matrix[i] = nullptr;
-    }
-
-    delete[] matrix;
-    matrix = nullptr;
-
+    destroyBoard();
     // Chamar destrutores das peças neste destrutor
 }
 
-int soma(int a, int b){
-    return a+b;
+void Board::initBoard(void)
+{
+    board[8][8] =
+        't',
+    'c', 'b', 'k', 'q', 'b', 'c', 't',
+    'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
+    't', 'c', 'b', 'q', 'k', 'b', 'c', 't';
+}
+
+void Board::destroyBoard(void)
+{
+    board[8][8] =
+        '0',
+    '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0';
+}
+
+char Board::returnBoardPosition(int x, int y)
+{
+    return board[x][y];
 }
