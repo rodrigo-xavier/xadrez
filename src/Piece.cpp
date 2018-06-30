@@ -53,15 +53,9 @@ bool Piece::GetIsAlive()
   return isAlive;
 }
 
-void Piece::SetIsAlive(bool isAlive)
+void Piece::SetDead()
 {
-  if(this->isAlive) //Se a peça estiver morta, ela não revive
-  {
-    this->isAlive = isAlive;
-    if(!isAlive)
-    {
-      this->position_X = -1;
-      this->position_Y = -1;
-    }
-  }
+  isAlive = false;
+  this->position_X = -1;
+  this->position_Y = -1;
 }
