@@ -335,3 +335,51 @@ TEST_CASE("Teste da função 'SetPosition' do Cavalo", "Função retorna true se
   REQUIRE(knight->GetPositionX() == 1);
   REQUIRE(knight->GetPositionY() == 7);
 }
+
+TEST_CASE("Teste da função 'IsMovementPossible' da Rainha", "A função determina que a Rainha pode se mover em qualquer direção (por vez), ir e voltar")
+{
+  Piece *queen;
+  queen = new Queen(false, 3, 7);
+
+  //Andar da posição inicial (3x7) para todas casas possíveis
+  REQUIRE(queen->IsMovementPossible(2, 7) == true);
+  REQUIRE(queen->IsMovementPossible(2, 6) == true);
+  REQUIRE(queen->IsMovementPossible(3, 6) == true);
+  REQUIRE(queen->IsMovementPossible(4, 6) == true);
+  REQUIRE(queen->IsMovementPossible(4, 7) == true);
+
+  //Peça no meio do tabuleiro (4x4), todas as posições possíveis ao redor dela
+  queen = new Queen(false, 4, 4);
+  REQUIRE(queen->IsMovementPossible(3, 4) == true);
+  REQUIRE(queen->IsMovementPossible(5, 4) == true);
+  REQUIRE(queen->IsMovementPossible(5, 3) == true);
+  REQUIRE(queen->IsMovementPossible(4, 3) == true);
+  REQUIRE(queen->IsMovementPossible(3, 3) == true);
+  REQUIRE(queen->IsMovementPossible(3, 5) == true);
+  REQUIRE(queen->IsMovementPossible(4, 5) == true);
+  REQUIRE(queen->IsMovementPossible(5, 5) == true);
+
+  //Mostrar que ela não pode ir para a mesma casa que está
+  REQUIRE(queen->IsMovementPossible(4, 4) == false);
+
+  //Movimento não possível
+  REQUIRE(queen->IsMovementPossible(2, 5) == false);
+}
+
+TEST_CASE("Teste da função 'SetPosition' da Rainha", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+{
+  Piece *queen;
+  queen = new Queen(false, 3, 7);
+
+  //Seta uma posição não possível (2x5)
+  REQUIRE(queen->SetPosition(2,5) == false);
+
+  //Demonstra que a posição não mudou (pois não era possível)
+  REQUIRE(queen->GetPositionX() == 3);
+  REQUIRE(queen->GetPositionY() == 7);
+
+  //Da posição que estava (3,7), vai para (0x7)
+  REQUIRE(queen->SetPosition(0,7) == true);
+  REQUIRE(queen->GetPositionX() == 0);
+  REQUIRE(queen->GetPositionY() == 7);
+}
