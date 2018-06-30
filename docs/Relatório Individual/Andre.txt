@@ -42,3 +42,8 @@ Método de verificação de validade de movimento e setar movimento para a Rainh
 
 Data: 30/06
 Hora de trabalho: 14:16 - 14:40
+
+Método de verificação de validade de movimento e setar movimento para o Rei e os testes
+
+Data: 30/06
+Hora de trabalho: 14:41 - 14:56

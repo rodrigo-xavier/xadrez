@@ -5,7 +5,7 @@ Lines executed:100.00% of 1
 File 'Board.cpp'
 Lines executed:17.65% of 17
 File 'King.cpp'
-Lines executed:87.50% of 8
+Lines executed:89.47% of 19
 File 'Knight.cpp'
 Lines executed:87.50% of 16
 File 'Pawn.cpp'
@@ -17,7 +17,7 @@ Lines executed:88.89% of 18
 File 'Rook.cpp'
 Lines executed:87.50% of 16
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 212
+Lines executed:100.00% of 241
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -152,4 +152,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:31.14% of 7764
+Lines executed:31.48% of 7804
