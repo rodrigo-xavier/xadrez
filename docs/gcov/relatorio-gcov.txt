@@ -15,9 +15,9 @@ Lines executed:82.61% of 23
 File 'Queen.cpp'
 Lines executed:87.50% of 8
 File 'Rook.cpp'
-Lines executed:87.50% of 8
+Lines executed:87.50% of 16
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 133
+Lines executed:100.00% of 154
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -152,4 +152,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:30.24% of 7659
+Lines executed:30.49% of 7688

@@ -28,3 +28,7 @@ Método de verificação de validade de movimento e setar movimento para o Bispo
 Data: 30/06
 Hora de trabalho: 9:53 - 10:38
 
+Método de verificação de validade de movimento e setar movimento para a Torre e os testes
+
+Data: 30/06
+Hora de trabalho: 10:45 - 11:06
