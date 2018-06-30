@@ -434,3 +434,45 @@ TEST_CASE("Teste da função 'SetPosition' do Rei", "Função retorna true se o 
   REQUIRE(king->GetPositionX() == 3);
   REQUIRE(king->GetPositionY() == 7);
 }
+
+TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em situação inicial de jogo")
+{
+  Initialize();
+
+  REQUIRE(black_rook1->GetPositionY() == 0);
+  REQUIRE(black_knight1->GetPositionY() == 1);
+  REQUIRE(black_bishop1->GetPositionY() == 2);
+  REQUIRE(black_queen->GetPositionY() == 3);
+  REQUIRE(black_king->GetPositionY() == 4);
+  REQUIRE(black_bishop2->GetPositionY() == 5);
+  REQUIRE(black_knight2->GetPositionY() == 6);
+  REQUIRE(black_rook2->GetPositionY() == 7);
+
+  REQUIRE(black_pawn1->GetPositionX() == 1);
+  REQUIRE(black_pawn2->GetPositionX() == 1);
+  REQUIRE(black_pawn3->GetPositionX() == 1);
+  REQUIRE(black_pawn4->GetPositionX() == 1);
+  REQUIRE(black_pawn5->GetPositionX() == 1);
+  REQUIRE(black_pawn6->GetPositionX() == 1);
+  REQUIRE(black_pawn7->GetPositionX() == 1);
+  REQUIRE(black_pawn8->GetPositionX() == 1);
+
+  REQUIRE(white_pawn1->GetPositionX() == 6);
+  REQUIRE(white_pawn2->GetPositionX() == 6);
+  REQUIRE(white_pawn3->GetPositionX() == 6);
+  REQUIRE(white_pawn4->GetPositionX() == 6);
+  REQUIRE(white_pawn5->GetPositionX() == 6);
+  REQUIRE(white_pawn6->GetPositionX() == 6);
+  REQUIRE(white_pawn7->GetPositionX() == 6);
+  REQUIRE(white_pawn8->GetPositionX() == 6);
+
+  REQUIRE(white_rook1->GetPositionY() == 0);
+  REQUIRE(white_knight1->GetPositionY() == 1);
+  REQUIRE(white_bishop1->GetPositionY() == 2);
+  REQUIRE(white_queen->GetPositionY() == 3);
+  REQUIRE(white_king->GetPositionY() == 4);
+  REQUIRE(white_bishop2->GetPositionY() == 5);
+  REQUIRE(white_knight2->GetPositionY() == 6);
+  REQUIRE(white_rook2->GetPositionY() == 7);
+
+}
