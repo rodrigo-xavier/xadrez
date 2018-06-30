@@ -435,7 +435,7 @@ TEST_CASE("Teste da função 'SetPosition' do Rei", "Função retorna true se o 
   REQUIRE(king->GetPositionY() == 7);
 }
 
-TEST_CASE("Teste da função 'SetIsAlive' e 'GetIsAlive' para cada peça", "A função seta a peça como morta e não é possivel reviver ela (e a posição -1x-1)")
+TEST_CASE("Teste da função 'SetDead' e 'GetIsAlive' para cada peça", "A função seta a peça como morta e não é possivel reviver ela (e a posição -1x-1)")
 {
   Piece *pawn, *bishop, *rook, *knight, *queen, *king, *piece;
   pawn = new Pawn(false, 0, 1);
@@ -456,12 +456,12 @@ TEST_CASE("Teste da função 'SetIsAlive' e 'GetIsAlive' para cada peça", "A fu
   REQUIRE(piece->GetIsAlive() == false);
 
   //Mata todas as peças
-  pawn->SetIsAlive(false);
-  rook->SetIsAlive(false);
-  knight->SetIsAlive(false);
-  bishop->SetIsAlive(false);
-  queen->SetIsAlive(false);
-  king->SetIsAlive(false);
+  pawn->SetDead();
+  rook->SetDead();
+  knight->SetDead();
+  bishop->SetDead();
+  queen->SetDead();
+  king->SetDead();
 
   //Verifica que a posição de todas as peças agora é -1x-1
   REQUIRE(pawn->GetPositionX() == -1);
@@ -487,20 +487,4 @@ TEST_CASE("Teste da função 'SetIsAlive' e 'GetIsAlive' para cada peça", "A fu
   REQUIRE(queen->GetIsAlive() == false);
   REQUIRE(king->GetIsAlive() == false);
   REQUIRE(piece->GetIsAlive() == false);
-
-  //Tenta reviver todas as peças
-  pawn->SetIsAlive(true);
-  rook->SetIsAlive(true);
-  knight->SetIsAlive(true);
-  bishop->SetIsAlive(true);
-  queen->SetIsAlive(true);
-  king->SetIsAlive(true);
-
-  //Verifica que nenhuma reviveu
-  REQUIRE(pawn->GetIsAlive() == false);
-  REQUIRE(rook->GetIsAlive() == false);
-  REQUIRE(knight->GetIsAlive() == false);
-  REQUIRE(bishop->GetIsAlive() == false);
-  REQUIRE(queen->GetIsAlive() == false);
-  REQUIRE(king->GetIsAlive() == false);
 }

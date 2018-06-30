@@ -52,3 +52,9 @@ Método de verificação e para setar se a peça está viva
 
 Data: 30/06
 Hora de trabalho: 15:34 - 16:08
+
+Refactoring do metodo SetIsAlive para SetDead
+
+Data: 30/06
+Hora de trabalho: 19:20 - 19:25
+
