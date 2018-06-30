@@ -34,8 +34,8 @@ TEST_CASE("Teste da classe de estrutura basica das peças","Toda estrutura basic
 
 	REQUIRE(piece->GetColor() == false);
 	REQUIRE(piece->GetName() == PieceName::Empty);
-	REQUIRE(piece->GetPositionX() == 0);
-  REQUIRE(piece->GetPositionY() == 0);
+	REQUIRE(piece->GetPositionX() == -1);
+  REQUIRE(piece->GetPositionY() == -1);
   REQUIRE(piece->IsMovementPossible(5,8) == false);
 }
 
@@ -433,4 +433,74 @@ TEST_CASE("Teste da função 'SetPosition' do Rei", "Função retorna true se o 
   REQUIRE(king->SetPosition(3,7) == true);
   REQUIRE(king->GetPositionX() == 3);
   REQUIRE(king->GetPositionY() == 7);
+}
+
+TEST_CASE("Teste da função 'SetIsAlive' e 'GetIsAlive' para cada peça", "A função seta a peça como morta e não é possivel reviver ela (e a posição -1x-1)")
+{
+  Piece *pawn, *bishop, *rook, *knight, *queen, *king, *piece;
+  pawn = new Pawn(false, 0, 1);
+  rook = new Rook(false, 0, 0);
+  knight = new Knight(false, 1, 0);
+  bishop = new Bishop(false, 2, 0);
+  queen = new Queen(false, 3, 0);
+  king = new King(false, 4, 0);
+  piece = new Piece();
+
+  //Verificação inicial
+  REQUIRE(pawn->GetIsAlive() == true);
+  REQUIRE(rook->GetIsAlive() == true);
+  REQUIRE(knight->GetIsAlive() == true);
+  REQUIRE(bishop->GetIsAlive() == true);
+  REQUIRE(queen->GetIsAlive() == true);
+  REQUIRE(king->GetIsAlive() == true);
+  REQUIRE(piece->GetIsAlive() == false);
+
+  //Mata todas as peças
+  pawn->SetIsAlive(false);
+  rook->SetIsAlive(false);
+  knight->SetIsAlive(false);
+  bishop->SetIsAlive(false);
+  queen->SetIsAlive(false);
+  king->SetIsAlive(false);
+
+  //Verifica que a posição de todas as peças agora é -1x-1
+  REQUIRE(pawn->GetPositionX() == -1);
+  REQUIRE(pawn->GetPositionY() == -1);
+  REQUIRE(rook->GetPositionX() == -1);
+  REQUIRE(rook->GetPositionY() == -1);
+  REQUIRE(knight->GetPositionX() == -1);
+  REQUIRE(knight->GetPositionY() == -1);
+  REQUIRE(bishop->GetPositionX() == -1);
+  REQUIRE(bishop->GetPositionY() == -1);
+  REQUIRE(queen->GetPositionX() == -1);
+  REQUIRE(queen->GetPositionY() == -1);
+  REQUIRE(king->GetPositionX() == -1);
+  REQUIRE(king->GetPositionY() == -1);
+  REQUIRE(piece->GetPositionX() == -1);
+  REQUIRE(piece->GetPositionY() == -1);
+
+  //Verifica que todas morreram
+  REQUIRE(pawn->GetIsAlive() == false);
+  REQUIRE(rook->GetIsAlive() == false);
+  REQUIRE(knight->GetIsAlive() == false);
+  REQUIRE(bishop->GetIsAlive() == false);
+  REQUIRE(queen->GetIsAlive() == false);
+  REQUIRE(king->GetIsAlive() == false);
+  REQUIRE(piece->GetIsAlive() == false);
+
+  //Tenta reviver todas as peças
+  pawn->SetIsAlive(true);
+  rook->SetIsAlive(true);
+  knight->SetIsAlive(true);
+  bishop->SetIsAlive(true);
+  queen->SetIsAlive(true);
+  king->SetIsAlive(true);
+
+  //Verifica que nenhuma reviveu
+  REQUIRE(pawn->GetIsAlive() == false);
+  REQUIRE(rook->GetIsAlive() == false);
+  REQUIRE(knight->GetIsAlive() == false);
+  REQUIRE(bishop->GetIsAlive() == false);
+  REQUIRE(queen->GetIsAlive() == false);
+  REQUIRE(king->GetIsAlive() == false);
 }
