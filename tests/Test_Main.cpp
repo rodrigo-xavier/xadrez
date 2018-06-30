@@ -217,25 +217,69 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determi
   REQUIRE(bishop->IsMovementPossible(-1, 4) == false);
 }
 
-  TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
-  {
-    Piece *bishop;
-    bishop = new Bishop(false, 2, 7);
+TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+{
+  Piece *bishop;
+  bishop = new Bishop(false, 2, 7);
 
-    //Andar para a diagonal direita
-    REQUIRE(bishop->SetPosition(3,6) == true);
-    REQUIRE(bishop->GetPositionX() == 3);
-    REQUIRE(bishop->GetPositionY() == 6);
+  //Andar para a diagonal direita
+  REQUIRE(bishop->SetPosition(3,6) == true);
+  REQUIRE(bishop->GetPositionX() == 3);
+  REQUIRE(bishop->GetPositionY() == 6);
 
-    //Seta uma posição não possível (andar em linha reta)
-    REQUIRE(bishop->SetPosition(3,5) == false);
+  //Seta uma posição não possível (andar em linha reta)
+  REQUIRE(bishop->SetPosition(3,5) == false);
 
-    //Demonstra que a posição não mudou (pois não era possível)
-    REQUIRE(bishop->GetPositionX() == 3);
-    REQUIRE(bishop->GetPositionY() == 6);
+  //Demonstra que a posição não mudou (pois não era possível)
+  REQUIRE(bishop->GetPositionX() == 3);
+  REQUIRE(bishop->GetPositionY() == 6);
 
-    //Da posição que estava (3,6), andar para esquerda
-    REQUIRE(bishop->SetPosition(2,5) == true);
-    REQUIRE(bishop->GetPositionX() == 2);
-    REQUIRE(bishop->GetPositionY() == 5);
-  }
+  //Da posição que estava (3,6), andar para esquerda
+  REQUIRE(bishop->SetPosition(2,5) == true);
+  REQUIRE(bishop->GetPositionX() == 2);
+  REQUIRE(bishop->GetPositionY() == 5);
+}
+
+TEST_CASE("Teste da função 'IsMovementPossible' da Torre", "A função determina que a Torre só pode se mover na horizontal ou vertical (um por jogada), ir e voltar (só na vertical/horizontal, sem fazer curvas no caminho)")
+{
+  Piece *rook;
+  rook = new Rook(false, 0, 7);
+  //Andar da posição inicial para diagonal direita
+  REQUIRE(rook->IsMovementPossible(1, 6) == false);
+
+  //Tentativa de andar vertical (2 casas)
+  REQUIRE(rook->IsMovementPossible(0, 5) == true);
+
+  //Tentativa de andar horizontal (2 casas)
+  REQUIRE(rook->IsMovementPossible(2, 7) == true);
+
+  //Tentativa de ficar parado no mesmo local
+  REQUIRE(rook->IsMovementPossible(0, 7) == false);
+
+  //Andar para fora do tabuleiro (negativo ou maior que 7)
+  REQUIRE(rook->IsMovementPossible(0, 8) == false);
+  REQUIRE(rook->IsMovementPossible(0, -1) == false);
+}
+
+TEST_CASE("Teste da função 'SetPosition' da Torre", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+{
+  Piece *rook;
+  rook = new Rook(false, 0, 7);
+
+  //Andar para a vertical
+  REQUIRE(rook->SetPosition(0,6) == true);
+  REQUIRE(rook->GetPositionX() == 0);
+  REQUIRE(rook->GetPositionY() == 6);
+
+  //Seta uma posição não possível (andar na diagonal)
+  REQUIRE(rook->SetPosition(1,5) == false);
+
+  //Demonstra que a posição não mudou (pois não era possível)
+  REQUIRE(rook->GetPositionX() == 0);
+  REQUIRE(rook->GetPositionY() == 6);
+
+  //Da posição que estava (0,6), andar para horizontal
+  REQUIRE(rook->SetPosition(1,6) == true);
+  REQUIRE(rook->GetPositionX() == 1);
+  REQUIRE(rook->GetPositionY() == 6);
+}
