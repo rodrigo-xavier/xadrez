@@ -168,6 +168,8 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Peao", "Função determina 
   //Tentando fazer jogada fora do tabuleiro
   pawn->SetDiagonalEnemy(false, false);
   REQUIRE(pawn->IsMovementPossible(-1,-2) == false);
+  pawn = new Pawn(true, 7, 7);
+  REQUIRE(pawn->IsMovementPossible(8,8) == false);
 }
 
 TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
@@ -182,8 +184,58 @@ TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se 
 
   //Seta uma posição não possível
   REQUIRE(pawn->SetPosition(0,0) == false);
-  
+
   //Demonstra que a posição não mudou (pois não era possível)
   REQUIRE(pawn->GetPositionX() == 0);
   REQUIRE(pawn->GetPositionY() == 3);
 }
+
+TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determina que o bispo só pode se mover na diagonal, ir e voltar (só na diagonal, sem fazer curvas no caminho)")
+{
+  Piece *bishop;
+  bishop = new Bishop(false, 2, 7);
+  //Andar da posição inicial para diagonal direita (2 casas)
+  REQUIRE(bishop->IsMovementPossible(4, 5) == true);
+
+  //Andar da posição inicial para diagonal esquerda (2 casas)
+  REQUIRE(bishop->IsMovementPossible(0, 5) == true);
+
+  //Tentativa de andar em linha reta
+  REQUIRE(bishop->IsMovementPossible(2, 6) == false);
+
+  //Tentativa de ficar parado no mesmo local
+  REQUIRE(bishop->IsMovementPossible(2, 7) == false);
+
+  //Andar uma jogada para direita
+  REQUIRE(bishop->IsMovementPossible(3, 6) == true);
+
+  //Andar uma jogada para esquerda
+  REQUIRE(bishop->IsMovementPossible(1, 6) == true);
+
+  //Andar para fora do tabuleiro (negativo ou maior que 7)
+  REQUIRE(bishop->IsMovementPossible(3, 8) == false);
+  REQUIRE(bishop->IsMovementPossible(-1, 4) == false);
+}
+
+  TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+  {
+    Piece *bishop;
+    bishop = new Bishop(false, 2, 7);
+
+    //Andar para a diagonal direita
+    REQUIRE(bishop->SetPosition(3,6) == true);
+    REQUIRE(bishop->GetPositionX() == 3);
+    REQUIRE(bishop->GetPositionY() == 6);
+
+    //Seta uma posição não possível (andar em linha reta)
+    REQUIRE(bishop->SetPosition(3,5) == false);
+
+    //Demonstra que a posição não mudou (pois não era possível)
+    REQUIRE(bishop->GetPositionX() == 3);
+    REQUIRE(bishop->GetPositionY() == 6);
+
+    //Da posição que estava (3,6), andar para esquerda
+    REQUIRE(bishop->SetPosition(2,5) == true);
+    REQUIRE(bishop->GetPositionX() == 2);
+    REQUIRE(bishop->GetPositionY() == 5);
+  }
