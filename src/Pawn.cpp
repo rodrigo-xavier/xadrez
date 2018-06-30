@@ -14,7 +14,7 @@ Pawn::~Pawn()
 
 bool Pawn::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {
-  if(FinalPosition_X >= 0 && FinalPosition_Y >= 0)  //Assertivas de entrada, X e Y precisam ser positivos e maiores ou iguais a zero.
+  if(FinalPosition_X >= 0 && FinalPosition_Y >= 0 && FinalPosition_X < 8 && FinalPosition_Y < 8)  //Assertivas de entrada, X e Y precisam ser positivos e maiores ou iguais a zero e menores que 8 (para estarem no tabuleiro).
   {
     //Calculo do deslocamento entre a posição da peça e a nova jogada
     int movement_x = FinalPosition_X - position_X;
@@ -48,7 +48,7 @@ bool Pawn::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
     }
   }
 
-  return false; 
+  return false;
 }
 
 void Pawn::SetDiagonalEnemy(bool hasDiagonalEnemyLeft, bool hasDiagonalEnemyRight)

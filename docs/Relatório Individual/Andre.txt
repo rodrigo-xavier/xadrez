@@ -22,3 +22,9 @@ Método para setar o movimento feito na Peça Peão
 
 Data: 29/06
 Hora de trabalho: 17:26 - 17:45
+
+Método de verificação de validade de movimento e setar movimento para o Bispo e os testes
+
+Data: 30/06
+Hora de trabalho: 9:53 - 10:38
+
