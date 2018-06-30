@@ -6,6 +6,7 @@ King::King(bool isWhite, int position_X, int position_Y)
   this->isWhite = isWhite;
   this->position_X = position_X;
   this->position_Y = position_Y;
+  isAlive = true;
 }
 
 King::~King()

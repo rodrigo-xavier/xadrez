@@ -47,3 +47,21 @@ bool Piece::SetPosition(int position_X, int position_Y)
   }
   return false;
 }
+
+bool Piece::GetIsAlive()
+{
+  return isAlive;
+}
+
+void Piece::SetIsAlive(bool isAlive)
+{
+  if(this->isAlive) //Se a peça estiver morta, ela não revive
+  {
+    this->isAlive = isAlive;
+    if(!isAlive)
+    {
+      this->position_X = -1;
+      this->position_Y = -1;
+    }
+  }
+}
