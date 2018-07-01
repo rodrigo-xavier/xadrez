@@ -10,11 +10,7 @@
 
 Initialize::Initialize(void)
 {
-
-  Piece * white_pieces[16];
-  Piece * black_pieces[16];
   int i;
-
 
 //Inicialização dos peões
   for(i=0;i<=7;i++)
