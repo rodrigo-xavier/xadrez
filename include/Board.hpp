@@ -29,6 +29,7 @@ private:
 public:
   Board(void); 
   ~Board();
+  void destroyBoard(void);
   char returnPiece(int, int);
 };
 
