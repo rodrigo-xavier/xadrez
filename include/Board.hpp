@@ -7,7 +7,6 @@
 #include "Piece.hpp"
 #include "Queen.hpp"
 #include "Rook.hpp"
-#include <map>
 
 using namespace std;
 
@@ -17,18 +16,20 @@ private:
   const static unsigned short int LINHAS = 8;
   const static unsigned short int COLUNAS = 8;
 
-  map<char, Piece> piece;
-  map<char, Piece> id_king['k'] = new King;
-  char board[8][8];
-
-  void initBoard(void);
-  void destroyBoard(void);
-  void updateBoard(void);
+  char board[8][8] =
+    {'t', 'c', 'b', 'k', 'q', 'b', 'c', 't',
+    'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    '0', '0', '0', '0', '0', '0', '0', '0',
+    'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
+    't', 'c', 'b', 'q', 'k', 'b', 'c', 't'};
 
 public:
-  Board(); // Construtor deve inserir o estado inicial das peças no tabuleiro
+  Board(void); 
   ~Board();
-  char returnBoardPosition(int, int);
+  char returnPiece(int, int);
 };
 
 #endif
