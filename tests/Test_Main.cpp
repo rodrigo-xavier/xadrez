@@ -440,6 +440,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
 {
   Initialize * pieces = new Initialize();
 
+// Testa posições Y das peças pretas
   REQUIRE(pieces->black_pieces[8]->GetPositionY() == 0);
   REQUIRE(pieces->black_pieces[9]->GetPositionY() == 1);
   REQUIRE(pieces->black_pieces[10]->GetPositionY() == 2);
@@ -449,6 +450,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->black_pieces[14]->GetPositionY() == 6);
   REQUIRE(pieces->black_pieces[15]->GetPositionY() == 7);
 
+// Testa posições X dos peões pretos
   REQUIRE(pieces->black_pieces[0]->GetPositionX() == 1);
   REQUIRE(pieces->black_pieces[1]->GetPositionX() == 1);
   REQUIRE(pieces->black_pieces[2]->GetPositionX() == 1);
@@ -458,6 +460,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->black_pieces[6]->GetPositionX() == 1);
   REQUIRE(pieces->black_pieces[7]->GetPositionX() == 1);
 
+// Testa posições X dos peões brancos
   REQUIRE(pieces->white_pieces[0]->GetPositionX() == 6);
   REQUIRE(pieces->white_pieces[1]->GetPositionX() == 6);
   REQUIRE(pieces->white_pieces[2]->GetPositionX() == 6);
@@ -467,6 +470,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->white_pieces[6]->GetPositionX() == 6);
   REQUIRE(pieces->white_pieces[7]->GetPositionX() == 6);
 
+// Testa posições Y das peças brancas
   REQUIRE(pieces->white_pieces[8]->GetPositionY() == 0);
   REQUIRE(pieces->white_pieces[9]->GetPositionY() == 1);
   REQUIRE(pieces->white_pieces[10]->GetPositionY() == 2);
