@@ -20,7 +20,7 @@ bool Knight::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
     int movement_x = abs(FinalPosition_X - position_X);
     int movement_y = abs(FinalPosition_Y - position_Y);
 
-    if(movement_x == 1 && movement_y == 2 || movement_x == 2 && movement_y == 1) //Movimento em 'L' e posição final diferente da inicial
+    if((movement_x == 1 && movement_y == 2) || (movement_x == 2 && movement_y == 1)) //Movimento em 'L' e posição final diferente da inicial
     {
       return true;
     }
