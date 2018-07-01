@@ -58,3 +58,8 @@ Refactoring do metodo SetIsAlive para SetDead
 Data: 30/06
 Hora de trabalho: 19:20 - 19:25
 
+Refactoring da posição das peças do Peão (pretas em cima e brancas embaixo) - antes era o contrário
+
+Data: 01/07
+Hora de trabalho: 09:48 - 10:15
+
