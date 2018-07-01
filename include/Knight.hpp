@@ -19,6 +19,7 @@ class Knight : public Piece
     using Piece::GetName;
     using Piece::GetPositionX;
     using Piece::GetPositionY;
+    bool IsMovementPossible(int, int);
 };
 
 #endif

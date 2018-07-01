@@ -6,6 +6,7 @@
 #include "../include/Queen.hpp"
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
+#include "../include/Initialize.hpp"
 
 using namespace std;
 

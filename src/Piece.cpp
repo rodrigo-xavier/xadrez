@@ -47,3 +47,15 @@ bool Piece::SetPosition(int position_X, int position_Y)
   }
   return false;
 }
+
+bool Piece::GetIsAlive()
+{
+  return isAlive;
+}
+
+void Piece::SetDead()
+{
+  isAlive = false;
+  this->position_X = -1;
+  this->position_Y = -1;
+}
