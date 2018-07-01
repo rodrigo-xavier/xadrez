@@ -21,7 +21,7 @@ bool Pawn::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
     int movement_x = FinalPosition_X - position_X;
     int movement_y = FinalPosition_Y - position_Y;
 
-    if((movement_x == 0 || ((movement_x == -1 && hasDiagonalEnemyLeft)) || (movement_x == 1 && hasDiagonalEnemyRight))) //Checa se Peao pode comer na diagonal
+    if(movement_x == 0 || ((movement_x == -1 && hasDiagonalEnemyLeft) || (movement_x == 1 && hasDiagonalEnemyRight))) //Checa se Peao pode comer na diagonal
     {
       if((isWhite && movement_y < 0) || (!isWhite && movement_y > 0)) //Impede do Peao andar para trás.
       {
