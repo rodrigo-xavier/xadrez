@@ -2,32 +2,18 @@
 
 Board::Board(void)
 {
-    int i = 0;
-
-    matrix = new Piece *[LINHAS];
-
-    for (i = 0; i < LINHAS; i++)
-        matrix[i] = new Piece[COLUNAS];
-
-    // Alocar as peças para o jogo neste construtor
 }
 
 Board::~Board()
 {
-    int i = 0;
-
-    for (i = 0; i < LINHAS; i++)
-    {
-        delete[] matrix[i];
-        matrix[i] = nullptr;
-    }
-
-    delete[] matrix;
-    matrix = nullptr;
-
-    // Chamar destrutores das peças neste destrutor
+    int i, j;
+    
+    for(i = 0; i < 8; i++)
+        for(j = 0; j < 8; j++)
+            board[i][j] = '0';
 }
 
-int soma(int a, int b){
-    return a+b;
+char Board::returnPiece(int x, int y)
+{
+    return board[x][y];
 }
