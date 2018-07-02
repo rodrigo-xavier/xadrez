@@ -23,13 +23,13 @@ File 'Rook.cpp'
 Lines executed:88.89% of 18
 
 File 'States.cpp'
-Lines executed:80.49% of 41
+Lines executed:89.61% of 77
 
 File '../tests/../lib/catch.hpp'
 Lines executed:29.61% of 4043
 
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 321
+Lines executed:100.00% of 333
 
 File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base'
 Lines executed:100.00% of 1

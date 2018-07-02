@@ -491,7 +491,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
 {
   States * pieces = new States();
 
-// Testa posições Y das peças pretas
+// Testa posições X das peças pretas
   REQUIRE(pieces->black_pieces[8]->GetPositionX() == 0);
   REQUIRE(pieces->black_pieces[9]->GetPositionX() == 1);
   REQUIRE(pieces->black_pieces[10]->GetPositionX() == 2);
@@ -501,7 +501,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->black_pieces[14]->GetPositionX() == 6);
   REQUIRE(pieces->black_pieces[15]->GetPositionX() == 7);
 
-// Testa posições X dos peões pretos
+// Testa posições Y dos peões pretos
   REQUIRE(pieces->black_pieces[0]->GetPositionY() == 1);
   REQUIRE(pieces->black_pieces[1]->GetPositionY() == 1);
   REQUIRE(pieces->black_pieces[2]->GetPositionY() == 1);
@@ -511,7 +511,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->black_pieces[6]->GetPositionY() == 1);
   REQUIRE(pieces->black_pieces[7]->GetPositionY() == 1);
 
-// Testa posições X dos peões brancos
+// Testa posições Y dos peões brancos
   REQUIRE(pieces->white_pieces[0]->GetPositionY() == 6);
   REQUIRE(pieces->white_pieces[1]->GetPositionY() == 6);
   REQUIRE(pieces->white_pieces[2]->GetPositionY() == 6);
@@ -521,7 +521,7 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->white_pieces[6]->GetPositionY() == 6);
   REQUIRE(pieces->white_pieces[7]->GetPositionY() == 6);
 
-// Testa posições Y das peças brancas
+// Testa posições X das peças brancas
   REQUIRE(pieces->white_pieces[8]->GetPositionX() == 0);
   REQUIRE(pieces->white_pieces[9]->GetPositionX() == 1);
   REQUIRE(pieces->white_pieces[10]->GetPositionX() == 2);
@@ -536,7 +536,52 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
 TEST_CASE("Teste da função 'IsInTheWay' do Cavalo", "Funcao retorna enums sobre a posicao final")
 {
   States * state;
+
+  state = new States();
+  REQUIRE(state->IsInTheWay(3,6,state->white_pieces[9]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheWay(2,5,state->white_pieces[9]) == Obstacles::Empty);
+
+  state->black_pieces[0] = new Pawn(false, 2, 5);
+  REQUIRE(state->IsInTheWay(2,5,state->white_pieces[9]) == Obstacles::Enemy);
+}
+
+TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna enums sobre a posicao final")
+{
+  States * state;
+
+
   state = new States();
 
-  REQUIRE(state->IsInTheWay(3,6,state->white_pieces[9]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[0]) == Obstacles::Empty); // Pawn
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[8]) == Obstacles::Empty); // Rook
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[9]) == Obstacles::Empty); // Knight
+  REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Friend); // Bishop
+  REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Friend); // Queen
+  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Friend); // King
+
+  state->black_pieces[0] = new Pawn(false, 1, 5);
+  state->white_pieces[1] = new Piece();
+  state->white_pieces[4] = new Piece();
+  state->white_pieces[5] = new Piece();
+  state->white_pieces[3] = new Piece();
+
+  REQUIRE(state->IsInTheWay(1,5,state->white_pieces[0]) == Obstacles::Enemy); // Pawn
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
+  REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
+  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
+
+  state->black_pieces[1] = new Pawn(false, 0, 5);
+  state->black_pieces[4] = new Pawn(false, 5, 5);
+  state->black_pieces[5] = new Pawn(false, 4, 6);
+
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Enemy); // Bishop
+  REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Enemy); // Queen
+
+  //state->white_pieces[12] = new King(true, 4, 5);
+
+  //REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Enemy); // King
+
+  state->white_pieces[6] = new Pawn(false, 7, 5);
+
+  REQUIRE(state->IsInTheWay(7,5,state->white_pieces[7]) == Obstacles::Friend); // Pawn
 }
