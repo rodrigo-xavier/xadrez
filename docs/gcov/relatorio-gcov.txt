@@ -3,7 +3,7 @@ Lines executed:88.24% of 17
 File '/usr/include/c++/7/iostream'
 Lines executed:100.00% of 1
 File 'Board.cpp'
-Lines executed:100.00% of 12
+Lines executed:100.00% of 17
 File 'Initialize.cpp'
 Lines executed:100.00% of 21
 File 'King.cpp'
@@ -13,13 +13,13 @@ Lines executed:88.24% of 17
 File 'Pawn.cpp'
 Lines executed:93.75% of 32
 File 'Piece.cpp'
-Lines executed:86.21% of 29
+Lines executed:93.10% of 29
 File 'Queen.cpp'
 Lines executed:89.47% of 19
 File 'Rook.cpp'
 Lines executed:88.24% of 17
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 330
+Lines executed:100.00% of 338
 File '/usr/include/c++/7/ext/new_allocator.h'
 Lines executed:93.33% of 15
 File '/usr/include/c++/7/bits/shared_ptr_base.h'
@@ -156,4 +156,4 @@ File '/usr/include/c++/7/typeinfo'
 Lines executed:100.00% of 4
 File '/usr/include/c++/7/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:31.26% of 8171
+Lines executed:31.39% of 8184

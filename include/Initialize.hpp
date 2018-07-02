@@ -1,3 +1,6 @@
+#ifndef INITIALIZE_HPP_INCLUDED
+#define INITIALIZE_HPP_INCLUDED
+
 #include <iostream>
 #include <string>
 #include "Piece.hpp"
@@ -18,3 +21,5 @@ public:
   Initialize();
 
 };
+
+#endif

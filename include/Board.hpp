@@ -1,20 +1,16 @@
 #ifndef BOARD_HPP_INCLUDED
 #define BOARD_HPP_INCLUDED
 
-#include "King.hpp"
-#include "Knight.hpp"
-#include "Pawn.hpp"
-#include "Piece.hpp"
-#include "Queen.hpp"
-#include "Rook.hpp"
+#include "Initialize.hpp"
 
 using namespace std;
 
 class Board
 {
 private:
-  const static unsigned short int LINHAS = 8;
-  const static unsigned short int COLUNAS = 8;
+
+  Initialize *pieces;
+  PieceName *name;
 
   char board[8][8] =
     {'t', 'c', 'b', 'k', 'q', 'b', 'c', 't',
@@ -29,8 +25,10 @@ private:
 public:
   Board(void); 
   ~Board();
-  void destroyBoard(void);
-  char returnPiece(int, int);
+  void destroy_board(void);
+  char return_piece(int, int);
+  void insert_piece(int, int, char);
+  void update_board(void);
 };
 
 #endif
