@@ -11,7 +11,7 @@
 #include "../include/Queen.hpp"
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
-#include "../include/Initialize.hpp"
+#include "../include/States.hpp"
 
 #ifndef STRING_H
 #define STRING_H
@@ -489,46 +489,54 @@ TEST_CASE("Teste da função 'SetDead' e 'GetIsAlive' para cada peça", "A funç
 
 TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em situação inicial de jogo")
 {
-  Initialize * pieces = new Initialize();
+  States * pieces = new States();
 
 // Testa posições Y das peças pretas
-  REQUIRE(pieces->black_pieces[8]->GetPositionY() == 0);
-  REQUIRE(pieces->black_pieces[9]->GetPositionY() == 1);
-  REQUIRE(pieces->black_pieces[10]->GetPositionY() == 2);
-  REQUIRE(pieces->black_pieces[11]->GetPositionY() == 3);
-  REQUIRE(pieces->black_pieces[12]->GetPositionY() == 4);
-  REQUIRE(pieces->black_pieces[13]->GetPositionY() == 5);
-  REQUIRE(pieces->black_pieces[14]->GetPositionY() == 6);
-  REQUIRE(pieces->black_pieces[15]->GetPositionY() == 7);
+  REQUIRE(pieces->black_pieces[8]->GetPositionX() == 0);
+  REQUIRE(pieces->black_pieces[9]->GetPositionX() == 1);
+  REQUIRE(pieces->black_pieces[10]->GetPositionX() == 2);
+  REQUIRE(pieces->black_pieces[11]->GetPositionX() == 3);
+  REQUIRE(pieces->black_pieces[12]->GetPositionX() == 4);
+  REQUIRE(pieces->black_pieces[13]->GetPositionX() == 5);
+  REQUIRE(pieces->black_pieces[14]->GetPositionX() == 6);
+  REQUIRE(pieces->black_pieces[15]->GetPositionX() == 7);
 
 // Testa posições X dos peões pretos
-  REQUIRE(pieces->black_pieces[0]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[1]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[2]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[3]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[4]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[5]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[6]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[7]->GetPositionX() == 1);
+  REQUIRE(pieces->black_pieces[0]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[1]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[2]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[3]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[4]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[5]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[6]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[7]->GetPositionY() == 1);
 
 // Testa posições X dos peões brancos
-  REQUIRE(pieces->white_pieces[0]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[1]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[2]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[3]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[4]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[5]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[6]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[7]->GetPositionX() == 6);
+  REQUIRE(pieces->white_pieces[0]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[1]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[2]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[3]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[4]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[5]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[6]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[7]->GetPositionY() == 6);
 
 // Testa posições Y das peças brancas
-  REQUIRE(pieces->white_pieces[8]->GetPositionY() == 0);
-  REQUIRE(pieces->white_pieces[9]->GetPositionY() == 1);
-  REQUIRE(pieces->white_pieces[10]->GetPositionY() == 2);
-  REQUIRE(pieces->white_pieces[11]->GetPositionY() == 3);
-  REQUIRE(pieces->white_pieces[12]->GetPositionY() == 4);
-  REQUIRE(pieces->white_pieces[13]->GetPositionY() == 5);
-  REQUIRE(pieces->white_pieces[14]->GetPositionY() == 6);
-  REQUIRE(pieces->white_pieces[15]->GetPositionY() == 7);
+  REQUIRE(pieces->white_pieces[8]->GetPositionX() == 0);
+  REQUIRE(pieces->white_pieces[9]->GetPositionX() == 1);
+  REQUIRE(pieces->white_pieces[10]->GetPositionX() == 2);
+  REQUIRE(pieces->white_pieces[11]->GetPositionX() == 3);
+  REQUIRE(pieces->white_pieces[12]->GetPositionX() == 4);
+  REQUIRE(pieces->white_pieces[13]->GetPositionX() == 5);
+  REQUIRE(pieces->white_pieces[14]->GetPositionX() == 6);
+  REQUIRE(pieces->white_pieces[15]->GetPositionX() == 7);
 
+}
+
+TEST_CASE("Teste da função 'IsInTheWay' do Cavalo", "Funcao retorna enums sobre a posicao final")
+{
+  States * state;
+  state = new States();
+
+  REQUIRE(state->IsInTheWay(3,6,state->white_pieces[9]) == Obstacles::Friend);
 }
