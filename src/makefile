@@ -30,10 +30,10 @@ LIBS = -lm
 ########################## Listas com nomes dos arquivos de código ##########################
 # Define o local dos arquivos de código e arquivos de cabeçalho de código
 
-_HEADERS = Piece.hpp Board.hpp Pawn.hpp Knight.hpp Bishop.hpp Rook.hpp Queen.hpp King.hpp Initialize.hpp
+_HEADERS = Piece.hpp Board.hpp Pawn.hpp Knight.hpp Bishop.hpp Rook.hpp Queen.hpp King.hpp States.hpp
 HEADERS = $(patsubst %,$(DIR_HEADERS)/%,$(_HEADERS))
 
-_OBJECTS = main.o Piece.o Board.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o Initialize.o
+_OBJECTS = main.o Piece.o Board.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o States.o
 OBJECTS = $(patsubst %,$(DIR_OBJECTS)/%,$(_OBJECTS))
 
 _TESTS = Test_Main.cpp
@@ -53,7 +53,7 @@ $(PROJECT_EXE): $(OBJECTS)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 # Chama todos os arquivos objeto, gerando binários e criando o executável de teste, colocar aqui todos os módulos usados no teste
-$(TEST_EXE): $(TESTS) Board.cpp Piece.cpp Pawn.cpp Knight.cpp Bishop.cpp Rook.cpp Queen.cpp King.cpp Initialize.cpp
+$(TEST_EXE): $(TESTS) Board.cpp Piece.cpp Pawn.cpp Knight.cpp Bishop.cpp Rook.cpp Queen.cpp King.cpp States.cpp
 	$(CC) -o $@ --coverage $^ $(CFLAGS)
 
 # MiniTutorial
