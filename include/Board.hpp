@@ -10,7 +10,7 @@ class Board
 private:
 
   Initialize *pieces;
-  PieceName *name;
+  PieceName name;
 
   char board[8][8] =
     {'t', 'c', 'b', 'k', 'q', 'b', 'c', 't',
@@ -28,7 +28,6 @@ public:
   void destroy_board(void);
   char return_piece(int, int);
   void insert_piece(int, int, char);
-  void update_board(void);
 };
 
 #endif
