@@ -552,3 +552,17 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
   REQUIRE(pieces->white_pieces[15]->GetPositionY() == 7);
 
 }
+
+TEST_CASE("Testa o metodo de inserir uma peca na classe do Tabuleiro", "Insere uma peca no tabuleiro")
+{
+    Board *board;
+
+    board = new Board();
+
+    REQUIRE(board->insertPiece(0,1, 'k'));
+    REQUIRE(board->returnPiece(0,1) == 'k');
+    REQUIRE(board->insertPiece(2,0, 'p'));
+    REQUIRE(board->returnPiece(2,0) == 'p');
+
+    delete board;
+}
