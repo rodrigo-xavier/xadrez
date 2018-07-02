@@ -73,3 +73,7 @@ Metodo de verificação de caminho não livre da classe States
 Data: 02/07
 Hora de trabalho: 9:05 - 10:14
 
+Metodo de verificação de casa não livre da classe States (casa final da jogada)
+
+Data: 02/07
+Hora de trabalho: 10:14 - 10:49
