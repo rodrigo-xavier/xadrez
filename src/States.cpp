@@ -50,76 +50,9 @@ Obstacles States::IsInTheWay(int position_X, int position_Y, Piece * piece)
   switch(piece->GetName())
   {
     case PieceName::Knight :
-      for(i=0;i<=15;i++)
-      {
-        aux = white_pieces;
-        for(j=0;j<=1;j++)
-        {
-          if((aux[i]->GetPositionX() == position_X) && (aux[i]->GetPositionY() == position_Y))
-          {
-            if((piece->GetColor() && aux[i]->GetColor()) || (!piece->GetColor() && !aux[i]->GetColor()))
-            {
-              return Obstacles::Friend;
-            }
-            else
-            {
-              return Obstacles::Enemy;
-            }
-          }
-          aux = black_pieces;
-        }
-      }
       return Obstacles::Empty;
       break;
-    /*case PieceName::Pawn :
-    int displacement;
-    bool loop = 1;
-    for(i=0;i<=15;i++)
-    {
-        aux = white_pieces;
-        for(j=1;j<3;j++)
-        {
-          if(abs(position_Y-piece->GetPositionY) == 2)
-          {
-            aux[i]->GetColor() ? displacement = j * (-1) : displacement = j;
-            loop = 2;
-          }
-          else
-          {
-            displacement = 1;
-            loop = 1;
-          }
-          while(loop > 0)
-          {
-            if((aux[i]->GetPositionX == position_X) && (aux[i]->GetPositionY == position_Y + displacement))
-            {
-              if((piece->GetColor() && aux[i]->GetColor()) || (!piece->GetColor() && !aux[i]->GetColor()))
-              {
-                return Obstacles::Friend;
-              }
-              else
-              {
-                return Obstacles::Enemy;
-              }
-            }
-          aux = black_pieces;
-          loop--;
-          }
-        }
-    }
-      break;
-    case PieceName::Bishop :
-      break;
-    case PieceName::Queen :
-      break;
-    case PieceName::King :
-      break;
-    case PieceName::Rook :
-      break;
-    case PieceName::Empty :
-      return Obstacles::Empty;
-      break;
-      */
+
     default:
       int displacement_x = position_X-piece->GetPositionX();
       int displacement_y = position_Y-piece->GetPositionY();
@@ -137,7 +70,7 @@ Obstacles States::IsInTheWay(int position_X, int position_Y, Piece * piece)
           displacement_x != 0 ? displacement_loop = displacement_x : displacement_loop = displacement_y;
           displacement_loop = abs(displacement_loop);
 
-          while(displacement_loop > 0)
+          while(displacement_loop > 1)
           {
             if(abs(displacement_x) != abs(displacement_y))
             {
@@ -167,10 +100,34 @@ Obstacles States::IsInTheWay(int position_X, int position_Y, Piece * piece)
           aux = black_pieces;
         }
       }
-
       return Obstacles::Empty;
-
       break;
   }
+}
 
+Obstacles States::IsInTheSpot(int position_X, int position_Y, Piece * piece)
+{
+  int i,j;
+  Piece ** aux;
+
+  for(i=0;i<=15;i++)
+  {
+    aux = white_pieces;
+    for(j=0;j<=1;j++)
+    {
+      if((aux[i]->GetPositionX() == position_X) && (aux[i]->GetPositionY() == position_Y))
+      {
+        if((piece->GetColor() && aux[i]->GetColor()) || (!piece->GetColor() && !aux[i]->GetColor()))
+        {
+          return Obstacles::Friend;
+        }
+        else
+        {
+          return Obstacles::Enemy;
+        }
+      }
+      aux = black_pieces;
+    }
+  }
+  return Obstacles::Empty;
 }

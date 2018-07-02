@@ -533,16 +533,16 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
 
 }
 
-TEST_CASE("Teste da função 'IsInTheWay' do Cavalo", "Funcao retorna enums sobre a posicao final")
+TEST_CASE("Teste da função 'IsInTheSpot' do Cavalo", "Funcao retorna enums sobre a posicao final")
 {
   States * state;
 
   state = new States();
-  REQUIRE(state->IsInTheWay(3,6,state->white_pieces[9]) == Obstacles::Friend);
-  REQUIRE(state->IsInTheWay(2,5,state->white_pieces[9]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(3,6,state->white_pieces[9]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[9]) == Obstacles::Empty);
 
   state->black_pieces[0] = new Pawn(false, 2, 5);
-  REQUIRE(state->IsInTheWay(2,5,state->white_pieces[9]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[9]) == Obstacles::Enemy);
 }
 
 TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna enums sobre a posicao final")
@@ -555,31 +555,33 @@ TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna 
   REQUIRE(state->IsInTheWay(0,5,state->white_pieces[9]) == Obstacles::Empty); // Knight
   REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Friend); // Bishop
   REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Friend); // Queen
-  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Friend); // King
+  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
 
   state = new States();
-  state->black_pieces[0] = new Pawn(false, 0, 5);
-  state->white_pieces[1] = new Piece();
+  state->black_pieces[0] = new Pawn(false, 1, 5);
   state->white_pieces[3] = new Piece();
   state->white_pieces[4] = new Piece();
 
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[0]) == Obstacles::Enemy); // Pawn
+  REQUIRE(state->IsInTheWay(1,4,state->white_pieces[1]) == Obstacles::Enemy); // Pawn
+  state->white_pieces[1] = new Piece();
+  state->black_pieces[1] = new Pawn(false, 1, 6);
   REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Enemy); // Bishop
   REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
   REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
   REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
   REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
 
-  state->black_pieces[1] = new Pawn(false, 0, 5);
+  state = new States();
   state->black_pieces[4] = new Pawn(false, 5, 5);
-  state->black_pieces[5] = new Pawn(false, 4, 6);
+  state->white_pieces[1] = new Piece();
 
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Enemy); // Bishop
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
+  state->white_pieces[4] = new Piece();
+  state->black_pieces[1] = new Pawn(false, 4, 6);
   REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Enemy); // Queen
-  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Enemy); // King
+  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King - o caminho dele não existe, anda apenas uma casa, entao sempre vai ser Empty
 
   state = new States();
   state->white_pieces[6] = new Pawn(true, 7, 5);
-
-  REQUIRE(state->IsInTheWay(7,5,state->white_pieces[7]) == Obstacles::Friend); // Pawn
+  REQUIRE(state->IsInTheWay(7,4,state->white_pieces[7]) == Obstacles::Friend); // Pawn
 }

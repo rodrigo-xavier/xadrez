@@ -12,6 +12,7 @@ public:
   Piece * black_pieces[16];
   States();
   Obstacles IsInTheWay(int, int, Piece *);
+  Obstacles IsInTheSpot(int, int, Piece *);
   //static bool IsCheck();
 };
 
