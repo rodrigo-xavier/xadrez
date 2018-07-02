@@ -1,147 +1,157 @@
 File 'Bishop.cpp'
-Lines executed:88.89% of 18
-
-File 'Board.cpp'
-Lines executed:6.25% of 16
-
-File 'King.cpp'
-Lines executed:86.36% of 22
-
-File 'Knight.cpp'
-Lines executed:88.89% of 18
-
-File 'Pawn.cpp'
-Lines executed:94.74% of 38
-
-File 'Piece.cpp'
-Lines executed:88.00% of 25
-
-File 'Queen.cpp'
-Lines executed:90.00% of 20
-
-File 'Rook.cpp'
-Lines executed:88.89% of 18
-
-File 'States.cpp'
-Lines executed:89.61% of 77
-
-File '../tests/../lib/catch.hpp'
-Lines executed:29.61% of 4043
-
-File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 333
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base'
+Lines executed:88.24% of 17
+File '/usr/include/c++/5/iostream'
 Lines executed:100.00% of 1
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__locale'
-Lines executed:15.38% of 13
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__split_buffer'
-Lines executed:14.49% of 138
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__string'
-Lines executed:19.39% of 98
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__tree'
-Lines executed:68.84% of 292
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/algorithm'
-Lines executed:7.78% of 424
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/chrono'
-Lines executed:100.00% of 5
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/deque'
-Lines executed:0.00% of 146
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/exception'
-Lines executed:0.00% of 2
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/fstream'
-Lines executed:0.00% of 367
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/initializer_list'
-Lines executed:100.00% of 3
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iomanip'
-Lines executed:0.00% of 12
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ios'
-Lines executed:33.93% of 56
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iosfwd'
-Lines executed:40.00% of 5
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/istream'
-Lines executed:0.00% of 34
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iterator'
-Lines executed:42.59% of 54
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/limits'
+File 'Board.cpp'
+Lines executed:17.65% of 17
+File 'King.cpp'
+Lines executed:90.00% of 20
+File 'Knight.cpp'
+Lines executed:88.24% of 17
+File 'Pawn.cpp'
+Lines executed:93.75% of 32
+File 'Piece.cpp'
+Lines executed:86.21% of 29
+File 'Queen.cpp'
+Lines executed:89.47% of 19
+File 'Rook.cpp'
+Lines executed:88.24% of 17
+File 'States.cpp'
+Lines executed:100.00% of 57
+File '../tests/Test_Main.cpp'
+Lines executed:100.00% of 352
+File '/usr/include/c++/5/ext/new_allocator.h'
+Lines executed:92.86% of 14
+File '/usr/include/c++/5/bits/shared_ptr_base.h'
+Lines executed:92.41% of 145
+File '/usr/include/c++/5/bits/alloc_traits.h'
+Lines executed:62.96% of 27
+File '../lib/catch.hpp'
+Lines executed:29.13% of 4133
+File '/usr/include/c++/5/bits/stl_iterator.h'
+Lines executed:63.24% of 68
+File '/usr/include/c++/5/ext/aligned_buffer.h'
+Lines executed:100.00% of 14
+File '/usr/include/c++/5/bits/stl_construct.h'
+Lines executed:100.00% of 15
+File '/usr/include/c++/5/bits/move.h'
+Lines executed:100.00% of 11
+File '/usr/include/c++/5/type_traits'
+Lines executed:100.00% of 1
+File '/usr/include/c++/5/bits/allocated_ptr.h'
+Lines executed:100.00% of 14
+File '/usr/include/c++/5/bits/stl_uninitialized.h'
+Lines executed:48.39% of 31
+File '/usr/include/c++/5/bits/allocator.h'
+Lines executed:71.43% of 7
+File '/usr/include/c++/5/bits/stl_vector.h'
+Lines executed:74.21% of 190
+File '/usr/include/c++/5/bits/predefined_ops.h'
+Lines executed:45.45% of 33
+File '/usr/include/c++/5/bits/shared_ptr.h'
+Lines executed:81.25% of 32
+File '/usr/include/c++/5/bits/stl_algo.h'
+Lines executed:19.88% of 171
+File '/usr/include/c++/5/bits/stl_iterator_base_types.h'
+Lines executed:100.00% of 7
+File '/usr/include/c++/5/bits/unique_ptr.h'
+Lines executed:44.12% of 68
+File '/usr/include/c++/5/tuple'
+Lines executed:49.02% of 51
+File '/usr/include/c++/5/bits/vector.tcc'
+Lines executed:15.85% of 164
+File '/usr/include/c++/5/ext/alloc_traits.h'
+Lines executed:25.00% of 8
+File '/usr/include/c++/5/bits/regex_automaton.h'
+Lines executed:0.00% of 80
+File '/usr/include/c++/5/bits/stl_algobase.h'
+Lines executed:23.76% of 101
+File '/usr/include/c++/5/bits/stl_iterator_base_funcs.h'
+Lines executed:33.33% of 15
+File '/usr/include/c++/5/ext/type_traits.h'
 Lines executed:50.00% of 4
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/locale'
-Lines executed:53.57% of 28
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map'
-Lines executed:55.56% of 27
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/math.h'
-Lines executed:0.00% of 2
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory'
-Lines executed:82.74% of 226
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new'
+File '/usr/include/c++/5/bits/basic_string.tcc'
+Lines executed:33.33% of 27
+File '/usr/include/c++/5/bits/basic_string.h'
+Lines executed:3.70% of 54
+File '/usr/include/c++/5/bits/stl_heap.h'
+Lines executed:0.00% of 47
+File '/usr/include/c++/5/bits/stl_pair.h'
+Lines executed:22.73% of 22
+File '/usr/include/c++/5/bits/regex.h'
+Lines executed:0.00% of 68
+File '/usr/include/c++/5/bits/stl_tree.h'
+Lines executed:65.22% of 276
+File '/usr/include/c++/5/bits/regex_compiler.h'
+Lines executed:0.00% of 101
+File '/usr/include/c++/5/bitset'
+Lines executed:0.00% of 34
+File '/usr/include/c++/5/bits/deque.tcc'
+Lines executed:0.00% of 51
+File '/usr/include/c++/5/bits/stl_deque.h'
+Lines executed:0.00% of 144
+File '/usr/include/c++/5/bits/stl_function.h'
+Lines executed:66.67% of 9
+File '/usr/include/c++/5/bits/regex.tcc'
+Lines executed:0.00% of 64
+File '/usr/include/c++/5/functional'
+Lines executed:0.00% of 87
+File '/usr/include/c++/5/bits/regex_compiler.tcc'
+Lines executed:0.00% of 279
+File '/usr/include/c++/5/bits/stl_map.h'
+Lines executed:34.38% of 32
+File '/usr/include/c++/5/bits/regex_executor.h'
+Lines executed:0.00% of 40
+File '/usr/include/c++/5/bits/stl_stack.h'
+Lines executed:0.00% of 14
+File '/usr/include/c++/5/bits/regex_automaton.tcc'
+Lines executed:0.00% of 54
+File '/usr/include/c++/5/bits/regex_executor.tcc'
+Lines executed:0.00% of 166
+File '/usr/include/c++/5/bits/regex_scanner.tcc'
+Lines executed:0.00% of 206
+File '/usr/include/c++/5/bits/regex_scanner.h'
+Lines executed:0.00% of 27
+File '/usr/include/c++/5/bits/locale_classes.tcc'
+Lines executed:0.00% of 6
+File '/usr/include/c++/5/bits/uniform_int_dist.h'
+Lines executed:0.00% of 30
+File '/usr/include/c++/5/bits/stl_set.h'
+Lines executed:64.71% of 17
+File '/usr/include/c++/5/initializer_list'
 Lines executed:100.00% of 3
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream'
-Lines executed:73.33% of 30
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/regex'
-Lines executed:0.00% of 1773
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/set'
-Lines executed:86.67% of 15
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/sstream'
-Lines executed:17.83% of 129
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdexcept'
-Lines executed:0.00% of 5
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdlib.h'
-Lines executed:0.00% of 1
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/streambuf'
-Lines executed:15.38% of 26
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string'
-Lines executed:38.86% of 211
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string_view'
-Lines executed:100.00% of 5
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/tuple'
-Lines executed:100.00% of 12
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/type_traits'
-Lines executed:87.50% of 8
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/typeinfo'
-Lines executed:0.00% of 3
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/utility'
-Lines executed:38.46% of 13
-
-File '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector'
-Lines executed:49.71% of 344
-
-File '/usr/include/_ctype.h'
-Lines executed:20.00% of 5
-
-File '/usr/include/math.h'
+File '/usr/include/c++/5/iomanip'
+Lines executed:0.00% of 6
+File '/usr/include/c++/5/bits/range_access.h'
+Lines executed:100.00% of 8
+File '/usr/include/c++/5/ext/string_conversions.h'
+Lines executed:0.00% of 7
+File '/usr/include/c++/5/chrono'
+Lines executed:100.00% of 10
+File '/usr/include/c++/5/bits/regex_constants.h'
+Lines executed:0.00% of 12
+File '/usr/include/c++/5/cmath'
+Lines executed:0.00% of 4
+File '/usr/include/c++/5/limits'
 Lines executed:0.00% of 2
-
+File '/usr/include/x86_64-linux-gnu/c++/5/bits/ctype_inline.h'
+Lines executed:0.00% of 2
+File '/usr/include/c++/5/bits/locale_facets.h'
+Lines executed:0.00% of 16
+File '/usr/include/c++/5/bits/ios_base.h'
+Lines executed:0.00% of 36
+File '/usr/include/c++/5/typeinfo'
+Lines executed:100.00% of 4
+File '/usr/include/c++/5/cstdlib'
+Lines executed:0.00% of 1
+File '/usr/include/c++/5/ext/atomicity.h'
+Lines executed:68.42% of 19
+File '/usr/include/x86_64-linux-gnu/c++/5/bits/gthr-default.h'
+Lines executed:100.00% of 2
+File '/usr/include/c++/5/new'
+Lines executed:66.67% of 3
+File '/usr/include/c++/5/bits/exception_ptr.h'
+Lines executed:0.00% of 6
+File '/usr/include/c++/5/bits/char_traits.h'
+Lines executed:0.00% of 6
+Lines executed:33.03% of 7984

@@ -121,44 +121,37 @@ Obstacles States::IsInTheWay(int position_X, int position_Y, Piece * piece)
       break;
       */
     default:
-
       int displacement_x = position_X-piece->GetPositionX();
       int displacement_y = position_Y-piece->GetPositionY();
-      int notnull, vertical, horizontal, diagonal_x, diagonal_y;
+      int displacement_loop, vertical, horizontal;
 
       for(i=0;i<=15;i++)
       {
         aux = white_pieces;
         for(j=0;j<=1;j++)
         {
-
-          notnull = 0;
+          displacement_loop = 0;
           vertical = 0;
           horizontal = 0;
-          diagonal_x = 0;
-          diagonal_y = 0;
-          displacement_x != 0 ? notnull = displacement_x : notnull = displacement_y;
-          notnull = abs(notnull);
 
-          while(notnull > 0)
+          displacement_x != 0 ? displacement_loop = displacement_x : displacement_loop = displacement_y;
+          displacement_loop = abs(displacement_loop);
+
+          while(displacement_loop > 0)
           {
             if(abs(displacement_x) != abs(displacement_y))
             {
-              displacement_y > 0 ? vertical++ : vertical--;
-
-              displacement_x > 0 ? horizontal++ : horizontal--;
+              displacement_y > 0 ? vertical++ : (displacement_y != 0 ? vertical-- : vertical = 0);
+              displacement_x > 0 ? horizontal++ : (displacement_x != 0 ? horizontal-- : horizontal = 0);
             }
             else
             {
-              displacement_y > 0 ? diagonal_y++ : diagonal_y--;
-
-              displacement_y > 0 ? diagonal_x++ : diagonal_x--;
+              displacement_y > 0 ? vertical++ : (displacement_y != 0 ? vertical-- : vertical = 0);
+              displacement_x > 0 ? horizontal++ : (displacement_x != 0 ? horizontal-- : horizontal = 0);
             }
 
-            notnull--;
-
-            if((aux[i]->GetPositionX() == piece->GetPositionX() + horizontal + diagonal_x) &&
-               (aux[i]->GetPositionY() == piece->GetPositionY() + vertical + diagonal_y))
+            if((aux[i]->GetPositionX() == (piece->GetPositionX() + horizontal)) &&
+               (aux[i]->GetPositionY() == (piece->GetPositionY() + vertical)))
             {
               if((piece->GetColor() && aux[i]->GetColor()) || (!piece->GetColor() && !aux[i]->GetColor()))
               {
@@ -169,6 +162,7 @@ Obstacles States::IsInTheWay(int position_X, int position_Y, Piece * piece)
                 return Obstacles::Enemy;
               }
             }
+            displacement_loop--;
           }
           aux = black_pieces;
         }

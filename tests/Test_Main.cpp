@@ -548,27 +548,27 @@ TEST_CASE("Teste da função 'IsInTheWay' do Cavalo", "Funcao retorna enums sobr
 TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna enums sobre a posicao final")
 {
   States * state;
-
-
   state = new States();
 
   REQUIRE(state->IsInTheWay(0,5,state->white_pieces[0]) == Obstacles::Empty); // Pawn
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[8]) == Obstacles::Empty); // Rook
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[8]) == Obstacles::Friend); // Rook
   REQUIRE(state->IsInTheWay(0,5,state->white_pieces[9]) == Obstacles::Empty); // Knight
   REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Friend); // Bishop
   REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Friend); // Queen
   REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Friend); // King
 
-  state->black_pieces[0] = new Pawn(false, 1, 5);
+  state = new States();
+  state->black_pieces[0] = new Pawn(false, 0, 5);
   state->white_pieces[1] = new Piece();
-  state->white_pieces[4] = new Piece();
-  state->white_pieces[5] = new Piece();
   state->white_pieces[3] = new Piece();
+  state->white_pieces[4] = new Piece();
 
-  REQUIRE(state->IsInTheWay(1,5,state->white_pieces[0]) == Obstacles::Enemy); // Pawn
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[0]) == Obstacles::Enemy); // Pawn
+  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Enemy); // Bishop
+  REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
   REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
   REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
+  REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
 
   state->black_pieces[1] = new Pawn(false, 0, 5);
   state->black_pieces[4] = new Pawn(false, 5, 5);
@@ -576,12 +576,10 @@ TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna 
 
   REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Enemy); // Bishop
   REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Enemy); // Queen
+  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Enemy); // King
 
-  //state->white_pieces[12] = new King(true, 4, 5);
-
-  //REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Enemy); // King
-
-  state->white_pieces[6] = new Pawn(false, 7, 5);
+  state = new States();
+  state->white_pieces[6] = new Pawn(true, 7, 5);
 
   REQUIRE(state->IsInTheWay(7,5,state->white_pieces[7]) == Obstacles::Friend); // Pawn
 }
