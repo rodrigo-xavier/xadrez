@@ -26,7 +26,7 @@ class Piece
     int GetPositionY();    //Retorna a posição Y.
     virtual bool IsMovementPossible(int, int); //Retorna true caso movimento seja possivel, falso caso contrario.
     virtual void SetDiagonalEnemy(bool, bool); //Seta variável privada do peão.
-    bool SetPosition(int, int); //Seta a posição X e Y da peça respectivamente. Retorna verdadeiro caso movimento seja possível e a posição foi alterada, e falso caso contrario (falso - posição não é alterada.)
+    void SetPosition(int, int); //Seta a posição X e Y da peça respectivamente.
     bool GetIsAlive();    //Retorna True - peça viva / False - Peça morta
     void SetDead();       //Seta a flag isAlive para morta. Quando morta, a peça não revive e sua posição vira -1x-1
 };

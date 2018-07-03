@@ -10,3 +10,7 @@ Data 01/07 ~ 03/07
 
 Criado um módulo de estados do jogo, com funcionalidades de checar se o movimento é possível,
 se há alguma peça no caminho ou no destino final do movimento
+
+Data 02 ~ 03/07
+
+Refactoring de nome de funções e argumentos de funções, dois novos metodos na classe States (MovePiece e EatPiece)
