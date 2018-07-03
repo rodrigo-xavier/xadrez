@@ -18,16 +18,6 @@
 #include <string.h>
 #endif
 
-TEST_CASE("Testes das funcoes usadas na main", "Todas as funcoes de funcoes")
-{
-    //teste para acertar
-     SECTION("Teste de soma()")
-     {
-         int a = 2, b = 5;
-         REQUIRE(soma(a, b) == 7);
-     }
-}
-
 TEST_CASE("Teste da classe de estrutura basica das peças","Toda estrutura basica da peça")
 {
 	Piece *piece;
@@ -188,6 +178,36 @@ TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se 
   REQUIRE(pawn->GetPositionY() == 3);
 }
 
+TEST_CASE("Teste da funcao 'returnPiece' do Tabuleiro ", "Retorna a peça que esta em determinada posicao")
+{
+    Board *board;
+
+    board = new Board();
+
+    REQUIRE(board->returnPiece(0,0) == 't');
+    REQUIRE(board->returnPiece(0,5) == 'b');
+    REQUIRE(board->returnPiece(2,0) == '0');
+    REQUIRE(board->returnPiece(2,5) == '0');
+    REQUIRE(board->returnPiece(6,5) == 'p');
+
+    delete board;
+}
+
+TEST_CASE("Testa o destrutor da classe do Tabuleiro", "Seta o tabuleiro em 0")
+{
+    Board *board;
+
+    board = new Board();
+    board->destroyBoard();
+
+    REQUIRE(board->returnPiece(0,1) == '0');
+    REQUIRE(board->returnPiece(0,5) == '0');
+    REQUIRE(board->returnPiece(2,0) == '0');
+    REQUIRE(board->returnPiece(2,5) == '0');
+    REQUIRE(board->returnPiece(6,5) == '0');
+
+    delete board;
+}
 TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determina que o bispo só pode se mover na diagonal, ir e voltar (só na diagonal, sem fazer curvas no caminho)")
 {
   Piece *bishop;
