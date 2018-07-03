@@ -635,3 +635,18 @@ TEST_CASE("Testando a função 'SetPawnDiagonalEnemies'", "Função seta ou remo
 	states->black_pieces[0] = new Pawn(false, 2, 5);
 	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == true); //peao 1x6 pode mover pq tem inimigo na diagonal direita
 }
+
+TEST_CASE("Testando a função 'IsCheckMate'","Função returna True em caso de Cheque-mate e False caso contrário")
+{
+	States * states;
+	states = new States();
+
+
+	//Move o rei preto pro lugar do cavalo branco
+	states->white_pieces[4] = new Piece(); //Apaga o cavalo branco
+	states->black_pieces[12] = new King(false, 4, 6);
+	REQUIRE(states->IsCheckMate(false) == true);
+
+	states->black_pieces[12] = new King(false, 6, 2);
+	REQUIRE(states->IsCheckMate(false) == false);
+}

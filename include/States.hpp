@@ -4,6 +4,7 @@
 #include "Piece.hpp"
 
 enum class Obstacles{Empty,Friend,Enemy};
+enum class GameResult{WhiteWins,BlackWins,Draw,NoContest};
 
 class States
 {
@@ -17,6 +18,7 @@ public:
   bool MovePiece(Piece *, int, int);  //Move a peça apenas se for possivel, retornando true quando possivel e false caso contrario (podendo comer uma peça quando uma inimiga estiver na casa final)
   void EatPiece(int, int);    //Mata a peça da posição x, y.
   void SetPawnDiagonalEnemies(bool, Piece *);  //Se true, ele checa se ha inimigos e seta as flags, se false ele bota false nas flags de inimigo nas diagonais.
+  bool IsCheckMate(bool);
 };
 
 #endif

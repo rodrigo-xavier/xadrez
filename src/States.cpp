@@ -217,3 +217,76 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece)
     piece->SetDiagonalEnemy(left, right);
   }
 }
+
+bool States::IsCheckMate(bool kingColor)
+{
+  Piece ** aux;
+  Piece ** aux2;
+  if(kingColor)
+  {
+    aux = white_pieces;
+    aux2 = black_pieces;
+  }
+  else
+  {
+    aux = black_pieces;
+    aux2 = white_pieces;
+  }
+
+  int i, j, x, y;
+  x = aux[12]->GetPositionX();
+  y = aux[12]->GetPositionY();
+
+//Setando todos os peoes com inimigos na diagonal
+for(i=0;i<8;i++)
+{
+  aux2[i]->SetDiagonalEnemy(true,true);
+}
+//Movimentos possíveis do Rei
+  for(i=-1;i<2;i++)
+  {
+    for(j=-1;j<2;j++)
+    {
+      printf("\nEixo X: %d\nEixo Y: %d\n", x+i, y+j);
+      if(aux[12]->IsMovementPossible(x+i,y+j) && !IsCheck(kingColor, x+i, y+j) && IsInTheSpot(x+i,y+j,aux[12]) != Obstacles::Friend)
+      {
+        for(i=0;i<8;i++)
+        {
+          aux2[i]->SetDiagonalEnemy(false,false);
+        }
+        return false;
+      }
+    }
+  }
+  for(i=0;i<8;i++)
+  {
+    aux2[i]->SetDiagonalEnemy(false,false);
+  }
+  return true;
+
+}
+/*
+GameResult States::WhoWon(void)
+{
+  Piece ** aux;
+  aux = white_pieces;
+  int x, y, i, j;
+
+  //Posições X e Y do Rei Branco
+  for(i=-1;i<2;i++)
+    for(j=-1;j<2;j++)
+    {
+      x = white_pieces[12]->GetPositionX();
+      y = white_pieces[12]->GetPositionY();
+      if(white_pieces[12]->IsMovementPossible(x+i,y+j) == true && white_pieces[12]->IsCheck(true, x+i, y+j) == false)
+      {
+        x = black_pieces[12]->GetPositionX();
+        y = black_pieces[12]->GetPositionY();
+        if(black_pieces[12]->IsMovementPossible(x+i,y+j) == true && black_pieces[12]->IsCheck(false, x+i, y+j) == false)
+        {
+          return GameResult::NoContest;
+        }
+      }
+    }
+
+}*/
