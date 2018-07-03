@@ -63,3 +63,22 @@ Refactoring da posição das peças do Peão (pretas em cima e brancas embaixo) 
 Data: 01/07
 Hora de trabalho: 09:48 - 10:15
 
+Metodo de verificação de caminho não livre da classe States
+
+Data: 01/07
+Hora de trabalho: 17:30  - 20:40 ~ 22:00 - 1:30
+
+Metodo de verificação de caminho não livre da classe States
+
+Data: 02/07
+Hora de trabalho: 9:05 - 10:14
+
+Metodo de verificação de casa não livre da classe States (casa final da jogada)
+
+Data: 02/07
+Hora de trabalho: 10:14 - 10:49
+
+Refactoring - Mais testes nas funções IsInTheWay e IsInTheSpot
+
+Data: 02/07
+Hora de trabalho: 22:00 - 22:28

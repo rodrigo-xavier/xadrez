@@ -18,13 +18,24 @@ File 'Queen.cpp'
 Lines executed:89.47% of 19
 File 'Rook.cpp'
 Lines executed:88.24% of 17
+File 'States.cpp'
+Lines executed:100.00% of 59
 File '../tests/Test_Main.cpp'
+<<<<<<< HEAD
+Lines executed:100.00% of 388
+File '/usr/include/c++/5/ext/new_allocator.h'
+Lines executed:92.86% of 14
+File '/usr/include/c++/5/bits/shared_ptr_base.h'
+Lines executed:92.41% of 145
+File '/usr/include/c++/5/bits/alloc_traits.h'
+=======
 Lines executed:100.00% of 330
 File '/usr/include/c++/7/ext/new_allocator.h'
 Lines executed:93.33% of 15
 File '/usr/include/c++/7/bits/shared_ptr_base.h'
 Lines executed:92.62% of 149
 File '/usr/include/c++/7/bits/alloc_traits.h'
+>>>>>>> master
 Lines executed:62.96% of 27
 File '../lib/catch.hpp'
 Lines executed:27.98% of 4231
@@ -156,4 +167,8 @@ File '/usr/include/c++/7/typeinfo'
 Lines executed:100.00% of 4
 File '/usr/include/c++/7/bits/char_traits.h'
 Lines executed:0.00% of 6
+<<<<<<< HEAD
+Lines executed:33.35% of 8022
+=======
 Lines executed:31.26% of 8171
+>>>>>>> master
