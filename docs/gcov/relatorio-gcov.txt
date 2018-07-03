@@ -11,15 +11,15 @@ Lines executed:88.24% of 17
 File 'Pawn.cpp'
 Lines executed:93.75% of 32
 File 'Piece.cpp'
-Lines executed:85.19% of 27
+Lines executed:85.71% of 28
 File 'Queen.cpp'
 Lines executed:89.47% of 19
 File 'Rook.cpp'
 Lines executed:88.24% of 17
 File 'States.cpp'
-Lines executed:96.43% of 84
+Lines executed:98.10% of 105
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 388
+Lines executed:100.00% of 401
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -154,4 +154,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:32.56% of 8041
+Lines executed:32.86% of 8076

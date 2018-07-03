@@ -92,3 +92,13 @@ Refactoring de nome de funções e argumentos de funções, dois novos metodos n
 
 Data: 02/07 - 03/07
 Hora de trabalho: 23:43 - 01:04
+
+Refactoring da função IsCheck e das funções isMovementPossible (sendo o movimento agora possivel apenas se a peça estiver viva)
+
+Data: 03/07
+Hora de trabalho: 9:18 - 9:38
+
+Nova função 'CheckPawnDiagonals' para checar se tem algum inimigo nas diagonais do peao e setar a flag e Refactoring da 'MovePiece'
+
+Data: 03/07
+Hora de trabalho: 9:38 - 11:11

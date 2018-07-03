@@ -15,7 +15,7 @@ Pawn::~Pawn()
 
 bool Pawn::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {
-  if(FinalPosition_X >= 0 && FinalPosition_Y >= 0 && FinalPosition_X < 8 && FinalPosition_Y < 8)  //Assertivas de entrada, X e Y precisam ser positivos e maiores ou iguais a zero e menores que 8 (para estarem no tabuleiro).
+  if(FinalPosition_X >= 0 && FinalPosition_Y >= 0 && FinalPosition_X < 8 && FinalPosition_Y < 8 && isAlive)  //Assertivas de entrada, X e Y precisam ser positivos e maiores ou iguais a zero e menores que 8 (para estarem no tabuleiro). e estar viva
   {
     //Calculo do deslocamento entre a posição da peça e a nova jogada
     int movement_x = FinalPosition_X - position_X;

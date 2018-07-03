@@ -137,33 +137,43 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
   Piece ** aux;
   kingColor ? aux = black_pieces : aux = white_pieces;
   for(int i = 0; i<16; i++)
-    if(aux[i]->IsMovementPossible(position_X, position_Y))
+  {
+    SetPawnDiagonalEnemies(true, aux[i]); //Bota os inimigos laterais do peão
+    if(aux[i]->IsMovementPossible(position_X, position_Y) &&
+    (IsInTheWay(position_X, position_Y, aux[i]) == Obstacles::Empty))  //Verifica se os inimigos podem ir até o Rei, e se o caminho para ir para o Rei está livre.
       return true;
+    SetPawnDiagonalEnemies(false, aux[i]); //Remove os inimigos diagonais do peão
+  }
 
   return false;
 }
 
 bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 {
+  SetPawnDiagonalEnemies(true, piece); //Bota os inimigos laterais do peão
   Obstacles isIntheSpot = IsInTheSpot(position_X, position_Y, piece);
   if(piece->IsMovementPossible(position_X, position_Y) &&
   (IsInTheWay(position_X, position_Y, piece) == Obstacles::Empty) &&
   (isIntheSpot != Obstacles::Friend))
   {
+    SetPawnDiagonalEnemies(false, piece); //Remove os inimigos diagonais do peão
+
     if(piece->GetName() == PieceName::King)
-    {
       if(IsCheck(piece->GetColor(), position_X, position_Y))
-      {
         return false;
-      }
-    }
-    piece->SetPosition(position_X, position_Y);
+
+    if(piece->GetName() == PieceName::Pawn)  //Caso tenha um inimigo na frete do peao, e ele esteja tentando ir pra frente (nao pode comer nem andar)
+      if(isIntheSpot == Obstacles::Enemy && (position_X - piece->GetPositionX() == 0))
+        return false;
+
     if(isIntheSpot == Obstacles::Enemy)
-    {
       EatPiece(position_X, position_Y);
-    }
+
+    piece->SetPosition(position_X, position_Y);
+
     return true;
   }
+  SetPawnDiagonalEnemies(false, piece); //Remove os inimigos diagonais do peão
   return false;
 }
 
@@ -182,5 +192,28 @@ void States::EatPiece(int position_X, int position_Y)
       }
     }
     aux = black_pieces;
+  }
+}
+
+void States::SetPawnDiagonalEnemies(bool check, Piece * piece)
+{
+  int i, verticalDirection, horizontalDirection;
+  bool left = false, right = false;
+
+  if(piece->GetName() == PieceName::Pawn)
+  {
+    if(check)
+    {
+      piece->GetColor() ? (verticalDirection = (piece->GetPositionY() - 1)) : (verticalDirection = (piece->GetPositionY() + 1));
+      horizontalDirection = (piece->GetPositionX() + 1);
+      for(i = 0; i < 2; i++)
+      {
+        if(IsInTheSpot(horizontalDirection, verticalDirection, piece) == Obstacles::Enemy)
+          (i == 0) ? (piece->GetColor() ? right = true : left = true) : (piece->GetColor() ? left = true : right = true);
+
+        horizontalDirection = (piece->GetPositionX() -1);
+      }
+    }
+    piece->SetDiagonalEnemy(left, right);
   }
 }

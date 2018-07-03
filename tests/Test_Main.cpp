@@ -588,9 +588,8 @@ TEST_CASE("Testando a função 'IsCheck'", "Função verifica quando um moviment
   states = new States();
 
   REQUIRE(states->IsCheck(true, 4, 4) == false);
-  states->black_pieces[3]->SetDiagonalEnemy(true, false);
   REQUIRE(states->IsCheck(true, 4, 2) == true);
-  states->black_pieces[3]->SetDiagonalEnemy(false, false);
+	REQUIRE(states->IsCheck(true, 3, 4) == false);
 }
 
 TEST_CASE("Testando a função 'EatPiece'", "Função mata a peça da posição x, y (setando ela para -1x-1)")
@@ -617,4 +616,22 @@ TEST_CASE("Testando a função 'MovePiece'", "Peça move caso a posição seja v
   REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
   REQUIRE(states->white_pieces[11]->GetPositionY() == 7);
 
+}
+
+TEST_CASE("Testando a função 'SetPawnDiagonalEnemies'", "Função seta ou remove a flag se há inimigos nas diagonais do Peão")
+{
+	States * states;
+  states = new States();
+
+	states->black_pieces[0]->SetPosition(0, 5);
+	REQUIRE(states->MovePiece(states->white_pieces[0], 0, 5) == false); //peao 0x6 nao pode mover pq tem um inimigo na frente
+	REQUIRE(states->MovePiece(states->white_pieces[0], 1, 5) == false); //Peao 0x6 nao pode mover pq nao tem inimigo na diagonal
+	REQUIRE(states->MovePiece(states->white_pieces[1], 0, 5) == true); //Peao 1x6 pode mover pq tem inimigo na diagonal esquerda
+	states->black_pieces[0] = new Pawn(false, 0, 5);
+	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
+	REQUIRE(states->MovePiece(states->white_pieces[1], 1, 5) == true); //peao 1x6 pode mover pq n tem ninguem em sua frente
+	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
+	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == false); //peao 1x6 nao pode mover pq nao tem inimigo na diagonal direita
+	states->black_pieces[0] = new Pawn(false, 2, 5);
+	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == true); //peao 1x6 pode mover pq tem inimigo na diagonal direita
 }
