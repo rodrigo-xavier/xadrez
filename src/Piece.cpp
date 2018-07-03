@@ -39,8 +39,11 @@ void Piece::SetDiagonalEnemy(bool hasDiagonalEnemyRight, bool hasDiagonalEnemyLe
 
 void Piece::SetPosition(int position_X, int position_Y)
 {
-  this->position_X = position_X;
-  this->position_Y = position_Y;
+  if(isAlive)
+  {
+    this->position_X = position_X;
+    this->position_Y = position_Y;
+  }
 }
 
 bool Piece::GetIsAlive()

@@ -15,7 +15,7 @@ Queen::~Queen()
 
 bool Queen::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {
-  if(FinalPosition_X >= 0 && FinalPosition_Y >= 0 && FinalPosition_X < 8 && FinalPosition_Y < 8) //Peça tem que estar no tabuleiro
+  if(FinalPosition_X >= 0 && FinalPosition_Y >= 0 && FinalPosition_X < 8 && FinalPosition_Y < 8 && isAlive) //Peça tem que estar no tabuleiro e estar viva
   {
     int movement_x = abs(FinalPosition_X - position_X);
     int movement_y = abs(FinalPosition_Y - position_Y);
