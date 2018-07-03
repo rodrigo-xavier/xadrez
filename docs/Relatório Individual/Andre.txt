@@ -87,3 +87,8 @@ Feita uma nova função na classe States, que checa se o rei está em cheque
 
 Data: 02/07
 Hora de trabalho: 22:00 - 23:43
+
+Refactoring de nome de funções e argumentos de funções, dois novos metodos na classe States (MovePiece e EatPiece)
+
+Data: 02/07 - 03/07
+Hora de trabalho: 23:43 - 01:04

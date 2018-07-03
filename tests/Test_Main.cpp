@@ -160,20 +160,13 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Peao", "Função determina 
   REQUIRE(pawn->IsMovementPossible(8,8) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Peão", "Função move a peça")
 {
   Piece *pawn;
   pawn = new Pawn(false, 0, 1);
 
-  //Seta uma posição possível
-  REQUIRE(pawn->SetPosition(0,3) == true);
-  REQUIRE(pawn->GetPositionX() == 0);
-  REQUIRE(pawn->GetPositionY() == 3);
-
-  //Seta uma posição não possível
-  REQUIRE(pawn->SetPosition(0,0) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  //Seta uma posição
+  pawn->SetPosition(0,3);
   REQUIRE(pawn->GetPositionX() == 0);
   REQUIRE(pawn->GetPositionY() == 3);
 }
@@ -205,25 +198,18 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determi
   REQUIRE(bishop->IsMovementPossible(-1, 4) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função move a peça")
 {
   Piece *bishop;
   bishop = new Bishop(false, 2, 7);
 
   //Andar para a diagonal direita
-  REQUIRE(bishop->SetPosition(3,6) == true);
-  REQUIRE(bishop->GetPositionX() == 3);
-  REQUIRE(bishop->GetPositionY() == 6);
-
-  //Seta uma posição não possível (andar em linha reta)
-  REQUIRE(bishop->SetPosition(3,5) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  bishop->SetPosition(3,6);
   REQUIRE(bishop->GetPositionX() == 3);
   REQUIRE(bishop->GetPositionY() == 6);
 
   //Da posição que estava (3,6), andar para esquerda
-  REQUIRE(bishop->SetPosition(2,5) == true);
+  bishop->SetPosition(2,5);
   REQUIRE(bishop->GetPositionX() == 2);
   REQUIRE(bishop->GetPositionY() == 5);
 }
@@ -249,25 +235,18 @@ TEST_CASE("Teste da função 'IsMovementPossible' da Torre", "A função determi
   REQUIRE(rook->IsMovementPossible(0, -1) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' da Torre", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' da Torre", "Função move a peça")
 {
   Piece *rook;
   rook = new Rook(false, 0, 7);
 
   //Andar para a vertical
-  REQUIRE(rook->SetPosition(0,6) == true);
-  REQUIRE(rook->GetPositionX() == 0);
-  REQUIRE(rook->GetPositionY() == 6);
-
-  //Seta uma posição não possível (andar na diagonal)
-  REQUIRE(rook->SetPosition(1,5) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  rook->SetPosition(0,6);
   REQUIRE(rook->GetPositionX() == 0);
   REQUIRE(rook->GetPositionY() == 6);
 
   //Da posição que estava (0,6), andar para horizontal
-  REQUIRE(rook->SetPosition(1,6) == true);
+  rook->SetPosition(1,6);
   REQUIRE(rook->GetPositionX() == 1);
   REQUIRE(rook->GetPositionY() == 6);
 }
@@ -301,25 +280,18 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Cavalo", "A função determ
   REQUIRE(knight->IsMovementPossible(6, 5) == true);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Cavalo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Cavalo", "Função move a peça")
 {
   Piece *knight;
   knight = new Knight(false, 1, 7);
 
   //Andar da posição inicial (1x7) para (2x5)
-  REQUIRE(knight->SetPosition(2,5) == true);
-  REQUIRE(knight->GetPositionX() == 2);
-  REQUIRE(knight->GetPositionY() == 5);
-
-  //Seta uma posição não possível (andar na vertical)
-  REQUIRE(knight->SetPosition(2,4) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  knight->SetPosition(2,5);
   REQUIRE(knight->GetPositionX() == 2);
   REQUIRE(knight->GetPositionY() == 5);
 
   //Da posição que estava (2,5), voltar para a posição inicial (1x7)
-  REQUIRE(knight->SetPosition(1,7) == true);
+  knight->SetPosition(1,7);
   REQUIRE(knight->GetPositionX() == 1);
   REQUIRE(knight->GetPositionY() == 7);
 }
@@ -357,20 +329,13 @@ TEST_CASE("Teste da função 'IsMovementPossible' da Rainha", "A função determ
   REQUIRE(queen->IsMovementPossible(1, 7) == true);
 }
 
-TEST_CASE("Teste da função 'SetPosition' da Rainha", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' da Rainha", "Função move a peça")
 {
   Piece *queen;
   queen = new Queen(false, 3, 7);
 
-  //Seta uma posição não possível (2x5)
-  REQUIRE(queen->SetPosition(2,5) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
-  REQUIRE(queen->GetPositionX() == 3);
-  REQUIRE(queen->GetPositionY() == 7);
-
   //Da posição que estava (3,7), vai para (0x7)
-  REQUIRE(queen->SetPosition(0,7) == true);
+  queen->SetPosition(0,7);
   REQUIRE(queen->GetPositionX() == 0);
   REQUIRE(queen->GetPositionY() == 7);
 }
@@ -405,20 +370,13 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Rei", "A função determina
   REQUIRE(king->IsMovementPossible(4, 6) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Rei", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Rei", "Função move a peça")
 {
   Piece *king;
   king = new King(false, 4, 7);
 
-  //Seta uma posição não possível (2x7)
-  REQUIRE(king->SetPosition(2,7) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
-  REQUIRE(king->GetPositionX() == 4);
-  REQUIRE(king->GetPositionY() == 7);
-
   //Da posição que estava (4,7), vai para (3x7)
-  REQUIRE(king->SetPosition(3,7) == true);
+  king->SetPosition(3,7);
   REQUIRE(king->GetPositionX() == 3);
   REQUIRE(king->GetPositionY() == 7);
 }
@@ -633,4 +591,30 @@ TEST_CASE("Testando a função 'IsCheck'", "Função verifica quando um moviment
   states->black_pieces[3]->SetDiagonalEnemy(true, false);
   REQUIRE(states->IsCheck(true, 4, 2) == true);
   states->black_pieces[3]->SetDiagonalEnemy(false, false);
+}
+
+TEST_CASE("Testando a função 'EatPiece'", "Função mata a peça da posição x, y (setando ela para -1x-1)")
+{
+  States * states;
+  states = new States();
+
+  states->EatPiece(3, 0);
+  REQUIRE(states->black_pieces[11]->GetPositionX() == -1);
+  REQUIRE(states->black_pieces[11]->GetPositionY() == -1);
+  REQUIRE(states->black_pieces[11]->GetIsAlive() == false);
+}
+
+TEST_CASE("Testando a função 'MovePiece'", "Peça move caso a posição seja valida, peça come uma peça caso tenha um inimigo na casa final, peça nao move caso a posição seja invalida")
+{
+  States * states;
+  states = new States();
+
+  REQUIRE(states->MovePiece(states->white_pieces[9], 2, 5) == true);
+  REQUIRE(states->white_pieces[9]->GetPositionX() == 2);
+  REQUIRE(states->white_pieces[9]->GetPositionY() == 5);
+
+  REQUIRE(states->MovePiece(states->white_pieces[11], 3, 5) == false);
+  REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
+  REQUIRE(states->white_pieces[11]->GetPositionY() == 7);
+
 }

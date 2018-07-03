@@ -142,3 +142,45 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 
   return false;
 }
+
+bool States::MovePiece(Piece * piece, int position_X, int position_Y)
+{
+  Obstacles isIntheSpot = IsInTheSpot(position_X, position_Y, piece);
+  if(piece->IsMovementPossible(position_X, position_Y) &&
+  (IsInTheWay(position_X, position_Y, piece) == Obstacles::Empty) &&
+  (isIntheSpot != Obstacles::Friend))
+  {
+    if(piece->GetName() == PieceName::King)
+    {
+      if(IsCheck(piece->GetColor(), position_X, position_Y))
+      {
+        return false;
+      }
+    }
+    piece->SetPosition(position_X, position_Y);
+    if(isIntheSpot == Obstacles::Enemy)
+    {
+      EatPiece(position_X, position_Y);
+    }
+    return true;
+  }
+  return false;
+}
+
+void States::EatPiece(int position_X, int position_Y)
+{
+  Piece ** aux;
+  int i, j;
+  aux = white_pieces;
+  for(i = 0; i < 2; i++)
+  {
+    for(j = 0; j < 16; j++)
+    {
+      if((aux[j]->GetPositionX() == position_X) && (aux[j]->GetPositionY() == position_Y))
+      {
+        aux[j]->SetDead();
+      }
+    }
+    aux = black_pieces;
+  }
+}
