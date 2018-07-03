@@ -1,0 +1,12 @@
+Data 22/06
+
+Criado o Trello e atribuidas as atividades
+
+Data 27/06 ~ 28/06
+
+Desenvolvida funcionalidade de inicializacao do tabuleiro
+
+Data 01/07 ~ 03/07
+
+Criado um módulo de estados do jogo, com funcionalidades de checar se o movimento é possível,
+se há alguma peça no caminho ou no destino final do movimento
