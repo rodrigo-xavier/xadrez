@@ -18,16 +18,6 @@
 #include <string.h>
 #endif
 
-TEST_CASE("Testes das funcoes usadas na main", "Todas as funcoes de funcoes")
-{
-    //teste para acertar
-     SECTION("Teste de soma()")
-     {
-         int a = 2, b = 5;
-         REQUIRE(soma(a, b) == 7);
-     }
-}
-
 TEST_CASE("Teste da classe de estrutura basica das peças","Toda estrutura basica da peça")
 {
 	Piece *piece;
@@ -188,6 +178,36 @@ TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se 
   REQUIRE(pawn->GetPositionY() == 3);
 }
 
+TEST_CASE("Teste da funcao 'returnPiece' do Tabuleiro ", "Retorna a peça que esta em determinada posicao")
+{
+    Board *board;
+
+    board = new Board();
+
+    REQUIRE(board->returnPiece(0,0) == 't');
+    REQUIRE(board->returnPiece(0,5) == 'b');
+    REQUIRE(board->returnPiece(2,0) == '0');
+    REQUIRE(board->returnPiece(2,5) == '0');
+    REQUIRE(board->returnPiece(6,5) == 'p');
+
+    delete board;
+}
+
+TEST_CASE("Testa o destrutor da classe do Tabuleiro", "Seta o tabuleiro em 0")
+{
+    Board *board;
+
+    board = new Board();
+    board->destroyBoard();
+
+    REQUIRE(board->returnPiece(0,1) == '0');
+    REQUIRE(board->returnPiece(0,5) == '0');
+    REQUIRE(board->returnPiece(2,0) == '0');
+    REQUIRE(board->returnPiece(2,5) == '0');
+    REQUIRE(board->returnPiece(6,5) == '0');
+
+    delete board;
+}
 TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determina que o bispo só pode se mover na diagonal, ir e voltar (só na diagonal, sem fazer curvas no caminho)")
 {
   Piece *bishop;
@@ -487,7 +507,7 @@ TEST_CASE("Teste da função 'SetDead' e 'GetIsAlive' para cada peça", "A funç
   REQUIRE(piece->GetIsAlive() == false);
 }
 
-TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em situação inicial de jogo")
+TEST_CASE("Teste da função 'States' ", "Função inicializa o tabuleiro em situação inicial de jogo")
 {
   States * pieces = new States();
 
@@ -533,16 +553,61 @@ TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em
 
 }
 
-TEST_CASE("Teste da função 'IsInTheSpot' do Cavalo", "Funcao retorna enums sobre a posicao final")
+TEST_CASE("Teste da função 'IsInTheSpot' do para todas as pecas", "Funcao retorna enums sobre a posicao final")
 {
   States * state;
-
   state = new States();
+
+  // Knight
   REQUIRE(state->IsInTheSpot(3,6,state->white_pieces[9]) == Obstacles::Friend);
   REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[9]) == Obstacles::Empty);
 
   state->black_pieces[0] = new Pawn(false, 2, 5);
   REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[9]) == Obstacles::Enemy);
+
+  // Pawn
+  state->white_pieces[0] = new Pawn(true, 2, 6);
+  state->black_pieces[0] = new Piece();
+  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[0]) == Obstacles::Empty);
+
+  state->white_pieces[1] = new Pawn(true, 2, 5);
+  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[0]) == Obstacles::Friend);
+
+  state->black_pieces[0] = new Pawn(false, 3, 5);
+  REQUIRE(state->IsInTheSpot(3,5,state->white_pieces[0]) == Obstacles::Enemy);
+
+  // Rook
+  state->white_pieces[8] = new Rook(true, 0, 4);
+  REQUIRE(state->IsInTheSpot(7,4,state->white_pieces[8]) == Obstacles::Empty);
+
+  state->white_pieces[0] = new Rook(true, 7, 4);
+  REQUIRE(state->IsInTheSpot(7,4,state->white_pieces[8]) == Obstacles::Friend);
+  state->white_pieces[0] = new Piece();
+
+  state->black_pieces[8] = new Rook(false, 7, 4);
+  REQUIRE(state->IsInTheSpot(7,4,state->white_pieces[8]) == Obstacles::Enemy);
+
+   // Bishop
+  state->white_pieces[10] = new Bishop(true, 4, 5);
+  REQUIRE(state->IsInTheSpot(5,4,state->white_pieces[10]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(5,6,state->white_pieces[10]) == Obstacles::Friend);
+  state->black_pieces[5] = new Bishop(false, 0, 1);
+  REQUIRE(state->IsInTheSpot(0,1,state->white_pieces[10]) == Obstacles::Enemy);
+
+  // Queen
+  state->white_pieces[11] = new Queen(true, 3, 3);
+  REQUIRE(state->IsInTheSpot(0,3,state->white_pieces[11]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(2,2,state->white_pieces[11]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(6,6,state->white_pieces[11]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(1,1,state->white_pieces[11]) == Obstacles::Enemy);
+
+  // King
+  state->white_pieces[12] = new King(true, 2, 4);
+  state->white_pieces[1] = new Piece();
+  state->black_pieces[0] = new Pawn(false, 1, 4);
+  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[12]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(3,3,state->white_pieces[12]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(1,4,state->white_pieces[12]) == Obstacles::Enemy);
 }
 
 TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna enums sobre a posicao final")
@@ -570,6 +635,9 @@ TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna 
   REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
   REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
   REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
+  state->black_pieces[1] = new Pawn(false, 4, 4);
+  state->white_pieces[8] = new Rook(true, 2, 4);
+  REQUIRE(state->IsInTheWay(5,4,state->white_pieces[8]) == Obstacles::Enemy); // Rook
 
   state = new States();
   state->black_pieces[4] = new Pawn(false, 5, 5);

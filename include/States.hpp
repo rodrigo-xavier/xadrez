@@ -13,7 +13,8 @@ public:
   States();
   Obstacles IsInTheWay(int, int, Piece *);
   Obstacles IsInTheSpot(int, int, Piece *);
-  //static bool IsCheck();
+  //bool IsCheck(bool);
+  //void GetGameMatrix(Board *);
 };
 
 #endif
