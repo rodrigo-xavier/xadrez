@@ -131,3 +131,14 @@ Obstacles States::IsInTheSpot(int position_X, int position_Y, Piece * piece)
   }
   return Obstacles::Empty;
 }
+
+bool States::IsCheck(bool kingColor, int position_X, int position_Y)
+{
+  Piece ** aux;
+  kingColor ? aux = black_pieces : aux = white_pieces;
+  for(int i = 0; i<16; i++)
+    if(aux[i]->IsMovementPossible(position_X, position_Y))
+      return true;
+
+  return false;
+}

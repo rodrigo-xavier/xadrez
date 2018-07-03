@@ -82,3 +82,8 @@ Refactoring - Mais testes nas funções IsInTheWay e IsInTheSpot
 
 Data: 02/07
 Hora de trabalho: 22:00 - 22:28
+
+Feita uma nova função na classe States, que checa se o rei está em cheque
+
+Data: 02/07
+Hora de trabalho: 22:00 - 23:43
