@@ -19,7 +19,7 @@ Lines executed:88.24% of 17
 File 'States.cpp'
 Lines executed:100.00% of 59
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 355
+Lines executed:100.00% of 388
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -154,4 +154,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:33.07% of 7989
+Lines executed:33.35% of 8022

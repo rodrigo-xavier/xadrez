@@ -77,3 +77,8 @@ Metodo de verificação de casa não livre da classe States (casa final da jogad
 
 Data: 02/07
 Hora de trabalho: 10:14 - 10:49
+
+Refactoring - Mais testes nas funções IsInTheWay e IsInTheSpot
+
+Data: 02/07
+Hora de trabalho: 22:00 - 22:28
