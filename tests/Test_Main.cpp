@@ -178,36 +178,6 @@ TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se 
   REQUIRE(pawn->GetPositionY() == 3);
 }
 
-TEST_CASE("Teste da funcao 'returnPiece' do Tabuleiro ", "Retorna a peça que esta em determinada posicao")
-{
-    Board *board;
-
-    board = new Board();
-
-    REQUIRE(board->returnPiece(0,0) == 't');
-    REQUIRE(board->returnPiece(0,5) == 'b');
-    REQUIRE(board->returnPiece(2,0) == '0');
-    REQUIRE(board->returnPiece(2,5) == '0');
-    REQUIRE(board->returnPiece(6,5) == 'p');
-
-    delete board;
-}
-
-TEST_CASE("Testa o destrutor da classe do Tabuleiro", "Seta o tabuleiro em 0")
-{
-    Board *board;
-
-    board = new Board();
-    board->destroyBoard();
-
-    REQUIRE(board->returnPiece(0,1) == '0');
-    REQUIRE(board->returnPiece(0,5) == '0');
-    REQUIRE(board->returnPiece(2,0) == '0');
-    REQUIRE(board->returnPiece(2,5) == '0');
-    REQUIRE(board->returnPiece(6,5) == '0');
-
-    delete board;
-}
 TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determina que o bispo só pode se mover na diagonal, ir e voltar (só na diagonal, sem fazer curvas no caminho)")
 {
   Piece *bishop;
@@ -652,4 +622,15 @@ TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna 
   state = new States();
   state->white_pieces[6] = new Pawn(true, 7, 5);
   REQUIRE(state->IsInTheWay(7,4,state->white_pieces[7]) == Obstacles::Friend); // Pawn
+}
+
+TEST_CASE("Testando a função 'IsCheck'", "Função verifica quando um movimento do rei o coloca em check (ou uma posição)")
+{
+  States * states;
+  states = new States();
+
+  REQUIRE(states->IsCheck(true, 4, 4) == false);
+  states->black_pieces[3]->SetDiagonalEnemy(true, false);
+  REQUIRE(states->IsCheck(true, 4, 2) == true);
+  states->black_pieces[3]->SetDiagonalEnemy(false, false);
 }
