@@ -4,23 +4,9 @@
 #include <string>
 #include<SDL2/SDL.h>
 #include "Texture.hpp"
+#include "common.hpp"
 
 using namespace std;
-
-//The window we'll be rendering to
-extern SDL_Window* gWindow;
-
-//The window renderer
-extern SDL_Renderer* gRenderer;
-
-//Scene textures
-extern Texture gBoard;                                                                                                                                                                                                                     
-
-extern TTF_Font *gFont;
-
-extern const int SCREEN_WIDTH;
-extern const int SCREEN_HEIGHT;
-
 
 class Graphics{
     public:
