@@ -713,6 +713,8 @@ TEST_CASE("Teste da função 'IsPositionValid'", "Função retorna true, caso mo
 	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 4) == true);
 	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 5) == true);
 	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 6) == false);
+	states->white_pieces[0] = new Pawn(true, 0, 2);
+	REQUIRE(states->IsPositionValid(states->black_pieces[1], 0, 2) == true);
 
 	//king
 	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 6) == false);
