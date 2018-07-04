@@ -487,55 +487,55 @@ TEST_CASE("Teste da função 'IsInTheSpot' do para todas as pecas", "Funcao reto
   state = new States();
 
   // Knight
-  REQUIRE(state->IsInTheSpot(3,6,state->white_pieces[9]) == Obstacles::Friend);
-  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[9]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[9],3,6) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[9],2,5) == Obstacles::Empty);
 
   state->black_pieces[0] = new Pawn(false, 2, 5);
-  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[9]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[9],2,5) == Obstacles::Enemy);
 
   // Pawn
   state->white_pieces[0] = new Pawn(true, 2, 6);
   state->black_pieces[0] = new Piece();
-  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[0]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[0],2,5) == Obstacles::Empty);
 
   state->white_pieces[1] = new Pawn(true, 2, 5);
-  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[0]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[0],2,5) == Obstacles::Friend);
 
   state->black_pieces[0] = new Pawn(false, 3, 5);
-  REQUIRE(state->IsInTheSpot(3,5,state->white_pieces[0]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[0],3,5) == Obstacles::Enemy);
 
   // Rook
   state->white_pieces[8] = new Rook(true, 0, 4);
-  REQUIRE(state->IsInTheSpot(7,4,state->white_pieces[8]) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[8],7,4) == Obstacles::Empty);
 
   state->white_pieces[0] = new Rook(true, 7, 4);
-  REQUIRE(state->IsInTheSpot(7,4,state->white_pieces[8]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[8],7,4) == Obstacles::Friend);
   state->white_pieces[0] = new Piece();
 
   state->black_pieces[8] = new Rook(false, 7, 4);
-  REQUIRE(state->IsInTheSpot(7,4,state->white_pieces[8]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[8],7,4) == Obstacles::Enemy);
 
    // Bishop
   state->white_pieces[10] = new Bishop(true, 4, 5);
-  REQUIRE(state->IsInTheSpot(5,4,state->white_pieces[10]) == Obstacles::Empty);
-  REQUIRE(state->IsInTheSpot(5,6,state->white_pieces[10]) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[10],5,4) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[10],5,6) == Obstacles::Friend);
   state->black_pieces[5] = new Bishop(false, 0, 1);
-  REQUIRE(state->IsInTheSpot(0,1,state->white_pieces[10]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[10],0,1) == Obstacles::Enemy);
 
   // Queen
   state->white_pieces[11] = new Queen(true, 3, 3);
-  REQUIRE(state->IsInTheSpot(0,3,state->white_pieces[11]) == Obstacles::Empty);
-  REQUIRE(state->IsInTheSpot(2,2,state->white_pieces[11]) == Obstacles::Empty);
-  REQUIRE(state->IsInTheSpot(6,6,state->white_pieces[11]) == Obstacles::Friend);
-  REQUIRE(state->IsInTheSpot(1,1,state->white_pieces[11]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],0,3) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],2,2) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],6,6) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],1,1) == Obstacles::Enemy);
 
   // King
   state->white_pieces[12] = new King(true, 2, 4);
   state->white_pieces[1] = new Piece();
   state->black_pieces[0] = new Pawn(false, 1, 4);
-  REQUIRE(state->IsInTheSpot(2,5,state->white_pieces[12]) == Obstacles::Empty);
-  REQUIRE(state->IsInTheSpot(3,3,state->white_pieces[12]) == Obstacles::Friend);
-  REQUIRE(state->IsInTheSpot(1,4,state->white_pieces[12]) == Obstacles::Enemy);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[12],2,5) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[12],3,3) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[12],1,4) == Obstacles::Enemy);
 }
 
 TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna enums sobre a posicao final")
@@ -543,43 +543,43 @@ TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna 
   States * state;
   state = new States();
 
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[0]) == Obstacles::Empty); // Pawn
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[8]) == Obstacles::Friend); // Rook
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[9]) == Obstacles::Empty); // Knight
-  REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Friend); // Bishop
-  REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Friend); // Queen
-  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
+  REQUIRE(state->IsInTheWay(state->white_pieces[0], 0,5) == Obstacles::Empty); // Pawn
+  REQUIRE(state->IsInTheWay(state->white_pieces[8], 0,5) == Obstacles::Friend); // Rook
+  REQUIRE(state->IsInTheWay(state->white_pieces[9], 0,5) == Obstacles::Empty); // Knight
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 4,5) == Obstacles::Friend); // Bishop
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 3,5) == Obstacles::Friend); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[12], 4,6) == Obstacles::Empty); // King
 
   state = new States();
   state->black_pieces[0] = new Pawn(false, 1, 5);
   state->white_pieces[3] = new Piece();
   state->white_pieces[4] = new Piece();
 
-  REQUIRE(state->IsInTheWay(1,4,state->white_pieces[1]) == Obstacles::Enemy); // Pawn
+  REQUIRE(state->IsInTheWay(state->white_pieces[1], 1,4) == Obstacles::Enemy); // Pawn
   state->white_pieces[1] = new Piece();
   state->black_pieces[1] = new Pawn(false, 1, 6);
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Enemy); // Bishop
-  REQUIRE(state->IsInTheWay(3,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
-  REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Empty); // Queen
-  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King
-  REQUIRE(state->IsInTheWay(4,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 0,5) == Obstacles::Enemy); // Bishop
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 3,5) == Obstacles::Empty); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 5,5) == Obstacles::Empty); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[12], 4,6) == Obstacles::Empty); // King
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 4,5) == Obstacles::Empty); // Bishop
   state->black_pieces[1] = new Pawn(false, 4, 4);
   state->white_pieces[8] = new Rook(true, 2, 4);
-  REQUIRE(state->IsInTheWay(5,4,state->white_pieces[8]) == Obstacles::Enemy); // Rook
+  REQUIRE(state->IsInTheWay(state->white_pieces[8], 5,4) == Obstacles::Enemy); // Rook
 
   state = new States();
   state->black_pieces[4] = new Pawn(false, 5, 5);
   state->white_pieces[1] = new Piece();
 
-  REQUIRE(state->IsInTheWay(0,5,state->white_pieces[10]) == Obstacles::Empty); // Bishop
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 0,5) == Obstacles::Empty); // Bishop
   state->white_pieces[4] = new Piece();
   state->black_pieces[1] = new Pawn(false, 4, 6);
-  REQUIRE(state->IsInTheWay(5,5,state->white_pieces[11]) == Obstacles::Enemy); // Queen
-  REQUIRE(state->IsInTheWay(4,6,state->white_pieces[12]) == Obstacles::Empty); // King - o caminho dele não existe, anda apenas uma casa, entao sempre vai ser Empty
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 5,5) == Obstacles::Enemy); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[12], 4,6) == Obstacles::Empty); // King - o caminho dele não existe, anda apenas uma casa, entao sempre vai ser Empty
 
   state = new States();
   state->white_pieces[6] = new Pawn(true, 7, 5);
-  REQUIRE(state->IsInTheWay(7,4,state->white_pieces[7]) == Obstacles::Friend); // Pawn
+  REQUIRE(state->IsInTheWay(state->white_pieces[7], 7,4) == Obstacles::Friend); // Pawn
 }
 
 TEST_CASE("Testando a função 'IsCheck'", "Função verifica quando um movimento do rei o coloca em check (ou uma posição)")

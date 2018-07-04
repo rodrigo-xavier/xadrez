@@ -112,3 +112,8 @@ Refactoring da função 'IsPositionValid'
 
 Data: 04/07
 Hora de trabalho: 13:40 - 13:47
+
+Refactoring de todas as funções, arrumando a ordem dos argumentos para algo mais lógico
+
+Data: 04/07
+Hora de trabalho: 13:47 - 13:57
