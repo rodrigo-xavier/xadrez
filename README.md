@@ -37,6 +37,9 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	C++ version: 11
 	gcc version: 7.3.0
 	make version: 4.1
+    sdl2
+    sdl2-image
+    sdl2-ttf
 	*	Caso necessário, instale os pacotes utilizando "sudo apt-get install make" e "sudo apt-get install g++"
 
 **Para compilar e executar:**

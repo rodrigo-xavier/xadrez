@@ -7,3 +7,24 @@ Fiz algumas alterações no makefile e criei uma função de teste
 
 Data: 17/06
 Hora de trabalho 11:30 a 12:11
+
+Comecei a estudar SDL e criar a interface gráfica, fiz as configuraçoes iniciais, criei a classe Graphics para manipular as configuracoes do SDL.
+As funcoes criadas foram init e loadMedia e close
+
+Data 03/07
+Hora de trabalho 11:06 a 13:52
+
+Criei a classe Texture para manipular as imagens do programa com as funcoes loadFromFile, render e free.
+
+Data 03/07
+Hora de trabalho 14:21 a 17:10
+
+Criei uma funcao para criar uma textura a partir de um texto e uma fonte.
+
+Data 03/07
+Hora de trabalho 18:26 a 19:02
+
+Modularizei as classes criadas para a interface. Ainda tem dependencias de variaveis globais e uso de extern, pretendo mudar isso
+
+Data 03/07
+Hora de trabalho 19:30 a 19:51 
