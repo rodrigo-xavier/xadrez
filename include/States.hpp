@@ -21,6 +21,8 @@ public:
   bool IsCheckMate(bool);
   GameResult WhoWon(void);
   bool IsPositionValid(Piece *, int, int);  //Função que passa a peça, e uma posição x e y. A função retorna se o movimento é possivel para a peça, para aquela posição.
+  Piece * GetPiece(int, int); //Função que recebe uma posição X e uma Y, e retorna a peça daquela posição (retorna peça vazia caso não tenha peça na posição).
+  bool SetPiece(Piece *, int, int); //Função que seta a peça em uma posição X,Y, retorna true se a peça foi colocada la e false caso não tenha sido (pois o local já continha outra peça ou estava fora do tabuleiro).
 };
 
 #endif

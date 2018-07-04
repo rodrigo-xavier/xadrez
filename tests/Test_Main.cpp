@@ -729,3 +729,93 @@ TEST_CASE("Teste da função 'IsPositionValid'", "Função retorna true, caso mo
 	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 8) == false);
 	REQUIRE(states->IsPositionValid(states->white_pieces[12], 5, 8) == false);
 }
+
+TEST_CASE("Teste da função 'GetPiece'","A função retorna corretamente a peça da posição x,y")
+{
+	States * states;
+	Piece * piece, * aux;
+	states = new States();
+
+	//Pegando a torre preta 0x0
+	piece = states->GetPiece(0,0);
+	REQUIRE(piece->GetName() == PieceName::Rook);
+	REQUIRE(piece->GetPositionX() == 0);
+	REQUIRE(piece->GetPositionY() == 0);
+	REQUIRE(piece->GetColor() == false);
+
+	//Pegando a torre branca 0x7
+	piece = states->GetPiece(0,7);
+	REQUIRE(piece->GetName() == PieceName::Rook);
+	REQUIRE(piece->GetPositionX() == 0);
+	REQUIRE(piece->GetPositionY() == 7);
+	REQUIRE(piece->GetColor() == true);
+
+	//Pegando o Rei preto 4x0
+	piece = states->GetPiece(4,0);
+	REQUIRE(piece->GetName() == PieceName::King);
+	REQUIRE(piece->GetPositionX() == 4);
+	REQUIRE(piece->GetPositionY() == 0);
+	REQUIRE(piece->GetColor() == false);
+
+	//Pegando peça inexistente (que não esta no tabuleiro)
+	piece = states->GetPiece(4,4);
+	REQUIRE(piece->GetName() == PieceName::Empty);
+	REQUIRE(piece->GetPositionX() == -1);
+	REQUIRE(piece->GetPositionY() == -1);
+	REQUIRE(piece->GetColor() == false);
+
+	//Pegando o peao preto 1x1
+	piece = states->GetPiece(1,1);
+	REQUIRE(piece->GetName() == PieceName::Pawn);
+	REQUIRE(piece->GetPositionX() == 1);
+	REQUIRE(piece->GetPositionY() == 1);
+	REQUIRE(piece->GetColor() == false);
+
+	//Mover a peça peao para 1x3
+	states->MovePiece(piece, 1, 3);
+	REQUIRE(piece->GetPositionX() == 1);
+	REQUIRE(piece->GetPositionY() == 3);
+
+	//Verifica que agora a posição 1x3 não está mais vazia e tem o peao e a 1x1 ficou vazia
+	aux = states->GetPiece(1,3);
+	REQUIRE(aux->GetName() == PieceName::Pawn);
+	REQUIRE(aux->GetPositionX() == 1);
+	REQUIRE(aux->GetPositionY() == 3);
+	REQUIRE(aux->GetColor() == false);
+	aux = states->GetPiece(1,1);
+	REQUIRE(aux->GetName() == PieceName::Empty);
+	REQUIRE(aux->GetPositionX() == -1);
+	REQUIRE(aux->GetPositionY() == -1);
+	REQUIRE(aux->GetColor() == false);
+}
+
+TEST_CASE("Testando a função 'SetPiece'", "Função bota as peças apenas se o lugar estiver vazio e estiver dentro do tabuleiro")
+{
+	States * states;
+	Piece * piece;
+	states = new States();
+
+	//Pegar a peça 0x0 e por ela no 4x4 (verificar que 0x0 ficou vazio e 4x4 com a torre preta)
+	piece = states->GetPiece(0,0);
+	REQUIRE(states->SetPiece(piece, 4, 4) == true);
+	REQUIRE(piece->GetPositionX() == 4);
+	REQUIRE(piece->GetPositionY() == 4);
+	piece = states->GetPiece(0,0);
+	REQUIRE(piece->GetName() == PieceName::Empty);
+
+	//Pegar a peça 4x7 e por ela no 5x7 (verificar que 4x7 nao foi movida pois 5x7 ja continha uma peça)
+	piece = states->GetPiece(4,7);
+	REQUIRE(states->SetPiece(piece, 5, 7) == false);
+	REQUIRE(piece->GetPositionX() == 4);
+	REQUIRE(piece->GetPositionY() == 7);
+	piece = states->GetPiece(4,7);
+	REQUIRE(piece->GetName() == PieceName::King);
+
+	//Pegar a peça 6x7 e por ela no 1x8 (verificar que 6x7 nao foi movida pois 1x8 está fora do tabuleiro)
+	piece = states->GetPiece(6,7);
+	REQUIRE(states->SetPiece(piece, 6, 7) == false);
+	REQUIRE(piece->GetPositionX() == 6);
+	REQUIRE(piece->GetPositionY() == 7);
+	piece = states->GetPiece(6,7);
+	REQUIRE(piece->GetName() == PieceName::Knight);
+}

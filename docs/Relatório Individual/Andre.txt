@@ -117,3 +117,9 @@ Refactoring de todas as funções, arrumando a ordem dos argumentos para algo ma
 
 Data: 04/07
 Hora de trabalho: 13:47 - 13:57
+
+Novos metodos (Get e Set) para as peças
+
+Data: 04/07
+Hora de trabalho: 14:05 - 14:37
+

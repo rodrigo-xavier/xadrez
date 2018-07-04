@@ -309,3 +309,30 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
   SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos laterais do peão
   return false;
 }
+
+Piece * States::GetPiece(int position_X, int position_Y)
+{
+  if((position_X >= 0) && (position_Y >=0) && (position_X < 8) && (position_Y < 8))
+  {
+    for(int i = 0; i < 16; i++)
+    {
+      if(white_pieces[i]->GetPositionX() == position_X && white_pieces[i]->GetPositionY() == position_Y)
+        return white_pieces[i];
+      if(black_pieces[i]->GetPositionX() == position_X && black_pieces[i]->GetPositionY() == position_Y)
+        return black_pieces[i];
+    }
+  }
+  return new Piece();
+}
+
+bool States::SetPiece(Piece *piece, int position_X, int position_Y)
+{
+  if((position_X >= 0) && (position_Y >=0) && (position_X < 8) && (position_Y < 8))
+    if(IsInTheSpot(piece, position_X, position_Y) == Obstacles::Empty)
+    {
+      piece->SetPosition(position_X, position_Y);
+      return true;
+    }
+
+  return false;
+}
