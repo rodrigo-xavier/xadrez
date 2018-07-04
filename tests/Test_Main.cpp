@@ -592,17 +592,6 @@ TEST_CASE("Testando a função 'IsCheck'", "Função verifica quando um moviment
 	REQUIRE(states->IsCheck(true, 3, 4) == false);
 }
 
-TEST_CASE("Testando a função 'EatPiece'", "Função mata a peça da posição x, y (setando ela para -1x-1)")
-{
-  States * states;
-  states = new States();
-
-  states->EatPiece(3, 0);
-  REQUIRE(states->black_pieces[11]->GetPositionX() == -1);
-  REQUIRE(states->black_pieces[11]->GetPositionY() == -1);
-  REQUIRE(states->black_pieces[11]->GetIsAlive() == false);
-}
-
 TEST_CASE("Testando a função 'MovePiece'", "Peça move caso a posição seja valida, peça come uma peça caso tenha um inimigo na casa final, peça nao move caso a posição seja invalida")
 {
   States * states;

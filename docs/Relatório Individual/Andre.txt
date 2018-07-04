@@ -123,3 +123,8 @@ Novos metodos (Get e Set) para as peças
 Data: 04/07
 Hora de trabalho: 14:05 - 14:37
 
+Refactoring da classe States
+
+Data: 04/07
+Hora de trabalho: 14:50 - 
+
