@@ -9,6 +9,8 @@
 #include "../include/States.hpp"
 #include "../include/Texture.hpp"
 #include "../include/Graphics.hpp"
+#include "../include/common.hpp"
+
 
 #include <cstdio>
 #include <SDL2/SDL_ttf.h>

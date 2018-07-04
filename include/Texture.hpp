@@ -1,6 +1,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <string>
+#include "common.hpp"
 
 #ifndef LTEXTURE_H
 #define LTEXTURE_H
@@ -39,17 +40,5 @@ class Texture
         int mHeight;
 
 };
-
-//The window we'll be rendering to
-extern SDL_Window* gWindow;
-
-//The window renderer
-extern SDL_Renderer* gRenderer;
-
-//Scene textures
-extern Texture gBoard;
-
-extern TTF_Font *gFont;
-
 
 #endif
