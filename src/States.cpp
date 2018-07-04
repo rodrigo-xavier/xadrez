@@ -136,13 +136,14 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 {
   Piece ** aux;
   kingColor ? aux = black_pieces : aux = white_pieces;
+
   for(int i = 0; i<16; i++)
   {
-    SetPawnDiagonalEnemies(true, aux[i]); //Bota os inimigos laterais do peão
+    SetPawnDiagonalEnemies(true, aux[i], position_X, position_Y); //Bota os inimigos laterais do peão
     if(aux[i]->IsMovementPossible(position_X, position_Y) &&
     (IsInTheWay(position_X, position_Y, aux[i]) == Obstacles::Empty))  //Verifica se os inimigos podem ir até o Rei, e se o caminho para ir para o Rei está livre.
       return true;
-    SetPawnDiagonalEnemies(false, aux[i]); //Remove os inimigos diagonais do peão
+    SetPawnDiagonalEnemies(false, aux[i], -1, -1); //Remove os inimigos diagonais do peão
   }
 
   return false;
@@ -150,13 +151,13 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 
 bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 {
-  SetPawnDiagonalEnemies(true, piece); //Bota os inimigos laterais do peão
+  SetPawnDiagonalEnemies(true, piece, -1, -1); //Bota os inimigos laterais do peão
   Obstacles isIntheSpot = IsInTheSpot(position_X, position_Y, piece);
   if(piece->IsMovementPossible(position_X, position_Y) &&
   (IsInTheWay(position_X, position_Y, piece) == Obstacles::Empty) &&
   (isIntheSpot != Obstacles::Friend))
   {
-    SetPawnDiagonalEnemies(false, piece); //Remove os inimigos diagonais do peão
+    SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos diagonais do peão
 
     if(piece->GetName() == PieceName::King)
       if(IsCheck(piece->GetColor(), position_X, position_Y))
@@ -173,7 +174,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 
     return true;
   }
-  SetPawnDiagonalEnemies(false, piece); //Remove os inimigos diagonais do peão
+  SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos diagonais do peão
   return false;
 }
 
@@ -195,7 +196,7 @@ void States::EatPiece(int position_X, int position_Y)
   }
 }
 
-void States::SetPawnDiagonalEnemies(bool check, Piece * piece)
+void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX, int futureEnemyY)
 {
   int i, verticalDirection, horizontalDirection;
   bool left = false, right = false;
@@ -213,6 +214,11 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece)
 
         horizontalDirection = (piece->GetPositionX() -1);
       }
+
+      if((abs(futureEnemyX - piece->GetPositionX()) == 1) && (abs(futureEnemyY - piece->GetPositionY()) == 1) && (futureEnemyX != -1) && (futureEnemyY != -1))
+      {
+        piece->GetColor() ? ((futureEnemyX - piece->GetPositionX()) == 1 ? right = true : left = true) : ((futureEnemyX - piece->GetPositionX()) == -1 ? right = true : left = true);
+      }
     }
     piece->SetDiagonalEnemy(left, right);
   }
@@ -222,6 +228,8 @@ bool States::IsCheckMate(bool kingColor)
 {
   Piece ** aux;
   Piece ** aux2;
+  int i, j, k, x, y;
+
   if(kingColor)
   {
     aux = white_pieces;
@@ -233,60 +241,66 @@ bool States::IsCheckMate(bool kingColor)
     aux2 = white_pieces;
   }
 
-  int i, j, x, y;
-  x = aux[12]->GetPositionX();
-  y = aux[12]->GetPositionY();
-
-//Setando todos os peoes com inimigos na diagonal
-for(i=0;i<8;i++)
-{
-  aux2[i]->SetDiagonalEnemy(true,true);
-}
-//Movimentos possíveis do Rei
-  for(i=-1;i<2;i++)
+  if(IsCheck(aux[12]->GetColor(), aux[12]->GetPositionX(), aux[12]->GetPositionY()))
   {
-    for(j=-1;j<2;j++)
-    {
-      printf("\nEixo X: %d\nEixo Y: %d\n", x+i, y+j);
-      if(aux[12]->IsMovementPossible(x+i,y+j) && !IsCheck(kingColor, x+i, y+j) && IsInTheSpot(x+i,y+j,aux[12]) != Obstacles::Friend)
-      {
-        for(i=0;i<8;i++)
-        {
-          aux2[i]->SetDiagonalEnemy(false,false);
-        }
-        return false;
-      }
-    }
-  }
-  for(i=0;i<8;i++)
-  {
-    aux2[i]->SetDiagonalEnemy(false,false);
-  }
-  return true;
+    x = aux[12]->GetPositionX();
+    y = aux[12]->GetPositionY();
 
+  //Movimentos possíveis do Rei
+    for(i=-1;i<2;i++)
+      for(j=-1;j<2;j++)
+        for(k = 0; k < 16; k++)
+          if(!IsCheck(kingColor, x+i, y+j) && IsInTheSpot(x+i,y+j,aux[12]) != Obstacles::Friend &&
+          (!aux2[k]->IsMovementPossible(x+i,y+j) || IsInTheWay(x+i, y+j, aux2[k]) != Obstacles::Empty) &&
+          aux[12]->IsMovementPossible(x+i,y+j))
+            return false;
+
+    return true;
+  }
+  return false;
 }
-/*
+
 GameResult States::WhoWon(void)
 {
-  Piece ** aux;
-  aux = white_pieces;
-  int x, y, i, j;
+  bool white = false, black = false;
+  int i;
 
-  //Posições X e Y do Rei Branco
-  for(i=-1;i<2;i++)
-    for(j=-1;j<2;j++)
+  white = IsCheckMate(true);
+  black = IsCheckMate(false);
+
+  if(white && black)
+    return GameResult::Draw;
+
+  if(!white && !black)
+  {
+    for(i = 0; i < 16; i++)
     {
-      x = white_pieces[12]->GetPositionX();
-      y = white_pieces[12]->GetPositionY();
-      if(white_pieces[12]->IsMovementPossible(x+i,y+j) == true && white_pieces[12]->IsCheck(true, x+i, y+j) == false)
-      {
-        x = black_pieces[12]->GetPositionX();
-        y = black_pieces[12]->GetPositionY();
-        if(black_pieces[12]->IsMovementPossible(x+i,y+j) == true && black_pieces[12]->IsCheck(false, x+i, y+j) == false)
-        {
-          return GameResult::NoContest;
-        }
-      }
+      if((white_pieces[i]->GetIsAlive() && (white_pieces[i]->GetName() != PieceName::King)) || (black_pieces[i]->GetIsAlive() && (black_pieces[i]->GetName() != PieceName::King)))
+        return GameResult::NoContest;
     }
+    return GameResult::Draw;
+  }
 
-}*/
+  if(white)
+    return GameResult::BlackWins;
+
+  if(black)
+    return GameResult::WhiteWins;
+
+  return GameResult::NoContest;
+}
+
+bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
+{
+  if(piece->GetName() == PieceName :: King)
+  {
+    if(IsCheck(piece->GetColor(), position_X, position_Y))
+      return false;
+  }
+  if(piece->IsMovementPossible(position_X, position_Y) &&
+    (IsInTheWay(position_X, position_Y, piece) == Obstacles::Empty) &&
+    (IsInTheSpot(position_X, position_Y, piece) != Obstacles::Friend))
+      return true;
+
+  return false;
+}

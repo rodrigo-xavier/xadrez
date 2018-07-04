@@ -641,6 +641,9 @@ TEST_CASE("Testando a função 'IsCheckMate'","Função returna True em caso de 
 	States * states;
 	states = new States();
 
+	//Inicio do jogo
+	REQUIRE(states->IsCheckMate(true) == false);
+	REQUIRE(states->IsCheckMate(false) == false);
 
 	//Move o rei preto pro lugar do cavalo branco
 	states->white_pieces[4] = new Piece(); //Apaga o cavalo branco
@@ -649,4 +652,78 @@ TEST_CASE("Testando a função 'IsCheckMate'","Função returna True em caso de 
 
 	states->black_pieces[12] = new King(false, 6, 2);
 	REQUIRE(states->IsCheckMate(false) == false);
+
+	states = new States();
+	states->white_pieces[4] = new Piece();
+	states->black_pieces[11] = new Queen(false, 4, 4);
+	REQUIRE(states->IsCheckMate(true) == true);
+
+	states = new States();
+	states->white_pieces[5] = new Piece();
+	states->black_pieces[9] = new Bishop(false, 6, 5);
+	states->black_pieces[11] = new Queen(false, 5, 6);
+	REQUIRE(states->IsCheckMate(true) == true);
+}
+
+TEST_CASE("Testando a função 'WhoWon'", "Função retorna o vencedor, empate ou ainda não definido")
+{
+	States * states;
+	states = new States();
+
+	REQUIRE(states->WhoWon() == GameResult::NoContest);
+
+	for(int i = 0; i < 16; i++)
+	{
+		states->white_pieces[i] = new Piece();
+		states->black_pieces[i] = new Piece();
+	}
+
+	states->white_pieces[12] = new King(true, 0, 0);
+	states->black_pieces[12] = new King(false, 0, 7);
+	REQUIRE(states->WhoWon() == GameResult::Draw);
+
+	states->black_pieces[10] = new Queen(false, 1, 1);
+	states->black_pieces[14] = new Queen(false, 0, 1);
+	states->black_pieces[13] = new Queen(false, 1, 0);
+	states->white_pieces[10] = new Queen(true, 0, 6);
+	states->white_pieces[11] = new Queen(true, 1, 6);
+	states->white_pieces[9] = new Queen(true, 1, 7);
+	REQUIRE(states->WhoWon() == GameResult::Draw);
+
+	states->black_pieces[10] = new Piece();
+	states->black_pieces[14] = new Piece();
+	states->black_pieces[13] = new Piece();
+	REQUIRE(states->WhoWon() == GameResult::WhiteWins);
+
+	states->black_pieces[10] = new Queen(false, 1, 1);
+	states->black_pieces[14] = new Queen(false, 0, 1);
+	states->black_pieces[13] = new Queen(false, 1, 0);
+	states->white_pieces[10] = new Piece();
+	states->white_pieces[11] = new Piece();
+	states->white_pieces[9] = new Piece();
+	REQUIRE(states->WhoWon() == GameResult::BlackWins);
+}
+
+TEST_CASE("Teste da função 'IsPositionValid'", "Função retorna true, caso movimento seja valido para peça, false caso contrario")
+{
+	States * states;
+	states = new States();
+
+	//Pawn
+	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 4) == true);
+	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 5) == true);
+	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 6) == false);
+
+	//king
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 6) == false);
+	states->white_pieces[3] = new Piece();
+	states->black_pieces[11] = new Queen(false, 0, 3);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 3, 6) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 2, 7) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 7) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 2, 6) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 6) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 3, 8) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 8) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 5, 8) == false);
 }
