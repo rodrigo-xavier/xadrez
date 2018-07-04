@@ -126,5 +126,5 @@ Hora de trabalho: 14:05 - 14:37
 Refactoring da classe States
 
 Data: 04/07
-Hora de trabalho: 14:50 - 
+Hora de trabalho: 14:50 - 15:10
 
