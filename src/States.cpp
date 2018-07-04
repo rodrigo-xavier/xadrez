@@ -297,10 +297,15 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
     if(IsCheck(piece->GetColor(), position_X, position_Y))
       return false;
   }
+  SetPawnDiagonalEnemies(true, piece, -1, -1); //Bota os inimigos laterais do peão
   if(piece->IsMovementPossible(position_X, position_Y) &&
     (IsInTheWay(position_X, position_Y, piece) == Obstacles::Empty) &&
     (IsInTheSpot(position_X, position_Y, piece) != Obstacles::Friend))
+    {
+      SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos laterais do peão
       return true;
+    }
 
+  SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos laterais do peão
   return false;
 }
