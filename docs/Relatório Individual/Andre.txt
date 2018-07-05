@@ -128,3 +128,9 @@ Refactoring da classe States
 Data: 04/07
 Hora de trabalho: 14:50 - 15:10
 
+Inicio da jogada automatica pelo pc
+
+Data: 05/07
+Hora de trabalho: 13:39 - 14:22
+
+

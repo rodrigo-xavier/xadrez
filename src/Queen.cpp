@@ -7,6 +7,7 @@ Queen::Queen(bool isWhite, int position_X, int position_Y)
   this->position_X = position_X;
   this->position_Y = position_Y;
   isAlive = true;
+  PieceValue = 9;
 }
 
 Queen::~Queen()

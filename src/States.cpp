@@ -336,3 +336,27 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
 
   return false;
 }
+
+void States::GetBestMove(int difficulty)
+{
+  int i, j, k, l, maxValue, obstacle;
+  for(i = 0; i < 16; i++)
+    for(j = 0; j < 8; j++)
+      for(k = 0; k < 8; k++)
+      {
+        for(l = 0; l < 2; l++)
+        {
+          if(IsPositionValid(white_pieces[i], j, k))
+          {
+            obstacle = IsInTheSpot(white_pieces[i], j, k);
+            obstacle == Obstacles::Enemy ? maxValue = GetPiece(j, k)->PieceValue - white_pieces[i]->PieceValue : maxValue = - white_pieces[i]->PieceValue;
+            if(maxValue > white_values[i].value)
+            {
+              white_values[i].max_Value_X = j;
+              white_values[i].max_Value_Y = k;
+              white_values[i].value = maxValue;
+            }
+          }
+        }
+      }
+}
