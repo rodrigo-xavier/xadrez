@@ -20,6 +20,7 @@ class Piece
   public:
     Piece();
     ~Piece();
+    int PieceValue = -1;
     bool GetColor();       //Retorna true se for branca, false caso seja preta.
     PieceName GetName();   //Retorna o nome da peça (identificado por um enum).
     int GetPositionX();    //Retorna a posição X.

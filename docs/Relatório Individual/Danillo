@@ -25,3 +25,13 @@ Refactoring da função 'CheckPawnDiagonals', 'IsCheck', novos metodos: 'IsCheck
 
 Data: 03/07
 Hora de trabalho: 17:52 - 21:06
+
+Inicio da jogada automatica pelo pc
+
+Data: 05/07
+Hora de trabalho: 13:39 - 14:22
+
+Continuação da jogada automatica (metodos 'UpdateBestMoves' e 'PlayBestMoves')
+
+Data: 05/07
+Hora de trabalho: 21:08 - 23:16

@@ -1,25 +1,37 @@
 File 'Bishop.cpp'
-Lines executed:88.24% of 17
+Lines executed:88.89% of 18
 File '/usr/include/c++/5/iostream'
 Lines executed:100.00% of 1
 File 'Board.cpp'
 Lines executed:7.69% of 13
 File 'King.cpp'
-Lines executed:90.00% of 20
+Lines executed:90.48% of 21
 File 'Knight.cpp'
-Lines executed:88.24% of 17
+Lines executed:88.89% of 18
 File 'Pawn.cpp'
-Lines executed:93.75% of 32
+Lines executed:93.94% of 33
 File 'Piece.cpp'
 Lines executed:85.71% of 28
 File 'Queen.cpp'
-Lines executed:89.47% of 19
+Lines executed:90.00% of 20
 File 'Rook.cpp'
-Lines executed:88.24% of 17
+Lines executed:88.89% of 18
 File 'States.cpp'
-Lines executed:97.62% of 168
+Lines executed:98.16% of 217
+File '/usr/include/c++/5/bits/predefined_ops.h'
+Lines executed:63.64% of 33
+File '/usr/include/c++/5/bits/stl_algobase.h'
+Lines executed:26.73% of 101
+File '/usr/include/c++/5/bits/stl_heap.h'
+Lines executed:0.00% of 48
+File '/usr/include/c++/5/bits/stl_iterator_base_types.h'
+Lines executed:71.43% of 7
+File '/usr/include/c++/5/bits/move.h'
+Lines executed:100.00% of 11
+File '/usr/include/c++/5/bits/stl_algo.h'
+Lines executed:36.26% of 171
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 522
+Lines executed:100.00% of 571
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -34,8 +46,6 @@ File '/usr/include/c++/5/ext/aligned_buffer.h'
 Lines executed:100.00% of 14
 File '/usr/include/c++/5/bits/stl_construct.h'
 Lines executed:100.00% of 15
-File '/usr/include/c++/5/bits/move.h'
-Lines executed:100.00% of 11
 File '/usr/include/c++/5/type_traits'
 Lines executed:100.00% of 1
 File '/usr/include/c++/5/bits/allocated_ptr.h'
@@ -46,14 +56,8 @@ File '/usr/include/c++/5/bits/allocator.h'
 Lines executed:71.43% of 7
 File '/usr/include/c++/5/bits/stl_vector.h'
 Lines executed:72.11% of 190
-File '/usr/include/c++/5/bits/predefined_ops.h'
-Lines executed:45.45% of 33
 File '/usr/include/c++/5/bits/shared_ptr.h'
 Lines executed:81.25% of 32
-File '/usr/include/c++/5/bits/stl_algo.h'
-Lines executed:19.88% of 171
-File '/usr/include/c++/5/bits/stl_iterator_base_types.h'
-Lines executed:42.86% of 7
 File '/usr/include/c++/5/bits/unique_ptr.h'
 Lines executed:44.12% of 68
 File '/usr/include/c++/5/tuple'
@@ -64,8 +68,6 @@ File '/usr/include/c++/5/ext/alloc_traits.h'
 Lines executed:25.00% of 8
 File '/usr/include/c++/5/bits/regex_automaton.h'
 Lines executed:0.00% of 80
-File '/usr/include/c++/5/bits/stl_algobase.h'
-Lines executed:6.93% of 101
 File '/usr/include/c++/5/bits/stl_iterator_base_funcs.h'
 Lines executed:33.33% of 15
 File '/usr/include/c++/5/ext/type_traits.h'
@@ -74,8 +76,6 @@ File '/usr/include/c++/5/bits/basic_string.tcc'
 Lines executed:33.33% of 27
 File '/usr/include/c++/5/bits/basic_string.h'
 Lines executed:3.70% of 54
-File '/usr/include/c++/5/bits/stl_heap.h'
-Lines executed:0.00% of 47
 File '/usr/include/c++/5/bits/stl_pair.h'
 Lines executed:22.73% of 22
 File '/usr/include/c++/5/bits/regex.h'
@@ -154,4 +154,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:34.33% of 8260
+Lines executed:35.82% of 8365
