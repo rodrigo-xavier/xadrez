@@ -808,3 +808,78 @@ TEST_CASE("Testando a função 'SetPiece'", "Função bota as peças apenas se o
 	piece = states->GetPiece(6,7);
 	REQUIRE(piece->GetName() == PieceName::Knight);
 }
+
+TEST_CASE("Teste da função 'UpdateBestMoves'","A função gera dois vetores (branco e preto), com os melhores movimentos de cada peça")
+{
+	States * states;
+	states = new States();
+	int i;
+
+	states->UpdateBestMoves();
+	for(i = 0; i < 8; i++)
+	{
+		REQUIRE(states->white_values[i].max_Value_Y == 4);
+		REQUIRE(states->white_values[i].value == -1);
+		REQUIRE(states->black_values[i].max_Value_Y == 2);
+		REQUIRE(states->black_values[i].value == -1);
+	}
+
+	for(i = 0; i < 8; i++)
+	{
+		states->white_pieces[i] = new Piece();
+		states->black_pieces[i] = new Piece();
+	}
+
+	states->UpdateBestMoves();
+	REQUIRE(states->white_values[9].value == -3);
+	REQUIRE(states->white_values[9].max_Value_X == 0);
+	REQUIRE(states->white_values[9].max_Value_Y == 5);
+
+	REQUIRE(states->white_values[11].value == 0);
+	REQUIRE(states->white_values[11].max_Value_X == 3);
+	REQUIRE(states->white_values[11].max_Value_Y == 0);
+}
+
+TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada do tabuleiro no momento, e faz a jogada de acordo com a cor da peça e a dificuldade escolhida")
+{
+	States * states;
+	states = new States();
+
+	states->PlayBestMove(false, Level::Hard);
+	REQUIRE(states->black_pieces[0]->GetPositionX() == 0);
+	REQUIRE(states->black_pieces[0]->GetPositionY() == 2);
+
+	for(int i = 0; i < 8; i++)
+	{
+		states->white_pieces[i] = new Piece();
+		states->black_pieces[i] = new Piece();
+	}
+
+	states->PlayBestMove(false, Level::Hard);
+	REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
+	REQUIRE(states->black_pieces[8]->GetPositionY() == 7);
+
+	states->PlayBestMove(true, Level::Hard);
+	REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
+	REQUIRE(states->white_pieces[11]->GetPositionY() == 0);
+
+	states->PlayBestMove(false, Level::Hard);
+	REQUIRE(states->black_pieces[15]->GetPositionX() == 7);
+	REQUIRE(states->black_pieces[15]->GetPositionY() == 7);
+
+	states->PlayBestMove(true, Level::Easy);
+	REQUIRE(states->white_pieces[9]->GetPositionX() == 0);
+	REQUIRE(states->white_pieces[9]->GetPositionY() == 5);
+
+	states->PlayBestMove(false, Level::Easy);
+	REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
+	REQUIRE(states->black_pieces[8]->GetPositionY() == 5);
+
+	states->PlayBestMove(true, Level::Medium);
+	REQUIRE(states->white_pieces[10]->GetPositionX() == 0);
+	REQUIRE(states->white_pieces[10]->GetPositionY() == 5);
+
+	states->PlayBestMove(false, Level::Medium);
+	REQUIRE(states->black_pieces[15]->GetPositionX() == 6);
+	REQUIRE(states->black_pieces[15]->GetPositionY() == 7);
+}

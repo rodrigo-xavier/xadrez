@@ -18,3 +18,7 @@ Refactoring de nome de funções e argumentos de funções, dois novos metodos na cl
 Refactoring da função 'CheckPawnDiagonals', 'IsCheck', novos metodos: 'IsCheckMate', 'WhoWon', 'IsPositionValid', refactoring de testes e aumento de testes.
 
 Data: 03/07
+
+Continuação da jogada automatica (metodos 'UpdateBestMoves' e 'PlayBestMoves')
+
+Data: 05/07

@@ -7,6 +7,10 @@
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
 #include "../include/States.hpp"
+#include <algorithm>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 States::States(void)
 {
@@ -337,26 +341,112 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
   return false;
 }
 
-void States::GetBestMove(int difficulty)
+void States::PlayBestMove(bool color, Level difficulty)
 {
-  int i, j, k, l, maxValue, obstacle;
+  Piece ** piece;
+  PiecesValues * bestMoves;
+  int values[16], i, n, levelSelected;
+  bool result;
+
+  if(color)
+  {
+    piece = white_pieces;
+    bestMoves = white_values;
+  }
+  else
+  {
+    piece = black_pieces;
+    bestMoves = black_values;
+  }
+
+  UpdateBestMoves();
+
   for(i = 0; i < 16; i++)
-    for(j = 0; j < 8; j++)
-      for(k = 0; k < 8; k++)
+  {
+    if((bestMoves[i].max_Value_X != -1) && (bestMoves[i].max_Value_Y != -1))
+    {
+      values[i] = bestMoves[i].value;
+    }
+    else
+    {
+      values[i] = -2000000000;
+    }
+
+  }
+
+  n = sizeof(values)/sizeof(values[0]);
+  sort(values, values + n);
+
+  switch(difficulty)
+  {
+    case Level::Hard:
+    levelSelected = 15;
+    break;
+
+    case Level::Medium:
+    levelSelected = 14;
+    break;
+
+    case Level::Easy:
+    levelSelected = 13;
+    break;
+  }
+
+  for(i = 0; i < 16; i++)
+  {
+    if((bestMoves[i].value == values[levelSelected]) && (bestMoves[i].max_Value_X != -1) && (bestMoves[i].max_Value_Y != -1))
+    {
+      result = MovePiece(piece[i], bestMoves[i].max_Value_X, bestMoves[i].max_Value_Y);
+      return;
+    }
+  }
+}
+
+void States::UpdateBestMoves(void)
+{
+  int i, x, y, l, maxValue = -20;
+  Obstacles obstacle;
+  PiecesValues  * aux;
+  Piece ** aux2;
+
+  //Deixa ambos os vetores de melhores movimentos em branco.
+  for(i = 0; i < 16; i++)
+  {
+    white_values[i].max_Value_X = -1;
+    white_values[i].max_Value_Y = -1;
+    white_values[i].value = -20;
+    black_values[i].max_Value_X = -1;
+    black_values[i].max_Value_Y = -1;
+    black_values[i].value = -20;
+  }
+
+  //Calcula os melhores movimentos para cada peça
+  for(i = 0; i < 16; i++)
+  {
+    aux = white_values;
+    aux2 = white_pieces;
+    for(l = 0; l < 2; l++)
+    {
+      for(x = 0; x < 8; x++)
       {
-        for(l = 0; l < 2; l++)
+        for(y = 0; y < 8; y++)
         {
-          if(IsPositionValid(white_pieces[i], j, k))
+          if(IsPositionValid(aux2[i], x, y))
           {
-            obstacle = IsInTheSpot(white_pieces[i], j, k);
-            obstacle == Obstacles::Enemy ? maxValue = GetPiece(j, k)->PieceValue - white_pieces[i]->PieceValue : maxValue = - white_pieces[i]->PieceValue;
-            if(maxValue > white_values[i].value)
+            obstacle = IsInTheSpot(aux2[i], x, y);
+            obstacle == Obstacles::Enemy ? maxValue = GetPiece(x, y)->PieceValue - aux2[i]->PieceValue : maxValue = - aux2[i]->PieceValue;
+            if(maxValue > aux[i].value)
             {
-              white_values[i].max_Value_X = j;
-              white_values[i].max_Value_Y = k;
-              white_values[i].value = maxValue;
+              aux[i].max_Value_X = x;
+              aux[i].max_Value_Y = y;
+              aux[i].value = maxValue;
             }
           }
         }
       }
+      maxValue = -10;
+      aux = black_values;
+      aux2 = black_pieces;
+    }
+  }
 }
