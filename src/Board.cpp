@@ -2,13 +2,10 @@
 
 Board::Board(void)
 {
-    pieces = new Initialize();
 }
 
 Board::~Board()
 {
-    destroy_board();
-    delete pieces;
 }
 
 void Board::destroy_board()

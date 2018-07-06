@@ -654,7 +654,6 @@ TEST_CASE("Testando a função 'IsCheckMate'","Função returna True em caso de 
 	REQUIRE(states->IsCheckMate(true) == true);
 }
 
-  delete initialize;
 TEST_CASE("Testando a função 'WhoWon'", "Função retorna o vencedor, empate ou ainda não definido")
 {
 	States * states;
@@ -891,10 +890,10 @@ TEST_CASE("Testa o metodo de inserir uma peca na classe do Tabuleiro", "Insere u
 
     board = new Board();
 
-    board->insertPiece(0,1, 'k');
-    REQUIRE(board->returnPiece(0,1) == 'k');
-    board->insertPiece(2,0, 'p');
-    REQUIRE(board->returnPiece(2,0) == 'p');
+    board->insert_piece(0,1, 'k');
+    REQUIRE(board->return_piece(0,1) == 'k');
+    board->insert_piece(2,0, 'p');
+    REQUIRE(board->return_piece(2,0) == 'p');
 
     delete board;
 }

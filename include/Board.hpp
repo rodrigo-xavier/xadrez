@@ -9,7 +9,6 @@ class Board
 {
 private:
 
-  Initialize *pieces;
   PieceName name;
 
   char board[8][8] =
