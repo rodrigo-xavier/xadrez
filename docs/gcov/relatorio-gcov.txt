@@ -3,13 +3,7 @@ Lines executed:88.89% of 18
 File '/usr/include/c++/5/iostream'
 Lines executed:100.00% of 1
 File 'Board.cpp'
-<<<<<<< HEAD
-Lines executed:100.00% of 17
-File 'Initialize.cpp'
-Lines executed:100.00% of 21
-=======
 Lines executed:7.69% of 13
->>>>>>> master
 File 'King.cpp'
 Lines executed:90.48% of 21
 File 'Knight.cpp'
@@ -17,17 +11,13 @@ Lines executed:88.89% of 18
 File 'Pawn.cpp'
 Lines executed:93.94% of 33
 File 'Piece.cpp'
-<<<<<<< HEAD
-Lines executed:93.10% of 29
-=======
 Lines executed:85.71% of 28
->>>>>>> master
 File 'Queen.cpp'
 Lines executed:90.00% of 20
 File 'Rook.cpp'
 Lines executed:88.89% of 18
 File 'States.cpp'
-Lines executed:98.16% of 217
+Lines executed:98.18% of 220
 File '/usr/include/c++/5/bits/predefined_ops.h'
 Lines executed:63.64% of 33
 File '/usr/include/c++/5/bits/stl_algobase.h'
@@ -41,21 +31,12 @@ Lines executed:100.00% of 11
 File '/usr/include/c++/5/bits/stl_algo.h'
 Lines executed:36.26% of 171
 File '../tests/Test_Main.cpp'
-<<<<<<< HEAD
-Lines executed:100.00% of 338
-File '/usr/include/c++/7/ext/new_allocator.h'
-Lines executed:93.33% of 15
-File '/usr/include/c++/7/bits/shared_ptr_base.h'
-Lines executed:92.62% of 149
-File '/usr/include/c++/7/bits/alloc_traits.h'
-=======
 Lines executed:100.00% of 571
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
 Lines executed:92.41% of 145
 File '/usr/include/c++/5/bits/alloc_traits.h'
->>>>>>> master
 Lines executed:62.96% of 27
 File '../lib/catch.hpp'
 Lines executed:28.12% of 4133
@@ -174,7 +155,11 @@ Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
 <<<<<<< HEAD
+<<<<<<< HEAD
 Lines executed:31.39% of 8184
 =======
 Lines executed:35.82% of 8365
+>>>>>>> master
+=======
+Lines executed:35.84% of 8368
 >>>>>>> master

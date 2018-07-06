@@ -296,18 +296,28 @@ GameResult States::WhoWon(void)
 
 bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
 {
+  Obstacles obstacle;
   if(piece->GetName() == PieceName :: King)
   {
     if(IsCheck(piece->GetColor(), position_X, position_Y))
       return false;
   }
   SetPawnDiagonalEnemies(true, piece, -1, -1); //Bota os inimigos laterais do peão
+  obstacle = IsInTheSpot(piece, position_X, position_Y);
   if(piece->IsMovementPossible(position_X, position_Y) &&
     (IsInTheWay(piece, position_X, position_Y) == Obstacles::Empty) &&
-    (IsInTheSpot(piece, position_X, position_Y) != Obstacles::Friend))
+    (obstacle != Obstacles::Friend))
     {
       SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos laterais do peão
-      return true;
+      if((piece->GetName() == PieceName :: Pawn) && (obstacle == Obstacles::Enemy))
+      {
+        if(piece->GetPositionX() - position_X != 0)
+          return true;
+      }
+      else
+      {
+        return true;
+      }
     }
 
   SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos laterais do peão

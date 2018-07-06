@@ -34,13 +34,13 @@ SDL_Renderer* gRenderer = NULL;
 //Scene textures
 Texture gBoard;
 
-TTF_Font *gFont = NULL; 
+TTF_Font *gFont = NULL;
 
 int main( int argc, char* args[] )
 {
     //Inicializa o controle dos graficos
     Graphics graphics;
-    
+
     //Inicia o SDL
 	if( !graphics.init() )
 	{
@@ -54,7 +54,7 @@ int main( int argc, char* args[] )
 			printf( "Nao foi possivel carregar a midia!\n" );
 		}
 		else
-		{	
+		{
 			//flag de saída
 			bool quit = false;
 
