@@ -37,12 +37,15 @@ Implementação do jogo de xadrez para a disciplina Métodos de Programação
 	C++ version: 11
 	gcc version: 7.3.0
 	make version: 4.1
+    sdl2-dev
+    sdl2-image-dev
+    sdl2-ttf-dev
 	*	Caso necessário, instale os pacotes utilizando "sudo apt-get install make" e "sudo apt-get install g++"
 
 **Para compilar e executar:**
 	
 *	Acesse o diretório "Sources", digite "make all" no terminal e o arquivo "Project" será gerado na estrutura principal do projeto e executado automaticamente gerando relatórios de teste em seguida. 
-*	Para executar digite "./Project" ou "make project"
+*	Para executar digite "make project". (Executar direto o ./Project ainda não está funcionando)
 
 **Comandos makefile:**
 	
