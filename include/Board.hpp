@@ -1,7 +1,7 @@
 #ifndef BOARD_HPP_INCLUDED
 #define BOARD_HPP_INCLUDED
 
-#include "Initialize.hpp"
+#include "Piece.hpp"
 
 using namespace std;
 
