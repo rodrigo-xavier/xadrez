@@ -138,3 +138,8 @@ Continuação da jogada automatica (metodos 'UpdateBestMoves' e 'PlayBestMoves')
 
 Data: 05/07
 Hora de trabalho: 21:08 - 23:16
+
+Refactoring 'IsPositionValid' + metodo de jogar para testes na Main
+
+Data: 06/07
+Hora de trabalho: 13:50 - 14:40  ~  17:50 ~ 18:00
