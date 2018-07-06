@@ -11,7 +11,7 @@
 #include "../include/Queen.hpp"
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
-#include "../include/Initialize.hpp"
+#include "../include/States.hpp"
 
 #ifndef STRING_H
 #define STRING_H
@@ -160,54 +160,17 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Peao", "Função determina 
   REQUIRE(pawn->IsMovementPossible(8,8) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Peão", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Peão", "Função move a peça")
 {
   Piece *pawn;
   pawn = new Pawn(false, 0, 1);
 
-  //Seta uma posição possível
-  REQUIRE(pawn->SetPosition(0,3) == true);
-  REQUIRE(pawn->GetPositionX() == 0);
-  REQUIRE(pawn->GetPositionY() == 3);
-
-  //Seta uma posição não possível
-  REQUIRE(pawn->SetPosition(0,0) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  //Seta uma posição
+  pawn->SetPosition(0,3);
   REQUIRE(pawn->GetPositionX() == 0);
   REQUIRE(pawn->GetPositionY() == 3);
 }
 
-TEST_CASE("Teste da funcao 'returnPiece' do Tabuleiro ", "Retorna a peça que esta em determinada posicao")
-{
-    Board *board;
-
-    board = new Board();
-
-    REQUIRE(board->returnPiece(0,0) == 't');
-    REQUIRE(board->returnPiece(0,5) == 'b');
-    REQUIRE(board->returnPiece(2,0) == '0');
-    REQUIRE(board->returnPiece(2,5) == '0');
-    REQUIRE(board->returnPiece(6,5) == 'p');
-
-    delete board;
-}
-
-TEST_CASE("Testa o destrutor da classe do Tabuleiro", "Seta o tabuleiro em 0")
-{
-    Board *board;
-
-    board = new Board();
-    board->destroyBoard();
-
-    REQUIRE(board->returnPiece(0,1) == '0');
-    REQUIRE(board->returnPiece(0,5) == '0');
-    REQUIRE(board->returnPiece(2,0) == '0');
-    REQUIRE(board->returnPiece(2,5) == '0');
-    REQUIRE(board->returnPiece(6,5) == '0');
-
-    delete board;
-}
 TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determina que o bispo só pode se mover na diagonal, ir e voltar (só na diagonal, sem fazer curvas no caminho)")
 {
   Piece *bishop;
@@ -235,25 +198,18 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Bispo", "A função determi
   REQUIRE(bishop->IsMovementPossible(-1, 4) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Bispo", "Função move a peça")
 {
   Piece *bishop;
   bishop = new Bishop(false, 2, 7);
 
   //Andar para a diagonal direita
-  REQUIRE(bishop->SetPosition(3,6) == true);
-  REQUIRE(bishop->GetPositionX() == 3);
-  REQUIRE(bishop->GetPositionY() == 6);
-
-  //Seta uma posição não possível (andar em linha reta)
-  REQUIRE(bishop->SetPosition(3,5) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  bishop->SetPosition(3,6);
   REQUIRE(bishop->GetPositionX() == 3);
   REQUIRE(bishop->GetPositionY() == 6);
 
   //Da posição que estava (3,6), andar para esquerda
-  REQUIRE(bishop->SetPosition(2,5) == true);
+  bishop->SetPosition(2,5);
   REQUIRE(bishop->GetPositionX() == 2);
   REQUIRE(bishop->GetPositionY() == 5);
 }
@@ -279,25 +235,18 @@ TEST_CASE("Teste da função 'IsMovementPossible' da Torre", "A função determi
   REQUIRE(rook->IsMovementPossible(0, -1) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' da Torre", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' da Torre", "Função move a peça")
 {
   Piece *rook;
   rook = new Rook(false, 0, 7);
 
   //Andar para a vertical
-  REQUIRE(rook->SetPosition(0,6) == true);
-  REQUIRE(rook->GetPositionX() == 0);
-  REQUIRE(rook->GetPositionY() == 6);
-
-  //Seta uma posição não possível (andar na diagonal)
-  REQUIRE(rook->SetPosition(1,5) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  rook->SetPosition(0,6);
   REQUIRE(rook->GetPositionX() == 0);
   REQUIRE(rook->GetPositionY() == 6);
 
   //Da posição que estava (0,6), andar para horizontal
-  REQUIRE(rook->SetPosition(1,6) == true);
+  rook->SetPosition(1,6);
   REQUIRE(rook->GetPositionX() == 1);
   REQUIRE(rook->GetPositionY() == 6);
 }
@@ -331,25 +280,18 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Cavalo", "A função determ
   REQUIRE(knight->IsMovementPossible(6, 5) == true);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Cavalo", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Cavalo", "Função move a peça")
 {
   Piece *knight;
   knight = new Knight(false, 1, 7);
 
   //Andar da posição inicial (1x7) para (2x5)
-  REQUIRE(knight->SetPosition(2,5) == true);
-  REQUIRE(knight->GetPositionX() == 2);
-  REQUIRE(knight->GetPositionY() == 5);
-
-  //Seta uma posição não possível (andar na vertical)
-  REQUIRE(knight->SetPosition(2,4) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
+  knight->SetPosition(2,5);
   REQUIRE(knight->GetPositionX() == 2);
   REQUIRE(knight->GetPositionY() == 5);
 
   //Da posição que estava (2,5), voltar para a posição inicial (1x7)
-  REQUIRE(knight->SetPosition(1,7) == true);
+  knight->SetPosition(1,7);
   REQUIRE(knight->GetPositionX() == 1);
   REQUIRE(knight->GetPositionY() == 7);
 }
@@ -387,20 +329,13 @@ TEST_CASE("Teste da função 'IsMovementPossible' da Rainha", "A função determ
   REQUIRE(queen->IsMovementPossible(1, 7) == true);
 }
 
-TEST_CASE("Teste da função 'SetPosition' da Rainha", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' da Rainha", "Função move a peça")
 {
   Piece *queen;
   queen = new Queen(false, 3, 7);
 
-  //Seta uma posição não possível (2x5)
-  REQUIRE(queen->SetPosition(2,5) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
-  REQUIRE(queen->GetPositionX() == 3);
-  REQUIRE(queen->GetPositionY() == 7);
-
   //Da posição que estava (3,7), vai para (0x7)
-  REQUIRE(queen->SetPosition(0,7) == true);
+  queen->SetPosition(0,7);
   REQUIRE(queen->GetPositionX() == 0);
   REQUIRE(queen->GetPositionY() == 7);
 }
@@ -435,20 +370,13 @@ TEST_CASE("Teste da função 'IsMovementPossible' do Rei", "A função determina
   REQUIRE(king->IsMovementPossible(4, 6) == false);
 }
 
-TEST_CASE("Teste da função 'SetPosition' do Rei", "Função retorna true se o movimento for possível (setando a nova posição) e false caso movimento não seja possível (não modificando a posição)")
+TEST_CASE("Teste da função 'SetPosition' do Rei", "Função move a peça")
 {
   Piece *king;
   king = new King(false, 4, 7);
 
-  //Seta uma posição não possível (2x7)
-  REQUIRE(king->SetPosition(2,7) == false);
-
-  //Demonstra que a posição não mudou (pois não era possível)
-  REQUIRE(king->GetPositionX() == 4);
-  REQUIRE(king->GetPositionY() == 7);
-
   //Da posição que estava (4,7), vai para (3x7)
-  REQUIRE(king->SetPosition(3,7) == true);
+  king->SetPosition(3,7);
   REQUIRE(king->GetPositionX() == 3);
   REQUIRE(king->GetPositionY() == 7);
 }
@@ -507,51 +435,454 @@ TEST_CASE("Teste da função 'SetDead' e 'GetIsAlive' para cada peça", "A funç
   REQUIRE(piece->GetIsAlive() == false);
 }
 
-TEST_CASE("Teste da função 'Initialize' ", "Função inicializa o tabuleiro em situação inicial de jogo")
+TEST_CASE("Teste da função 'States' ", "Função inicializa o tabuleiro em situação inicial de jogo")
 {
-  Initialize * pieces = new Initialize();
+  States * pieces = new States();
 
-// Testa posições Y das peças pretas
-  REQUIRE(pieces->black_pieces[8]->GetPositionY() == 0);
-  REQUIRE(pieces->black_pieces[9]->GetPositionY() == 1);
-  REQUIRE(pieces->black_pieces[10]->GetPositionY() == 2);
-  REQUIRE(pieces->black_pieces[11]->GetPositionY() == 3);
-  REQUIRE(pieces->black_pieces[12]->GetPositionY() == 4);
-  REQUIRE(pieces->black_pieces[13]->GetPositionY() == 5);
-  REQUIRE(pieces->black_pieces[14]->GetPositionY() == 6);
-  REQUIRE(pieces->black_pieces[15]->GetPositionY() == 7);
+// Testa posições X das peças pretas
+  REQUIRE(pieces->black_pieces[8]->GetPositionX() == 0);
+  REQUIRE(pieces->black_pieces[9]->GetPositionX() == 1);
+  REQUIRE(pieces->black_pieces[10]->GetPositionX() == 2);
+  REQUIRE(pieces->black_pieces[11]->GetPositionX() == 3);
+  REQUIRE(pieces->black_pieces[12]->GetPositionX() == 4);
+  REQUIRE(pieces->black_pieces[13]->GetPositionX() == 5);
+  REQUIRE(pieces->black_pieces[14]->GetPositionX() == 6);
+  REQUIRE(pieces->black_pieces[15]->GetPositionX() == 7);
 
-// Testa posições X dos peões pretos
-  REQUIRE(pieces->black_pieces[0]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[1]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[2]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[3]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[4]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[5]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[6]->GetPositionX() == 1);
-  REQUIRE(pieces->black_pieces[7]->GetPositionX() == 1);
+// Testa posições Y dos peões pretos
+  REQUIRE(pieces->black_pieces[0]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[1]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[2]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[3]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[4]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[5]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[6]->GetPositionY() == 1);
+  REQUIRE(pieces->black_pieces[7]->GetPositionY() == 1);
 
-// Testa posições X dos peões brancos
-  REQUIRE(pieces->white_pieces[0]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[1]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[2]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[3]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[4]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[5]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[6]->GetPositionX() == 6);
-  REQUIRE(pieces->white_pieces[7]->GetPositionX() == 6);
+// Testa posições Y dos peões brancos
+  REQUIRE(pieces->white_pieces[0]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[1]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[2]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[3]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[4]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[5]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[6]->GetPositionY() == 6);
+  REQUIRE(pieces->white_pieces[7]->GetPositionY() == 6);
 
-// Testa posições Y das peças brancas
-  REQUIRE(pieces->white_pieces[8]->GetPositionY() == 0);
-  REQUIRE(pieces->white_pieces[9]->GetPositionY() == 1);
-  REQUIRE(pieces->white_pieces[10]->GetPositionY() == 2);
-  REQUIRE(pieces->white_pieces[11]->GetPositionY() == 3);
-  REQUIRE(pieces->white_pieces[12]->GetPositionY() == 4);
-  REQUIRE(pieces->white_pieces[13]->GetPositionY() == 5);
-  REQUIRE(pieces->white_pieces[14]->GetPositionY() == 6);
-  REQUIRE(pieces->white_pieces[15]->GetPositionY() == 7);
+// Testa posições X das peças brancas
+  REQUIRE(pieces->white_pieces[8]->GetPositionX() == 0);
+  REQUIRE(pieces->white_pieces[9]->GetPositionX() == 1);
+  REQUIRE(pieces->white_pieces[10]->GetPositionX() == 2);
+  REQUIRE(pieces->white_pieces[11]->GetPositionX() == 3);
+  REQUIRE(pieces->white_pieces[12]->GetPositionX() == 4);
+  REQUIRE(pieces->white_pieces[13]->GetPositionX() == 5);
+  REQUIRE(pieces->white_pieces[14]->GetPositionX() == 6);
+  REQUIRE(pieces->white_pieces[15]->GetPositionX() == 7);
+
+}
+
+TEST_CASE("Teste da função 'IsInTheSpot' do para todas as pecas", "Funcao retorna enums sobre a posicao final")
+{
+  States * state;
+  state = new States();
+
+  // Knight
+  REQUIRE(state->IsInTheSpot(state->white_pieces[9],3,6) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[9],2,5) == Obstacles::Empty);
+
+  state->black_pieces[0] = new Pawn(false, 2, 5);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[9],2,5) == Obstacles::Enemy);
+
+  // Pawn
+  state->white_pieces[0] = new Pawn(true, 2, 6);
+  state->black_pieces[0] = new Piece();
+  REQUIRE(state->IsInTheSpot(state->white_pieces[0],2,5) == Obstacles::Empty);
+
+  state->white_pieces[1] = new Pawn(true, 2, 5);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[0],2,5) == Obstacles::Friend);
+
+  state->black_pieces[0] = new Pawn(false, 3, 5);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[0],3,5) == Obstacles::Enemy);
+
+  // Rook
+  state->white_pieces[8] = new Rook(true, 0, 4);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[8],7,4) == Obstacles::Empty);
+
+  state->white_pieces[0] = new Rook(true, 7, 4);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[8],7,4) == Obstacles::Friend);
+  state->white_pieces[0] = new Piece();
+
+  state->black_pieces[8] = new Rook(false, 7, 4);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[8],7,4) == Obstacles::Enemy);
+
+   // Bishop
+  state->white_pieces[10] = new Bishop(true, 4, 5);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[10],5,4) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[10],5,6) == Obstacles::Friend);
+  state->black_pieces[5] = new Bishop(false, 0, 1);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[10],0,1) == Obstacles::Enemy);
+
+  // Queen
+  state->white_pieces[11] = new Queen(true, 3, 3);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],0,3) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],2,2) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],6,6) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[11],1,1) == Obstacles::Enemy);
+
+  // King
+  state->white_pieces[12] = new King(true, 2, 4);
+  state->white_pieces[1] = new Piece();
+  state->black_pieces[0] = new Pawn(false, 1, 4);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[12],2,5) == Obstacles::Empty);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[12],3,3) == Obstacles::Friend);
+  REQUIRE(state->IsInTheSpot(state->white_pieces[12],1,4) == Obstacles::Enemy);
+}
+
+TEST_CASE("Teste da função 'IsInTheWay' para todas as pecas", "Funcao retorna enums sobre a posicao final")
+{
+  States * state;
+  state = new States();
+
+  REQUIRE(state->IsInTheWay(state->white_pieces[0], 0,5) == Obstacles::Empty); // Pawn
+  REQUIRE(state->IsInTheWay(state->white_pieces[8], 0,5) == Obstacles::Friend); // Rook
+  REQUIRE(state->IsInTheWay(state->white_pieces[9], 0,5) == Obstacles::Empty); // Knight
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 4,5) == Obstacles::Friend); // Bishop
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 3,5) == Obstacles::Friend); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[12], 4,6) == Obstacles::Empty); // King
+
+  state = new States();
+  state->black_pieces[0] = new Pawn(false, 1, 5);
+  state->white_pieces[3] = new Piece();
+  state->white_pieces[4] = new Piece();
+
+  REQUIRE(state->IsInTheWay(state->white_pieces[1], 1,4) == Obstacles::Enemy); // Pawn
+  state->white_pieces[1] = new Piece();
+  state->black_pieces[1] = new Pawn(false, 1, 6);
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 0,5) == Obstacles::Enemy); // Bishop
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 3,5) == Obstacles::Empty); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 5,5) == Obstacles::Empty); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[12], 4,6) == Obstacles::Empty); // King
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 4,5) == Obstacles::Empty); // Bishop
+  state->black_pieces[1] = new Pawn(false, 4, 4);
+  state->white_pieces[8] = new Rook(true, 2, 4);
+  REQUIRE(state->IsInTheWay(state->white_pieces[8], 5,4) == Obstacles::Enemy); // Rook
+
+  state = new States();
+  state->black_pieces[4] = new Pawn(false, 5, 5);
+  state->white_pieces[1] = new Piece();
+
+  REQUIRE(state->IsInTheWay(state->white_pieces[10], 0,5) == Obstacles::Empty); // Bishop
+  state->white_pieces[4] = new Piece();
+  state->black_pieces[1] = new Pawn(false, 4, 6);
+  REQUIRE(state->IsInTheWay(state->white_pieces[11], 5,5) == Obstacles::Enemy); // Queen
+  REQUIRE(state->IsInTheWay(state->white_pieces[12], 4,6) == Obstacles::Empty); // King - o caminho dele não existe, anda apenas uma casa, entao sempre vai ser Empty
+
+  state = new States();
+  state->white_pieces[6] = new Pawn(true, 7, 5);
+  REQUIRE(state->IsInTheWay(state->white_pieces[7], 7,4) == Obstacles::Friend); // Pawn
+}
+
+TEST_CASE("Testando a função 'IsCheck'", "Função verifica quando um movimento do rei o coloca em check (ou uma posição)")
+{
+  States * states;
+  states = new States();
+
+  REQUIRE(states->IsCheck(true, 4, 4) == false);
+  REQUIRE(states->IsCheck(true, 4, 2) == true);
+	REQUIRE(states->IsCheck(true, 3, 4) == false);
+}
+
+TEST_CASE("Testando a função 'MovePiece'", "Peça move caso a posição seja valida, peça come uma peça caso tenha um inimigo na casa final, peça nao move caso a posição seja invalida")
+{
+  States * states;
+  states = new States();
+
+  REQUIRE(states->MovePiece(states->white_pieces[9], 2, 5) == true);
+  REQUIRE(states->white_pieces[9]->GetPositionX() == 2);
+  REQUIRE(states->white_pieces[9]->GetPositionY() == 5);
+
+  REQUIRE(states->MovePiece(states->white_pieces[11], 3, 5) == false);
+  REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
+  REQUIRE(states->white_pieces[11]->GetPositionY() == 7);
+
+}
+
+TEST_CASE("Testando a função 'SetPawnDiagonalEnemies'", "Função seta ou remove a flag se há inimigos nas diagonais do Peão")
+{
+	States * states;
+  states = new States();
+
+	states->black_pieces[0]->SetPosition(0, 5);
+	REQUIRE(states->MovePiece(states->white_pieces[0], 0, 5) == false); //peao 0x6 nao pode mover pq tem um inimigo na frente
+	REQUIRE(states->MovePiece(states->white_pieces[0], 1, 5) == false); //Peao 0x6 nao pode mover pq nao tem inimigo na diagonal
+	REQUIRE(states->MovePiece(states->white_pieces[1], 0, 5) == true); //Peao 1x6 pode mover pq tem inimigo na diagonal esquerda
+	states->black_pieces[0] = new Pawn(false, 0, 5);
+	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
+	REQUIRE(states->MovePiece(states->white_pieces[1], 1, 5) == true); //peao 1x6 pode mover pq n tem ninguem em sua frente
+	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
+	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == false); //peao 1x6 nao pode mover pq nao tem inimigo na diagonal direita
+	states->black_pieces[0] = new Pawn(false, 2, 5);
+	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == true); //peao 1x6 pode mover pq tem inimigo na diagonal direita
+}
+
+TEST_CASE("Testando a função 'IsCheckMate'","Função returna True em caso de Cheque-mate e False caso contrário")
+{
+	States * states;
+	states = new States();
+
+	//Inicio do jogo
+	REQUIRE(states->IsCheckMate(true) == false);
+	REQUIRE(states->IsCheckMate(false) == false);
+
+	//Move o rei preto pro lugar do cavalo branco
+	states->white_pieces[4] = new Piece(); //Apaga o cavalo branco
+	states->black_pieces[12] = new King(false, 4, 6);
+	REQUIRE(states->IsCheckMate(false) == true);
+
+	states->black_pieces[12] = new King(false, 6, 2);
+	REQUIRE(states->IsCheckMate(false) == false);
+
+	states = new States();
+	states->white_pieces[4] = new Piece();
+	states->black_pieces[11] = new Queen(false, 4, 4);
+	REQUIRE(states->IsCheckMate(true) == true);
+
+	states = new States();
+	states->white_pieces[5] = new Piece();
+	states->black_pieces[9] = new Bishop(false, 6, 5);
+	states->black_pieces[11] = new Queen(false, 5, 6);
+	REQUIRE(states->IsCheckMate(true) == true);
+}
 
   delete initialize;
+TEST_CASE("Testando a função 'WhoWon'", "Função retorna o vencedor, empate ou ainda não definido")
+{
+	States * states;
+	states = new States();
+
+	REQUIRE(states->WhoWon() == GameResult::NoContest);
+
+	for(int i = 0; i < 16; i++)
+	{
+		states->white_pieces[i] = new Piece();
+		states->black_pieces[i] = new Piece();
+	}
+
+	states->white_pieces[12] = new King(true, 0, 0);
+	states->black_pieces[12] = new King(false, 0, 7);
+	REQUIRE(states->WhoWon() == GameResult::Draw);
+
+	states->black_pieces[10] = new Queen(false, 1, 1);
+	states->black_pieces[14] = new Queen(false, 0, 1);
+	states->black_pieces[13] = new Queen(false, 1, 0);
+	states->white_pieces[10] = new Queen(true, 0, 6);
+	states->white_pieces[11] = new Queen(true, 1, 6);
+	states->white_pieces[9] = new Queen(true, 1, 7);
+	REQUIRE(states->WhoWon() == GameResult::Draw);
+
+	states->black_pieces[10] = new Piece();
+	states->black_pieces[14] = new Piece();
+	states->black_pieces[13] = new Piece();
+	REQUIRE(states->WhoWon() == GameResult::WhiteWins);
+
+	states->black_pieces[10] = new Queen(false, 1, 1);
+	states->black_pieces[14] = new Queen(false, 0, 1);
+	states->black_pieces[13] = new Queen(false, 1, 0);
+	states->white_pieces[10] = new Piece();
+	states->white_pieces[11] = new Piece();
+	states->white_pieces[9] = new Piece();
+	REQUIRE(states->WhoWon() == GameResult::BlackWins);
+}
+
+TEST_CASE("Teste da função 'IsPositionValid'", "Função retorna true, caso movimento seja valido para peça, false caso contrario")
+{
+	States * states;
+	states = new States();
+
+	//Pawn
+	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 4) == true);
+	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 5) == true);
+	REQUIRE(states->IsPositionValid(states->white_pieces[0], 0, 6) == false);
+	states->white_pieces[0] = new Pawn(true, 0, 2);
+	REQUIRE(states->IsPositionValid(states->black_pieces[1], 0, 2) == true);
+
+	//king
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 6) == false);
+	states->white_pieces[3] = new Piece();
+	states->black_pieces[11] = new Queen(false, 0, 3);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 3, 6) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 2, 7) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 7) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 2, 6) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 6) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 3, 8) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 4, 8) == false);
+	REQUIRE(states->IsPositionValid(states->white_pieces[12], 5, 8) == false);
+}
+
+TEST_CASE("Teste da função 'GetPiece'","A função retorna corretamente a peça da posição x,y")
+{
+	States * states;
+	Piece * piece, * aux;
+	states = new States();
+
+	//Pegando a torre preta 0x0
+	piece = states->GetPiece(0,0);
+	REQUIRE(piece->GetName() == PieceName::Rook);
+	REQUIRE(piece->GetPositionX() == 0);
+	REQUIRE(piece->GetPositionY() == 0);
+	REQUIRE(piece->GetColor() == false);
+
+	//Pegando a torre branca 0x7
+	piece = states->GetPiece(0,7);
+	REQUIRE(piece->GetName() == PieceName::Rook);
+	REQUIRE(piece->GetPositionX() == 0);
+	REQUIRE(piece->GetPositionY() == 7);
+	REQUIRE(piece->GetColor() == true);
+
+	//Pegando o Rei preto 4x0
+	piece = states->GetPiece(4,0);
+	REQUIRE(piece->GetName() == PieceName::King);
+	REQUIRE(piece->GetPositionX() == 4);
+	REQUIRE(piece->GetPositionY() == 0);
+	REQUIRE(piece->GetColor() == false);
+
+	//Pegando peça inexistente (que não esta no tabuleiro)
+	piece = states->GetPiece(4,4);
+	REQUIRE(piece->GetName() == PieceName::Empty);
+	REQUIRE(piece->GetPositionX() == -1);
+	REQUIRE(piece->GetPositionY() == -1);
+	REQUIRE(piece->GetColor() == false);
+
+	//Pegando o peao preto 1x1
+	piece = states->GetPiece(1,1);
+	REQUIRE(piece->GetName() == PieceName::Pawn);
+	REQUIRE(piece->GetPositionX() == 1);
+	REQUIRE(piece->GetPositionY() == 1);
+	REQUIRE(piece->GetColor() == false);
+
+	//Mover a peça peao para 1x3
+	states->MovePiece(piece, 1, 3);
+	REQUIRE(piece->GetPositionX() == 1);
+	REQUIRE(piece->GetPositionY() == 3);
+
+	//Verifica que agora a posição 1x3 não está mais vazia e tem o peao e a 1x1 ficou vazia
+	aux = states->GetPiece(1,3);
+	REQUIRE(aux->GetName() == PieceName::Pawn);
+	REQUIRE(aux->GetPositionX() == 1);
+	REQUIRE(aux->GetPositionY() == 3);
+	REQUIRE(aux->GetColor() == false);
+	aux = states->GetPiece(1,1);
+	REQUIRE(aux->GetName() == PieceName::Empty);
+	REQUIRE(aux->GetPositionX() == -1);
+	REQUIRE(aux->GetPositionY() == -1);
+	REQUIRE(aux->GetColor() == false);
+}
+
+TEST_CASE("Testando a função 'SetPiece'", "Função bota as peças apenas se o lugar estiver vazio e estiver dentro do tabuleiro")
+{
+	States * states;
+	Piece * piece;
+	states = new States();
+
+	//Pegar a peça 0x0 e por ela no 4x4 (verificar que 0x0 ficou vazio e 4x4 com a torre preta)
+	piece = states->GetPiece(0,0);
+	REQUIRE(states->SetPiece(piece, 4, 4) == true);
+	REQUIRE(piece->GetPositionX() == 4);
+	REQUIRE(piece->GetPositionY() == 4);
+	piece = states->GetPiece(0,0);
+	REQUIRE(piece->GetName() == PieceName::Empty);
+
+	//Pegar a peça 4x7 e por ela no 5x7 (verificar que 4x7 nao foi movida pois 5x7 ja continha uma peça)
+	piece = states->GetPiece(4,7);
+	REQUIRE(states->SetPiece(piece, 5, 7) == false);
+	REQUIRE(piece->GetPositionX() == 4);
+	REQUIRE(piece->GetPositionY() == 7);
+	piece = states->GetPiece(4,7);
+	REQUIRE(piece->GetName() == PieceName::King);
+
+	//Pegar a peça 6x7 e por ela no 1x8 (verificar que 6x7 nao foi movida pois 1x8 está fora do tabuleiro)
+	piece = states->GetPiece(6,7);
+	REQUIRE(states->SetPiece(piece, 6, 7) == false);
+	REQUIRE(piece->GetPositionX() == 6);
+	REQUIRE(piece->GetPositionY() == 7);
+	piece = states->GetPiece(6,7);
+	REQUIRE(piece->GetName() == PieceName::Knight);
+}
+
+TEST_CASE("Teste da função 'UpdateBestMoves'","A função gera dois vetores (branco e preto), com os melhores movimentos de cada peça")
+{
+	States * states;
+	states = new States();
+	int i;
+
+	states->UpdateBestMoves();
+	for(i = 0; i < 8; i++)
+	{
+		REQUIRE(states->white_values[i].max_Value_Y == 4);
+		REQUIRE(states->white_values[i].value == -1);
+		REQUIRE(states->black_values[i].max_Value_Y == 2);
+		REQUIRE(states->black_values[i].value == -1);
+	}
+
+	for(i = 0; i < 8; i++)
+	{
+		states->white_pieces[i] = new Piece();
+		states->black_pieces[i] = new Piece();
+	}
+
+	states->UpdateBestMoves();
+	REQUIRE(states->white_values[9].value == -3);
+	REQUIRE(states->white_values[9].max_Value_X == 0);
+	REQUIRE(states->white_values[9].max_Value_Y == 5);
+
+	REQUIRE(states->white_values[11].value == 0);
+	REQUIRE(states->white_values[11].max_Value_X == 3);
+	REQUIRE(states->white_values[11].max_Value_Y == 0);
+}
+
+TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada do tabuleiro no momento, e faz a jogada de acordo com a cor da peça e a dificuldade escolhida")
+{
+	States * states;
+	states = new States();
+
+	states->PlayBestMove(false, Level::Hard);
+	REQUIRE(states->black_pieces[0]->GetPositionX() == 0);
+	REQUIRE(states->black_pieces[0]->GetPositionY() == 2);
+
+	for(int i = 0; i < 8; i++)
+	{
+		states->white_pieces[i] = new Piece();
+		states->black_pieces[i] = new Piece();
+	}
+
+	states->PlayBestMove(false, Level::Hard);
+	REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
+	REQUIRE(states->black_pieces[8]->GetPositionY() == 7);
+
+	states->PlayBestMove(true, Level::Hard);
+	REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
+	REQUIRE(states->white_pieces[11]->GetPositionY() == 0);
+
+	states->PlayBestMove(false, Level::Hard);
+	REQUIRE(states->black_pieces[15]->GetPositionX() == 7);
+	REQUIRE(states->black_pieces[15]->GetPositionY() == 7);
+
+	states->PlayBestMove(true, Level::Easy);
+	REQUIRE(states->white_pieces[9]->GetPositionX() == 0);
+	REQUIRE(states->white_pieces[9]->GetPositionY() == 5);
+
+	states->PlayBestMove(false, Level::Easy);
+	REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
+	REQUIRE(states->black_pieces[8]->GetPositionY() == 5);
+
+	states->PlayBestMove(true, Level::Medium);
+	REQUIRE(states->white_pieces[10]->GetPositionX() == 0);
+	REQUIRE(states->white_pieces[10]->GetPositionY() == 5);
+
+	states->PlayBestMove(false, Level::Medium);
+	REQUIRE(states->black_pieces[15]->GetPositionX() == 6);
+	REQUIRE(states->black_pieces[15]->GetPositionY() == 7);
 }
 
 TEST_CASE("Testa o metodo de inserir uma peca na classe do Tabuleiro", "Insere uma peca no tabuleiro")

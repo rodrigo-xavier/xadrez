@@ -63,3 +63,78 @@ Refactoring da posição das peças do Peão (pretas em cima e brancas embaixo) 
 Data: 01/07
 Hora de trabalho: 09:48 - 10:15
 
+Metodo de verificação de caminho não livre da classe States
+
+Data: 01/07
+Hora de trabalho: 17:30  - 20:40 ~ 22:00 - 1:30
+
+Metodo de verificação de caminho não livre da classe States
+
+Data: 02/07
+Hora de trabalho: 9:05 - 10:14
+
+Metodo de verificação de casa não livre da classe States (casa final da jogada)
+
+Data: 02/07
+Hora de trabalho: 10:14 - 10:49
+
+Refactoring - Mais testes nas funções IsInTheWay e IsInTheSpot
+
+Data: 02/07
+Hora de trabalho: 22:00 - 22:28
+
+Feita uma nova função na classe States, que checa se o rei está em cheque
+
+Data: 02/07
+Hora de trabalho: 22:00 - 23:43
+
+Refactoring de nome de funções e argumentos de funções, dois novos metodos na classe States (MovePiece e EatPiece)
+
+Data: 02/07 - 03/07
+Hora de trabalho: 23:43 - 01:04
+
+Refactoring da função IsCheck e das funções isMovementPossible (sendo o movimento agora possivel apenas se a peça estiver viva)
+
+Data: 03/07
+Hora de trabalho: 9:18 - 9:38
+
+Nova função 'CheckPawnDiagonals' para checar se tem algum inimigo nas diagonais do peao e setar a flag e Refactoring da 'MovePiece'
+
+Data: 03/07
+Hora de trabalho: 9:38 - 11:11
+
+Refactoring da função 'CheckPawnDiagonals', 'IsCheck', novos metodos: 'IsCheckMate', 'WhoWon', 'IsPositionValid', refactoring de testes e aumento de testes.
+
+Data: 03/07
+Hora de trabalho: 17:52 - 21:06
+
+Refactoring da função 'IsPositionValid'
+
+Data: 04/07
+Hora de trabalho: 13:40 - 13:47
+
+Refactoring de todas as funções, arrumando a ordem dos argumentos para algo mais lógico
+
+Data: 04/07
+Hora de trabalho: 13:47 - 13:57
+
+Novos metodos (Get e Set) para as peças
+
+Data: 04/07
+Hora de trabalho: 14:05 - 14:37
+
+Refactoring da classe States
+
+Data: 04/07
+Hora de trabalho: 14:50 - 15:10
+
+Inicio da jogada automatica pelo pc
+
+Data: 05/07
+Hora de trabalho: 13:39 - 14:22
+
+
+Continuação da jogada automatica (metodos 'UpdateBestMoves' e 'PlayBestMoves')
+
+Data: 05/07
+Hora de trabalho: 21:08 - 23:16
