@@ -3,7 +3,7 @@ Lines executed:88.89% of 18
 File '/usr/include/c++/7/iostream'
 Lines executed:100.00% of 1
 File 'Board.cpp'
-Lines executed:27.27% of 44
+Lines executed:40.00% of 45
 File 'King.cpp'
 Lines executed:90.48% of 21
 File 'Knight.cpp'
@@ -156,4 +156,4 @@ File '/usr/include/c++/7/typeinfo'
 Lines executed:100.00% of 4
 File '/usr/include/c++/7/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:35.35% of 8662
+Lines executed:35.41% of 8663

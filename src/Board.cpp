@@ -8,6 +8,7 @@ Board::Board(void)
 Board::~Board()
 {
     delete states;
+    destroy_board();
 }
 
 void Board::destroy_board()
