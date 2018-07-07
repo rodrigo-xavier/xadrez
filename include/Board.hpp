@@ -1,24 +1,22 @@
 #ifndef BOARD_HPP_INCLUDED
 #define BOARD_HPP_INCLUDED
 
-#include "King.hpp"
-#include "Knight.hpp"
-#include "Pawn.hpp"
+#include "States.hpp"
 #include "Piece.hpp"
-#include "Queen.hpp"
-#include "Rook.hpp"
 
 using namespace std;
 
 class Board
 {
 private:
-  const static unsigned short int LINHAS = 8;
-  const static unsigned short int COLUNAS = 8;
+
+  States *states;
+  Piece *piece;
+  bool color;
 
   char board[8][8] =
-    {{'t', 'c', 'b', 'k', 'q', 'b', 'c', 't'},
-    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+    {{'T', 'C', 'B', 'K', 'Q', 'B', 'C', 'T'},
+    {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
     {'0', '0', '0', '0', '0', '0', '0', '0'},
     {'0', '0', '0', '0', '0', '0', '0', '0'},
     {'0', '0', '0', '0', '0', '0', '0', '0'},
@@ -29,8 +27,10 @@ private:
 public:
   Board(void);
   ~Board();
-  void destroyBoard(void);
-  char returnPiece(int, int);
+  void destroy_board(void);
+  char return_piece(int, int);
+  void insert_piece(int, int, char);
+  void update_board(States *);
 };
 
 #endif

@@ -883,3 +883,17 @@ TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada 
 	REQUIRE(states->black_pieces[15]->GetPositionX() == 6);
 	REQUIRE(states->black_pieces[15]->GetPositionY() == 7);
 }
+
+TEST_CASE("Testa o metodo de inserir uma peca na classe do Tabuleiro", "Insere uma peca no tabuleiro")
+{
+    Board *board;
+
+    board = new Board();
+
+    board->insert_piece(0,1, 'k');
+    REQUIRE(board->return_piece(0,1) == 'k');
+    board->insert_piece(2,0, 'p');
+    REQUIRE(board->return_piece(2,0) == 'p');
+
+    delete board;
+}
