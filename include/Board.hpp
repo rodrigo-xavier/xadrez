@@ -1,6 +1,7 @@
 #ifndef BOARD_HPP_INCLUDED
 #define BOARD_HPP_INCLUDED
 
+#include "States.hpp"
 #include "Piece.hpp"
 
 using namespace std;
@@ -9,11 +10,13 @@ class Board
 {
 private:
 
-  PieceName name;
+  States *states;
+  Piece *piece;
+  bool color;
 
   char board[8][8] =
-    {{'t', 'c', 'b', 'k', 'q', 'b', 'c', 't'},
-    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+    {{'T', 'C', 'B', 'K', 'Q', 'B', 'C', 'T'},
+    {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
     {'0', '0', '0', '0', '0', '0', '0', '0'},
     {'0', '0', '0', '0', '0', '0', '0', '0'},
     {'0', '0', '0', '0', '0', '0', '0', '0'},
@@ -27,6 +30,7 @@ public:
   void destroy_board(void);
   char return_piece(int, int);
   void insert_piece(int, int, char);
+  void update_board(States *);
 };
 
 #endif
