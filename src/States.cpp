@@ -269,8 +269,8 @@ GameResult States::WhoWon(void)
   bool white = false, black = false;
   int i;
 
-  white = IsCheckMate(true);
-  black = IsCheckMate(false);
+  white = IsCheckMate(true) || !white_pieces[12]->GetIsAlive();
+  black = IsCheckMate(false) || !black_pieces[12]->GetIsAlive();
 
   if(white && black)
     return GameResult::Draw;
