@@ -618,10 +618,12 @@ TEST_CASE("Testando a função 'SetPawnDiagonalEnemies'", "Função seta ou remo
 	REQUIRE(states->MovePiece(states->white_pieces[1], 0, 5) == true); //Peao 1x6 pode mover pq tem inimigo na diagonal esquerda
 	states->black_pieces[0] = new Pawn(false, 0, 5);
 	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
+	states->SetPieceTurn(true);
 	REQUIRE(states->MovePiece(states->white_pieces[1], 1, 5) == true); //peao 1x6 pode mover pq n tem ninguem em sua frente
 	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
 	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == false); //peao 1x6 nao pode mover pq nao tem inimigo na diagonal direita
 	states->black_pieces[0] = new Pawn(false, 2, 5);
+	states->SetPieceTurn(true);
 	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == true); //peao 1x6 pode mover pq tem inimigo na diagonal direita
 }
 
@@ -761,6 +763,7 @@ TEST_CASE("Teste da função 'GetPiece'","A função retorna corretamente a peç
 	REQUIRE(piece->GetColor() == false);
 
 	//Mover a peça peao para 1x3
+	states->SetPieceTurn(false);
 	states->MovePiece(piece, 1, 3);
 	REQUIRE(piece->GetPositionX() == 1);
 	REQUIRE(piece->GetPositionY() == 3);
@@ -844,7 +847,7 @@ TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada 
 {
 	States * states;
 	states = new States();
-
+	states->SetPieceTurn(false);
 	states->PlayBestMove(false, Level::Hard);
 	REQUIRE(states->black_pieces[0]->GetPositionX() == 0);
 	REQUIRE(states->black_pieces[0]->GetPositionY() == 2);
@@ -854,7 +857,7 @@ TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada 
 		states->white_pieces[i] = new Piece();
 		states->black_pieces[i] = new Piece();
 	}
-
+	states->SetPieceTurn(false);
 	states->PlayBestMove(false, Level::Hard);
 	REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
 	REQUIRE(states->black_pieces[8]->GetPositionY() == 7);

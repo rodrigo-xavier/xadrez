@@ -143,3 +143,9 @@ Refactoring 'IsPositionValid' + metodo de jogar para testes na Main
 
 Data: 06/07
 Hora de trabalho: 13:50 - 14:40  ~  17:50 ~ 18:00
+
+Implementar variavel e estado de quem é a vez de jogar (branca ou preta)
+
+Data: 07/07
+Hora de trabalho: 13:03 - 13:18
+
