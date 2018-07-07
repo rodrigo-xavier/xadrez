@@ -466,3 +466,100 @@ void States::SetPieceTurn(bool pieceTurn)
 {
   this->pieceTurn = pieceTurn;
 }
+
+void States::SaveGame(void)
+{
+  FILE *fp;
+  int i, j;
+  Piece ** aux;
+  char print;
+
+  fp = fopen("output.png","w");
+
+  if(fp == NULL)
+    return;
+
+  fprintf(fp, "%s", "[Piece Turn]:");
+  fprintf(fp, "%c%c", pieceTurn ? 'w' : 'b', '\n');
+  fprintf(fp, "%s", "[White Piece Board]:");
+  aux = white_pieces;
+  for(j = 0; j < 2; j++)
+  {
+    for(i = 0; i < 16; i++)
+    {
+      if(aux[i]->GetIsAlive())
+      {
+        switch (aux[i]->GetName())
+        {
+          case PieceName::Pawn:
+            print = 'P';
+            break;
+          case PieceName::Bishop:
+            print = 'B';
+            break;
+          case PieceName::Rook:
+            print = 'R';
+            break;
+          case PieceName::Knight:
+            print = 'N';
+            break;
+          case PieceName::Queen:
+            print = 'Q';
+            break;
+          case PieceName::King:
+            print = 'K';
+            break;
+        }
+        fprintf(fp, "%c,%d,%d,%c", print, aux[i]->GetPositionX(), aux[i]->GetPositionY(), '|');
+      }
+      else
+      {
+        fprintf(fp, "%c%c", 'x', '|');
+      }
+    }
+    if(j == 0)
+    {
+      fprintf(fp, "%c", '\n');
+      fprintf(fp, "%s", "[Black Piece Board]:");
+      aux = black_pieces;
+    }
+  }
+  fclose(fp);
+}
+
+void States::LoadGame(void)
+{
+  FILE *fp;
+  int i, j;
+  char read[86];
+  Piece ** aux;
+
+  fp = fopen("output.png", "r");
+  if(fp == NULL)
+    return;
+
+  fscanf(fp, "%86[^\n].", read);
+
+  read[13] == 'w' ? pieceTurn = true : pieceTurn = false;
+
+  aux = white_pieces;
+  for(j = 0; j < 2; j++)
+  {
+    fscanf(fp, "%86[^:].", read);
+    read[0] = fgetc(fp);
+
+    for(i = 0; i < 16; i++)
+    {
+      fscanf(fp, "%86[^|].", read);
+      if(read[0] != 'x')
+        aux[i]->SetPosition(atoi(&read[2]), atoi(&read[4]));
+      else
+        aux[i]->SetDead();
+
+      read[0] = fgetc(fp);
+    }
+    aux = black_pieces;
+  }
+
+  fclose(fp);
+}

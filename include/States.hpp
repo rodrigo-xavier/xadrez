@@ -42,6 +42,8 @@ class States
     void PlayBestMove(bool, Level);   //Função que joga o melhor movimento da cor da peça passado para ela (de acordo com Level de dificultade. dificil, medio, facil).
     void UpdateBestMoves(void); //Função que atualiza os melhores movimentos para as peças brancas e pretas.
     void SetPieceTurn(bool);  //Seta a vez da peça que vai jogar (para a função de Load)
+    void SaveGame(void); //Salva o jogo em um arquivo PNG de acordo com o modo de jogo.
+    void LoadGame(void); //Faz o load do arquivo PNG para o jogo.
 };
 
 #endif
