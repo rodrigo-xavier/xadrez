@@ -1,15 +1,87 @@
 #include "../include/Board.hpp"
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Board::Board(void)
 {
     states = new States();
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 Board::~Board()
 {
     delete states;
     destroy_board();
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void Board::destroy_board()
 {
@@ -20,15 +92,87 @@ void Board::destroy_board()
             board[i][j] = '0';
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 char Board::return_piece(int x, int y)
 {
     return board[x][y];
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 void Board::insert_piece(int x, int y, char c)
 {
     board[x][y] = c;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void Board::update_board(States *states)
 {

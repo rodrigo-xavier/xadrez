@@ -1,5 +1,29 @@
 #include "../include/Knight.hpp"
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Knight::Knight(bool isWhite, int position_X, int position_Y)
 {
   this->name = PieceName::Knight;
@@ -13,6 +37,30 @@ Knight::Knight(bool isWhite, int position_X, int position_Y)
 Knight::~Knight()
 {
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool Knight::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {

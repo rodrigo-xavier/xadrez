@@ -1,6 +1,30 @@
 #include "../include/Graphics.hpp"
 
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Graphics::Graphics(void){
 }
 
@@ -54,6 +78,30 @@ bool Graphics::init(){
 	return success;
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 bool Graphics::loadMedia()
 {
 	bool success = true;
@@ -67,6 +115,30 @@ bool Graphics::loadMedia()
 	
 	return success;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void Graphics::close()
 {

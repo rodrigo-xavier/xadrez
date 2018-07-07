@@ -1,5 +1,29 @@
 #include "../include/King.hpp"
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 King::King(bool isWhite, int position_X, int position_Y)
 {
   this->name = PieceName::King;
@@ -13,6 +37,30 @@ King::King(bool isWhite, int position_X, int position_Y)
 King::~King()
 {
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool King::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {

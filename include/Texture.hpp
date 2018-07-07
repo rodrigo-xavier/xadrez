@@ -6,6 +6,30 @@
 #ifndef LTEXTURE_H
 #define LTEXTURE_H
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 class Texture
 {
     public:

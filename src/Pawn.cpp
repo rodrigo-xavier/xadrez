@@ -1,5 +1,29 @@
 #include "../include/Pawn.hpp"
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Pawn::Pawn(bool isWhite, int position_X, int position_Y)
 {
   this->name = PieceName::Pawn;
@@ -13,6 +37,30 @@ Pawn::Pawn(bool isWhite, int position_X, int position_Y)
 Pawn::~Pawn()
 {
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool Pawn::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {
@@ -52,6 +100,30 @@ bool Pawn::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 
   return false;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void Pawn::SetDiagonalEnemy(bool hasDiagonalEnemyLeft, bool hasDiagonalEnemyRight)
 {

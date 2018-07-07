@@ -1,5 +1,29 @@
 #include "../include/Rook.hpp"
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Rook::Rook(bool isWhite, int position_X, int position_Y)
 {
   this->name = PieceName::Rook;
@@ -13,6 +37,30 @@ Rook::Rook(bool isWhite, int position_X, int position_Y)
 Rook::~Rook()
 {
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool Rook::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {

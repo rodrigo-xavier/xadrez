@@ -1,5 +1,29 @@
 #include "../include/Bishop.hpp"
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Bishop::Bishop(bool isWhite, int position_X, int position_Y)
 {
   this->name = PieceName::Bishop;
@@ -13,6 +37,30 @@ Bishop::Bishop(bool isWhite, int position_X, int position_Y)
 Bishop::~Bishop()
 {
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool Bishop::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
 {
