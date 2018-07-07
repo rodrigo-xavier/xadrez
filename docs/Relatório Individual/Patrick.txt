@@ -22,3 +22,7 @@ Data: 03/07
 Continuação da jogada automatica (metodos 'UpdateBestMoves' e 'PlayBestMoves')
 
 Data: 05/07
+
+Implementação da função de salvar 'SaveGame'
+
+Data: 07/07

@@ -149,3 +149,8 @@ Implementar variavel e estado de quem é a vez de jogar (branca ou preta)
 Data: 07/07
 Hora de trabalho: 13:03 - 13:18
 
+Implementação da função de salvar 'SaveGame'
+
+Data: 07/07
+Hora de trabalho: 14:42 - 16:28
+

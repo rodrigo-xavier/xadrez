@@ -900,3 +900,52 @@ TEST_CASE("Testa o metodo de inserir uma peca na classe do Tabuleiro", "Insere u
 
     delete board;
 }
+
+TEST_CASE("Testando a função 'SaveGame'", "A função salva a vez e o tabuleiro")
+{
+	States * states;
+	states = new States();
+
+	states->SaveGame();
+	states->LoadGame();
+
+	// Testa posições X das peças pretas
+  REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
+  REQUIRE(states->black_pieces[9]->GetPositionX() == 1);
+  REQUIRE(states->black_pieces[10]->GetPositionX() == 2);
+  REQUIRE(states->black_pieces[11]->GetPositionX() == 3);
+  REQUIRE(states->black_pieces[12]->GetPositionX() == 4);
+  REQUIRE(states->black_pieces[13]->GetPositionX() == 5);
+  REQUIRE(states->black_pieces[14]->GetPositionX() == 6);
+  REQUIRE(states->black_pieces[15]->GetPositionX() == 7);
+
+	// Testa posições Y dos peões pretos
+  REQUIRE(states->black_pieces[0]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[1]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[2]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[3]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[4]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[5]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[6]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[7]->GetPositionY() == 1);
+
+	// Testa posições Y dos peões brancos
+  REQUIRE(states->white_pieces[0]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[1]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[2]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[3]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[4]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[5]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[6]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[7]->GetPositionY() == 6);
+
+	// Testa posições X das peças brancas
+  REQUIRE(states->white_pieces[8]->GetPositionX() == 0);
+  REQUIRE(states->white_pieces[9]->GetPositionX() == 1);
+  REQUIRE(states->white_pieces[10]->GetPositionX() == 2);
+  REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
+  REQUIRE(states->white_pieces[12]->GetPositionX() == 4);
+  REQUIRE(states->white_pieces[13]->GetPositionX() == 5);
+  REQUIRE(states->white_pieces[14]->GetPositionX() == 6);
+  REQUIRE(states->white_pieces[15]->GetPositionX() == 7);
+}
