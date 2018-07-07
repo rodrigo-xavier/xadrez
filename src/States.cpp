@@ -44,6 +44,7 @@ States::States(void)
   black_pieces[14] = new Knight(false, 6, 0);
   black_pieces[15] = new Rook(false, 7, 0);
 
+  pieceTurn = true;
 }
 
 Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
@@ -159,7 +160,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
   Obstacles isIntheSpot = IsInTheSpot(piece, position_X, position_Y);
   if(piece->IsMovementPossible(position_X, position_Y) &&
   (IsInTheWay(piece, position_X, position_Y) == Obstacles::Empty) &&
-  (isIntheSpot != Obstacles::Friend))
+  (isIntheSpot != Obstacles::Friend) && (pieceTurn == piece->GetColor()))
   {
     SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos diagonais do peão
 
@@ -175,7 +176,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
       EatPiece(position_X, position_Y);
 
     piece->SetPosition(position_X, position_Y);
-
+    pieceTurn = !pieceTurn;
     return true;
   }
   SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos diagonais do peão
@@ -459,4 +460,9 @@ void States::UpdateBestMoves(void)
       aux2 = black_pieces;
     }
   }
+}
+
+void States::SetPieceTurn(bool pieceTurn)
+{
+  this->pieceTurn = pieceTurn;
 }
