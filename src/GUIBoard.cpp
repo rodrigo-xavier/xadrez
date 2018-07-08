@@ -90,3 +90,19 @@ void GUIBoard::renderPossibleMoves(States *states){
 
     }
 }
+
+void GUIBoard::renderBestMove(States *states){
+
+    if(focusedPiece != NULL){
+        if(focusedPiece->GetName() != PieceName::Empty){
+
+            PiecesValues bestPosition = states->GetPieceBestMove(focusedPiece);
+            if(bestPosition.max_Value_X < 0 || bestPosition.max_Value_Y < 0){
+                return;
+            }
+            bestMove.render(indexToPixel(bestPosition.max_Value_X), indexToPixel(bestPosition.max_Value_Y)+2);
+        }
+    }
+}
+
+

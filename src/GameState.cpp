@@ -263,6 +263,7 @@ void GameState::renderPVP(){
 
     bool quit = false;
     bool showHint = false;
+    bool showBest = false;
 
     SDL_Event e;
     States *states = new States();
@@ -286,6 +287,9 @@ void GameState::renderPVP(){
                             break;
                         case SDLK_h:
                             showHint = !showHint;
+                            break;
+                        case SDLK_b:
+                            showBest = !showBest;
                     }
                 } else if(e.type == SDL_MOUSEBUTTONDOWN){
                     switch(e.type){
@@ -329,6 +333,9 @@ void GameState::renderPVP(){
                 //renderiza todos os movimentos possiveis
                 if(showHint) 
                     tabuleiro->renderPossibleMoves(states);
+
+                if(showBest)
+                    tabuleiro->renderBestMove(states);
                 //renderiza todas as peças
                 tabuleiro->renderAllPieces(states);
 
