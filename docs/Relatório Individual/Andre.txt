@@ -175,3 +175,9 @@ Metodo 'GetPieceTurn' para saber de quem é a jogada
 Data: 08/07
 Hora de trabalho: 11:50 - 11:56
 
+Transformar o Peão em Rainha quando ele chega na ultima casa do adversário
+
+Data: 08/07
+Hora de trabalho: 11:58 - 12:31
+
+

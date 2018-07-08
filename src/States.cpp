@@ -7,7 +7,6 @@
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
 #include "../include/States.hpp"
-#include "../include/GameState.hpp"
 #include <algorithm>
 #include <bits/stdc++.h>
 
@@ -177,6 +176,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
       EatPiece(position_X, position_Y);
 
     piece->SetPosition(position_X, position_Y);
+    TransformPawn(piece);
     pieceTurn = !pieceTurn;
     return true;
   }
@@ -468,19 +468,14 @@ void States::SetPieceTurn(bool pieceTurn)
   this->pieceTurn = pieceTurn;
 }
 
-void States::SaveGame(GameMode mode)
+void States::SaveGame(void)
 {
-  FILE *fp = NULL;
+  FILE *fp;
   int i, j;
   Piece ** aux;
   char print;
 
-  if(mode == GameMode::GAME_MODE_PVP)
-    fp = fopen("output_PvP.pgn","w");
-  if(mode == GameMode::GAME_MODE_CPU)
-    fp = fopen("output_CPU.pgn","w");
-  if(mode == GameMode::GAME_MODE_EDIT)
-    fp = fopen("output_EDIT.pgn","w");
+  fp = fopen("output.png","w");
 
   if(fp == NULL)
     return;
@@ -533,20 +528,14 @@ void States::SaveGame(GameMode mode)
   fclose(fp);
 }
 
-void States::LoadGame(GameMode mode)
+void States::LoadGame(void)
 {
-  FILE *fp = NULL;
+  FILE *fp;
   int i, j;
   char read[86];
   Piece ** aux;
 
-  if(mode == GameMode::GAME_MODE_PVP)
-    fp = fopen("output_PvP.pgn","r");
-  if(mode == GameMode::GAME_MODE_CPU)
-    fp = fopen("output_CPU.pgn","r");
-  if(mode == GameMode::GAME_MODE_EDIT)
-    fp = fopen("output_EDIT.pgn","r");
-
+  fp = fopen("output.png", "r");
   if(fp == NULL)
     return;
 
@@ -576,33 +565,28 @@ void States::LoadGame(GameMode mode)
   fclose(fp);
 }
 
-PiecesValues States::GetPieceBestMove(Piece * piece)
+void States::TransformPawn(Piece * piece)
 {
-    int i;
-    Piece ** aux;
-    PiecesValues * pieceValue;
+  int x, y, i;
+  bool color;
+  Piece ** aux;
 
-    UpdateBestMoves();
-
-    if(piece->GetColor())
+  if(piece->GetName() == PieceName::Pawn)
+  {
+    color = piece->GetColor();
+    y = piece->GetPositionY();
+    if((color && (y == 0)) || (!color && (y == 7)))
     {
-      aux = white_pieces;
-      pieceValue = white_values;
+      x = piece->GetPositionX();
+      color ? aux = white_pieces : aux = black_pieces;
+      for(i = 0; i < 16; i++)
+      {
+        if((aux[i]->GetPositionX() == x) && (aux[i]->GetPositionY() == y))
+        {
+          aux[i] = new Queen(color, x, y);
+          return;
+        }
+      }
     }
-    else
-    {
-      aux = black_pieces;
-      pieceValue = black_values;
-    }
-
-    for(i = 0; i < 16; i++)
-    {
-      if((piece->GetPositionX() == aux[i]->GetPositionX()) && (piece->GetPositionY() == aux[i]->GetPositionY()))
-        return pieceValue[i];
-    }
-}
-
-bool States::GetPieceTurn(void)
-{
-  return pieceTurn;
+  }
 }
