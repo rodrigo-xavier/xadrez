@@ -34,7 +34,7 @@ class States
     Obstacles IsInTheWay(Piece *, int, int);
     Obstacles IsInTheSpot(Piece *, int, int);
     bool IsCheck(bool, int, int);
-   bool MovePiece(Piece *, int, int);  //Move a peça apenas se for possivel, retornando true quando possivel e false caso contrario (podendo comer uma peça quando uma inimiga estiver na casa final)
+    bool MovePiece(Piece *, int, int);  //Move a peça apenas se for possivel, retornando true quando possivel e false caso contrario (podendo comer uma peça quando uma inimiga estiver na casa final)
     bool IsCheckMate(bool);
     GameResult WhoWon(void);
     bool IsPositionValid(Piece *, int, int);  //Função que passa a peça, e uma posição x e y. A função retorna se o movimento é possivel para a peça, para aquela posição.
@@ -46,6 +46,7 @@ class States
     void SaveGame(GameMode); //Salva o jogo em um arquivo PGN de acordo com o modo de jogo.
     void LoadGame(GameMode); //Faz o load do arquivo PGN para o jogo.
     PiecesValues GetPieceBestMove(Piece *);  //Função recebe uma peça e retorna a melhor jogada para a peça. Caso retorne uma posição x,y -1 e -1, a peça não pode mover (não há jogadas pra ela)
+    bool GetPieceTurn(void); //Retorna qual é a jogada da vez (True = peça branca, False = peça preta)
 };
 
 #endif

@@ -170,3 +170,8 @@ Metodo 'GetPieceBestMove' para pegar o melhor movimento da peça
 Data: 08/07
 Hora de trabalho: 10:50 - 11:10
 
+Metodo 'GetPieceTurn' para saber de quem é a jogada
+
+Data: 08/07
+Hora de trabalho: 11:50 - 11:56
+

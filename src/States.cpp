@@ -601,3 +601,8 @@ PiecesValues States::GetPieceBestMove(Piece * piece)
         return pieceValue[i];
     }
 }
+
+bool States::GetPieceTurn(void)
+{
+  return pieceTurn;
+}
