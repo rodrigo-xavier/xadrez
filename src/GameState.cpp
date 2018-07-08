@@ -222,20 +222,20 @@ void GameState::renderPVP(){
             gameResult = states->WhoWon();
             if(gameResult == GameResult::NoContest){
 
-                //foco da peça
-                if((tabuleiro->focusedPiece != NULL) && (tabuleiro->focusedPiece->GetColor() == states->GetPieceTurn() )){
-
-                    if(tabuleiro->focusedPiece->GetName() != PieceName::Empty){
+                if((tabuleiro->focusedPiece != NULL) ){
+                    //foco da peça
+                    if(tabuleiro->focusedPiece->GetName() != PieceName::Empty && (tabuleiro->focusedPiece->GetColor() == states->GetPieceTurn() )){
                         pieceSelected.render(tabuleiro->indexToPixel(tabuleiro->focus.x),tabuleiro->indexToPixel(tabuleiro->focus.y)+2);
                     }
-                }
-                //renderiza todos os movimentos possiveis se a peça em foco for a da jogada
-                if(showHint && (tabuleiro->focusedPiece->GetColor() == states->GetPieceTurn() ) )
-                    tabuleiro->renderPossibleMoves(states);
+                
+                    //renderiza todos os movimentos possiveis se a peça em foco for a da jogada
+                    if(showHint && (tabuleiro->focusedPiece->GetColor() == states->GetPieceTurn() ) )
+                        tabuleiro->renderPossibleMoves(states);
 
-                if(showBest && (tabuleiro->focusedPiece->GetColor() == states->GetPieceTurn() ))
-                    tabuleiro->renderBestMove(states);
-                //renderiza todas as peças
+                    if(showBest &&  (tabuleiro->focusedPiece->GetColor() == states->GetPieceTurn() ))
+                        tabuleiro->renderBestMove(states);
+                    //renderiza todas as peças
+                    }
                 tabuleiro->renderAllPieces(states);
 
             } else{
@@ -251,8 +251,18 @@ void GameState::renderPVP(){
 void GameState::renderCPU(){
 
     bool quit = false;
+    bool showHint = false;
+    bool showBest = false;
+    int x = -1, y = -1;
+    //player:
+    bool white = true;
 
     SDL_Event e;
+    States *states = new States();
+    GUIBoard *tabuleiro = new GUIBoard();
+    GameResult gameResult = GameResult::NoContest;
+    
+    states->SetPieceTurn(tabuleiro->choosePieceTurn(this, states));
 
     while(gameState == GameMode::GAME_MODE_CPU){
 

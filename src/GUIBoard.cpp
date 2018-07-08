@@ -121,7 +121,7 @@ bool GUIBoard::choosePieceTurn(GameState *gm, States *states){
             //Usuario pede pra sair
             if( e.type == SDL_QUIT ) {
                 gm->setGameState(GameMode::GAME_MODE_QUIT);
-            } else {//if (( e.type == SDL_MOUSEMOTION) || (e.type == SDL_MOUSEMOTION)){
+            } else {
 
                 switch(e.type){
                     case SDL_MOUSEMOTION:
