@@ -16,7 +16,7 @@ class GUIBoard{
         bool checkMovement(States* states); //checa se ouve alguma jogada, condicao: usa movePiece se a ultima peça clicada não for vazia
         void renderPossibleMoves(States *states);
 
-    
+
         SDL_Rect board[8][8]; //matriz de retangulos (tabuleiro)
         SDL_Point focus = {-1,-1}; //posicao clicada
         Piece *focusedPiece = NULL; //ultima peça clicada

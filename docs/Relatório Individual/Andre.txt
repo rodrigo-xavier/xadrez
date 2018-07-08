@@ -159,3 +159,8 @@ Refactoring das Funções de Load e de Save do jogo
 Data: 08/07
 Hora de trabalho: 9:51 - 10:17
 
+Arrumado o render das possíveis jogadas (UI)
+
+Data: 08/07
+Hora de trabalho: 10:45 - 10:50
+
