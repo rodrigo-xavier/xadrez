@@ -185,3 +185,8 @@ Pequeno refactoring em 'GetPiece'
 Data: 08/07
 Hora de trabalho: 18:00 - 18:04
 
+Arrumada a função do Load (novo metodo 'WakeFromDead') e feito função para matar todas as peças do vetor e reviver elas também
+
+Data: 08/07
+Hora de trabalho: 20:38 - 20:48
+

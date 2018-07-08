@@ -635,6 +635,7 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
   if((position_X >= 0) && (position_Y >=0) && (position_X < 8) && (position_Y < 8))
     if(IsInTheSpot(piece, position_X, position_Y) == Obstacles::Empty)
     {
+      piece->WakeFromDead();
       piece->SetPosition(position_X, position_Y);
       return true;
     }
@@ -906,7 +907,10 @@ void States::LoadGame(GameMode mode)
     {
       fscanf(fp, "%86[^|].", read);
       if(read[0] != 'x')
+      {
+        aux[i]->WakeFromDead();
         aux[i]->SetPosition(atoi(&read[2]), atoi(&read[4]));
+      }
       else
         aux[i]->SetDead();
 
@@ -967,5 +971,15 @@ void States::TransformPawn(Piece * piece)
         }
       }
     }
+  }
+}
+
+void States::KillAllPieces(void)
+{
+  int i;
+  for(i = 0; i < 16; i++)
+  {
+    white_pieces[i]->SetDead();
+    black_pieces[i]->SetDead();
   }
 }

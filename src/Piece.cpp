@@ -51,7 +51,7 @@ bool Piece::GetColor()
 *
 *Hipóteses: O método retorna o nome da peça
 *
-*Assertivas de saida: enumerador do tipo PieceName 
+*Assertivas de saida: enumerador do tipo PieceName
 *
 *Interface explicita: Não há interface explicita
 *
@@ -77,7 +77,7 @@ PieceName Piece::GetName()
 *
 *Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos: O método deve retornar um inteiro que indica a 
+*Requisitos: O método deve retornar um inteiro que indica a
 *posição da peça no eixo X do tabuleiro
 *
 *Hipóteses: O método retorna a poisção da peça no eixo X do tabuleiro
@@ -108,7 +108,7 @@ int Piece::GetPositionX()
 *
 *Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos: O método deve retornar um inteiro que indica a 
+*Requisitos: O método deve retornar um inteiro que indica a
 *posição da peça no eixo Y do tabuleiro
 *
 *Hipóteses: O método retorna a poisção da peça no eixo Y do tabuleiro
@@ -141,7 +141,7 @@ int Piece::GetPositionY()
 *
 *Requisitos: O método deve retornar um booleano false que indica se o movimento é possível
 *
-*Hipóteses: As posições X e Y serem posições do tabuleiro e o método retornar um booleano indicando a 
+*Hipóteses: As posições X e Y serem posições do tabuleiro e o método retornar um booleano indicando a
 *
 *Assertivas de saida: booleano false
 *
@@ -185,7 +185,7 @@ void Piece::SetDiagonalEnemy(bool hasDiagonalEnemyRight, bool hasDiagonalEnemyLe
 *
 *Interface implicita: Não há interface implicita
 *
-*Contrato na especificação: O método apenas insere as posições X e Y da 
+*Contrato na especificação: O método apenas insere as posições X e Y da
 *peça na variável da classe
 *
 */
@@ -234,12 +234,12 @@ bool Piece::GetIsAlive()
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição: Este método mata a peça setando suas posições para -1 e atribuindo 
+*Descrição: Este método mata a peça setando suas posições para -1 e atribuindo
 *false à variável da classe que indica se a peça está viva
 *
 *Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos: O método deve atribuir -1 às posições X e Y da variável da classe e false à 
+*Requisitos: O método deve atribuir -1 às posições X e Y da variável da classe e false à
 *variável da classe que indica se a peça está viva ou morta
 *
 *Hipóteses: São atribuídas posições inválidas às variáveis da peça
@@ -250,7 +250,7 @@ bool Piece::GetIsAlive()
 *
 *Interface implicita: Não há interface implícita
 *
-*Contrato na especificação: O método apenas insere posições inválidas à 
+*Contrato na especificação: O método apenas insere posições inválidas à
 *peça morta e diz que ela está realmente morta
 *
 */
@@ -260,4 +260,9 @@ void Piece::SetDead()
   isAlive = false;
   this->position_X = -1;
   this->position_Y = -1;
+}
+
+void Piece::WakeFromDead()
+{
+  isAlive = true;
 }
