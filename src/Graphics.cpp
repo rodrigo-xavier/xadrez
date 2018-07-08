@@ -1,6 +1,7 @@
 #include "../include/Graphics.hpp"
 #include <cstdio>
 #include "../include/Piece.hpp"
+#include "../include/States.hpp"
 
 bool Graphics::loadMedia() {
     bool success = true;
@@ -28,6 +29,25 @@ bool Graphics::loadMedia() {
     }
 
     if( !gBishop.loadFromFile( "../assets/BishopB.png" ) ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
+
+    //Texturas de endGame
+    //brancas ganham
+    if( !endGame[(int)GameResult::WhiteWins].loadFromFile( "../assets/Wwin.png") ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
+
+    //pretas ganham
+    if( !endGame[(int)GameResult::BlackWins].loadFromFile( "../assets/Bwin.png") ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
+
+    //empate
+    if( !endGame[(int)GameResult::Draw].loadFromFile( "../assets/Draw.png") ) {
         printf( "Failed to load texture!\n" );
         success = false;
     }
@@ -92,7 +112,7 @@ bool Graphics::loadMedia() {
     }
 
     
-        //Load sprites
+        //Load sprites do menu
     if( !gButtonSpriteSheetTexture.loadFromFile( "../assets/menus.png") ) {
         printf( "Failed to load button sprite texture!\n" );
         success = false;

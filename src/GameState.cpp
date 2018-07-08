@@ -266,12 +266,12 @@ void GameState::renderPVP(){
     SDL_Event e;
     States *states = new States();
     GUIBoard *tabuleiro = new GUIBoard();
+    GameResult gameResult = GameResult::NoContest;
 
     while(gameState == GameMode::GAME_MODE_PVP){
 
             //Handle events on queue
-            while( SDL_PollEvent( &e ) != 0 )
-            {
+            while( SDL_PollEvent( &e ) != 0 ) {
                 //User requests quit
                 if( e.type == SDL_QUIT )
                 {
@@ -303,6 +303,8 @@ void GameState::renderPVP(){
 
             }
 
+
+
             //limpa tela
             SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
             SDL_RenderClear( gRenderer );
@@ -310,18 +312,24 @@ void GameState::renderPVP(){
             //renderiza tabuleiro
             gBoard.render(0,0);
             
-            if(tabuleiro->focusedPiece != NULL){
+            gameResult = states->WhoWon();
+            if(gameResult == GameResult::NoContest){
 
-                if(tabuleiro->focusedPiece->GetName() != PieceName::Empty){
-                    pieceSelected.render(tabuleiro->indexToPixel(tabuleiro->focus.x),tabuleiro->indexToPixel(tabuleiro->focus.y)+2);
+                //foco da peça
+                if(tabuleiro->focusedPiece != NULL){
+
+                    if(tabuleiro->focusedPiece->GetName() != PieceName::Empty){
+                        pieceSelected.render(tabuleiro->indexToPixel(tabuleiro->focus.x),tabuleiro->indexToPixel(tabuleiro->focus.y)+2);
+                    }
                 }
+                //renderiza todos os movimentos possiveis
+                tabuleiro->renderPossibleMoves(states);
+                //renderiza todas as peças
+                tabuleiro->renderAllPieces(states);
+
+            } else{
+                endGame[(int)gameResult].render(0,0);
             }
-            //renderiza todas as peças
-            tabuleiro->renderPossibleMoves(states);
-            tabuleiro->renderAllPieces(states);
-
-            //t->renderPieceOnBoard(PieceName::Knight,1,1,1);
-
             //atualiza tela
             SDL_RenderPresent( gRenderer );
     }

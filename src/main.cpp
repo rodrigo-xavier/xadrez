@@ -46,6 +46,7 @@ Texture whitePieces[7];
 Texture blackPieces[7];
 Texture gBishop;
 Texture pieceSelected;
+Texture endGame[3];
 
 
 int main( int argc, char* args[] ){
