@@ -107,7 +107,7 @@ void GameState::renderPauseMenu(){
             //Render buttons
             for( int i = Button::TOTAL_BUTTONS/2; i < Button::TOTAL_BUTTONS; ++i )
             {
-                gButtons[ i ].render();
+                gButtons[i].render();
             }
 
             //Update screen
@@ -210,6 +210,20 @@ void GameState::renderPVP(){
                 }
 
             }
+            
+            //trata se teve save
+            if(gameState == GameMode::GAME_MODE_SAVE){
+                
+                states->SaveGame(GameMode::GAME_MODE_PVP);
+                gameState = GameMode::GAME_MODE_PVP;
+            }
+
+            //trata se teve load
+            if(gameState == GameMode::GAME_MODE_LOAD){
+                
+                states->LoadGame(GameMode::GAME_MODE_PVP);
+                gameState = GameMode::GAME_MODE_PVP;
+            }
 
             //limpa tela
             SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
@@ -311,6 +325,20 @@ void GameState::renderCPU(){
             }
 
         }
+        
+        //trata se teve save
+        if(gameState == GameMode::GAME_MODE_SAVE){
+                
+            states->SaveGame(GameMode::GAME_MODE_CPU);
+            gameState = GameMode::GAME_MODE_CPU;
+        }
+
+        //trata se teve load
+        if(gameState == GameMode::GAME_MODE_LOAD){
+            
+            states->LoadGame(GameMode::GAME_MODE_CPU);
+            gameState = GameMode::GAME_MODE_CPU;
+        }
 
 
        //limpa tela
@@ -374,9 +402,6 @@ void GameState::startStateMachine(GameMode gameMode){
             case GameMode::GAME_MODE_EDIT:
                 renderEditMode();
                 break;
-//            case GAME_MODE_PAUSE:
-//                renderPauseMenu();
-//                break;
         }
     }
 }
