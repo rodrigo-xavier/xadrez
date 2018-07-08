@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-enum class PieceName {Empty = '0',Pawn = 'p',Knight = 'c',Bishop = 'b',Rook = 't',Queen = 'q',King = 'k'};
+enum class PieceName {Empty , Pawn , Knight , Bishop , Rook , Queen , King};
 
 using namespace std;
 

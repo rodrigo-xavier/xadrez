@@ -4,6 +4,17 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+BUTTON_HEIGHT	main.cpp	/^const int BUTTON_HEIGHT = 340;$/;"	v
+BUTTON_SPRITE_CONTINUE	main.cpp	/^    BUTTON_SPRITE_CONTINUE = 4,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_CPU	main.cpp	/^    BUTTON_SPRITE_CPU = 1,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_EDIT	main.cpp	/^    BUTTON_SPRITE_EDIT = 2,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_LOAD	main.cpp	/^    BUTTON_SPRITE_LOAD = 6,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_MAIN_MENU	main.cpp	/^    BUTTON_SPRITE_MAIN_MENU = 7,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_PVP	main.cpp	/^    BUTTON_SPRITE_PVP = 0,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_QUIT	main.cpp	/^    BUTTON_SPRITE_QUIT = 3,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_SAVE	main.cpp	/^    BUTTON_SPRITE_SAVE = 5,$/;"	e	enum:LButtonSprite	file:
+BUTTON_SPRITE_TOTAL	main.cpp	/^    BUTTON_SPRITE_TOTAL = 8$/;"	e	enum:LButtonSprite	file:
+BUTTON_WIDTH	main.cpp	/^const int BUTTON_WIDTH = 340;$/;"	v
 Bishop	Bishop.cpp	/^Bishop::Bishop(bool isWhite, int position_X, int position_Y)$/;"	f	class:Bishop
 Board	Board.cpp	/^Board::Board(void)$/;"	f	class:Board
 CC	makefile	/^CC = g++ -std=c++11$/;"	m
@@ -14,13 +25,29 @@ DIR_OBJECTS	makefile	/^DIR_OBJECTS = ..\/obj$/;"	m
 DIR_SOURCES	makefile	/^DIR_SOURCES = ..\/src$/;"	m
 DIR_TESTS	makefile	/^DIR_TESTS = ..\/tests$/;"	m
 EatPiece	States.cpp	/^void States::EatPiece(int position_X, int position_Y)$/;"	f	class:States
+GAME_MODE_CONTINUE	main.cpp	/^    GAME_MODE_CONTINUE = 4,$/;"	e	enum:GameMode	file:
+GAME_MODE_CPU	main.cpp	/^    GAME_MODE_CPU = 1,$/;"	e	enum:GameMode	file:
+GAME_MODE_EDIT	main.cpp	/^    GAME_MODE_EDIT = 2,$/;"	e	enum:GameMode	file:
+GAME_MODE_LOAD	main.cpp	/^    GAME_MODE_LOAD = 6,$/;"	e	enum:GameMode	file:
+GAME_MODE_MAIN_MENU	main.cpp	/^    GAME_MODE_MAIN_MENU = 7,$/;"	e	enum:GameMode	file:
+GAME_MODE_PAUSE	main.cpp	/^    GAME_MODE_PAUSE = 8,$/;"	e	enum:GameMode	file:
+GAME_MODE_PVP	main.cpp	/^    GAME_MODE_PVP = 0,$/;"	e	enum:GameMode	file:
+GAME_MODE_QUIT	main.cpp	/^    GAME_MODE_QUIT = 3,$/;"	e	enum:GameMode	file:
+GAME_MODE_SAVE	main.cpp	/^    GAME_MODE_SAVE = 5,$/;"	e	enum:GameMode	file:
+GAME_MODE_TOTAL	main.cpp	/^    GAME_MODE_TOTAL = 9$/;"	e	enum:GameMode	file:
+GameMode	main.cpp	/^enum GameMode {$/;"	g	file:
+GameState	main.cpp	/^GameState::GameState(){$/;"	f	class:GameState
+GameState	main.cpp	/^class GameState{$/;"	c	file:
 GetColor	Piece.cpp	/^bool Piece::GetColor()$/;"	f	class:Piece
 GetIsAlive	Piece.cpp	/^bool Piece::GetIsAlive()$/;"	f	class:Piece
 GetName	Piece.cpp	/^PieceName Piece::GetName()$/;"	f	class:Piece
 GetPositionX	Piece.cpp	/^int Piece::GetPositionX()$/;"	f	class:Piece
 GetPositionY	Piece.cpp	/^int Piece::GetPositionY()$/;"	f	class:Piece
+Graphics	main.cpp	/^Graphics::Graphics(){$/;"	f	class:Graphics
+Graphics	main.cpp	/^class Graphics{$/;"	c	file:
 HEADERS	makefile	/^HEADERS = $(patsubst %,$(DIR_HEADERS)\/%,$(_HEADERS))$/;"	m
 IsCheck	States.cpp	/^bool States::IsCheck(bool kingColor, int position_X, int position_Y)$/;"	f	class:States
+IsCheckMate	States.cpp	/^bool States::IsCheckMate(bool kingColor)$/;"	f	class:States
 IsInTheSpot	States.cpp	/^Obstacles States::IsInTheSpot(int position_X, int position_Y, Piece * piece)$/;"	f	class:States
 IsInTheWay	States.cpp	/^Obstacles States::IsInTheWay(int position_X, int position_Y, Piece * piece)$/;"	f	class:States
 IsMovementPossible	Bishop.cpp	/^bool Bishop::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)$/;"	f	class:Bishop
@@ -30,13 +57,13 @@ IsMovementPossible	Pawn.cpp	/^bool Pawn::IsMovementPossible(int FinalPosition_X,
 IsMovementPossible	Piece.cpp	/^bool Piece::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)$/;"	f	class:Piece
 IsMovementPossible	Queen.cpp	/^bool Queen::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)$/;"	f	class:Queen
 IsMovementPossible	Rook.cpp	/^bool Rook::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)$/;"	f	class:Rook
+IsPositionValid	States.cpp	/^bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)$/;"	f	class:States
 King	King.cpp	/^King::King(bool isWhite, int position_X, int position_Y)$/;"	f	class:King
 Knight	Knight.cpp	/^Knight::Knight(bool isWhite, int position_X, int position_Y)$/;"	f	class:Knight
-LIBS	makefile	/^LIBS = -lm -lSDL2 -lSDL2_image -lSDL2_ttf$/;"	m
-LTexture	18_key_states.cpp	/^LTexture::LTexture()$/;"	f	class:LTexture
-LTexture	18_key_states.cpp	/^class LTexture$/;"	c	file:
-LTexture	main.cpp	/^LTexture::LTexture()$/;"	f	class:LTexture
-LTexture	main.cpp	/^class LTexture$/;"	c	file:
+LButton	main.cpp	/^LButton::LButton()$/;"	f	class:LButton
+LButton	main.cpp	/^class LButton$/;"	c	file:
+LButtonSprite	main.cpp	/^enum LButtonSprite$/;"	g	file:
+LIBS	makefile	/^LIBS = -lm -lSDL2 -lSDL2_image$/;"	m
 MovePiece	States.cpp	/^bool States::MovePiece(Piece * piece, int position_X, int position_Y)$/;"	f	class:States
 OBJECTS	makefile	/^OBJECTS = $(patsubst %,$(DIR_OBJECTS)\/%,$(_OBJECTS))$/;"	m
 PROJECT_EXE	makefile	/^PROJECT_EXE = ..\/Project$/;"	m
@@ -44,72 +71,70 @@ Pawn	Pawn.cpp	/^Pawn::Pawn(bool isWhite, int position_X, int position_Y)$/;"	f	c
 Piece	Piece.cpp	/^Piece::Piece()$/;"	f	class:Piece
 Queen	Queen.cpp	/^Queen::Queen(bool isWhite, int position_X, int position_Y)$/;"	f	class:Queen
 Rook	Rook.cpp	/^Rook::Rook(bool isWhite, int position_X, int position_Y)$/;"	f	class:Rook
-SCREEN_HEIGHT	18_key_states.cpp	/^const int SCREEN_HEIGHT = 480;$/;"	v
-SCREEN_HEIGHT	main.cpp	/^const int SCREEN_HEIGHT = 480;$/;"	v
-SCREEN_WIDTH	18_key_states.cpp	/^const int SCREEN_WIDTH = 640;$/;"	v
-SCREEN_WIDTH	main.cpp	/^const int SCREEN_WIDTH = 640;$/;"	v
+SCREEN_HEIGHT	main.cpp	/^const int SCREEN_HEIGHT = 680;$/;"	v
+SCREEN_WIDTH	main.cpp	/^const int SCREEN_WIDTH = 680;$/;"	v
 SetDead	Piece.cpp	/^void Piece::SetDead()$/;"	f	class:Piece
 SetDiagonalEnemy	Pawn.cpp	/^void Pawn::SetDiagonalEnemy(bool hasDiagonalEnemyLeft, bool hasDiagonalEnemyRight)$/;"	f	class:Pawn
 SetDiagonalEnemy	Piece.cpp	/^void Piece::SetDiagonalEnemy(bool hasDiagonalEnemyRight, bool hasDiagonalEnemyLeft)$/;"	f	class:Piece
-SetPawnDiagonalEnemies	States.cpp	/^void States::SetPawnDiagonalEnemies(bool check, Piece * piece)$/;"	f	class:States
+SetPawnDiagonalEnemies	States.cpp	/^void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX, int futureEnemyY)$/;"	f	class:States
 SetPosition	Piece.cpp	/^void Piece::SetPosition(int position_X, int position_Y)$/;"	f	class:Piece
 States	States.cpp	/^States::States(void)$/;"	f	class:States
 TESTS	makefile	/^TESTS = $(patsubst %,$(DIR_TESTS)\/%,$(_TESTS))$/;"	m
 TEST_EXE	makefile	/^TEST_EXE = ..\/Test$/;"	m
+TOTAL_BUTTONS	main.cpp	/^const int TOTAL_BUTTONS = 8;$/;"	v
+Texture	main.cpp	/^Texture::Texture()$/;"	f	class:Texture
+Texture	main.cpp	/^class Texture$/;"	c	file:
+WhoWon	States.cpp	/^GameResult States::WhoWon(void)$/;"	f	class:States
 _HEADERS	makefile	/^_HEADERS = Piece.hpp Board.hpp Pawn.hpp Knight.hpp Bishop.hpp Rook.hpp Queen.hpp King.hpp States.hpp$/;"	m
 _OBJECTS	makefile	/^_OBJECTS = main.o Piece.o Board.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o States.o$/;"	m
 _TESTS	makefile	/^_TESTS = Test_Main.cpp$/;"	m
-close	18_key_states.cpp	/^void close()$/;"	f
-close	main.cpp	/^void close()$/;"	f
+blackPieces	main.cpp	/^        Texture blackPieces[7];$/;"	m	class:Graphics	file:
+check	main.cpp	/^        int check = 0;$/;"	m	class:LButton	file:
+close	main.cpp	/^void Graphics::close()$/;"	f	class:Graphics
 destroyBoard	Board.cpp	/^void Board::destroyBoard()$/;"	f	class:Board
-free	18_key_states.cpp	/^void LTexture::free()$/;"	f	class:LTexture
-free	main.cpp	/^void LTexture::free()$/;"	f	class:LTexture
-gBoard	main.cpp	/^LTexture gBoard;$/;"	v
-gDownTexture	18_key_states.cpp	/^LTexture gDownTexture;$/;"	v
-gLeftTexture	18_key_states.cpp	/^LTexture gLeftTexture;$/;"	v
-gPressTexture	18_key_states.cpp	/^LTexture gPressTexture;$/;"	v
-gRenderer	18_key_states.cpp	/^SDL_Renderer* gRenderer = NULL;$/;"	v
-gRenderer	main.cpp	/^SDL_Renderer* gRenderer = NULL;$/;"	v
-gRightTexture	18_key_states.cpp	/^LTexture gRightTexture;$/;"	v
-gUpTexture	18_key_states.cpp	/^LTexture gUpTexture;$/;"	v
-gWindow	18_key_states.cpp	/^SDL_Window* gWindow = NULL;$/;"	v
-gWindow	main.cpp	/^SDL_Window* gWindow = NULL;$/;"	v
-getHeight	18_key_states.cpp	/^int LTexture::getHeight()$/;"	f	class:LTexture
-getHeight	main.cpp	/^int LTexture::getHeight()$/;"	f	class:LTexture
-getWidth	18_key_states.cpp	/^int LTexture::getWidth()$/;"	f	class:LTexture
-getWidth	main.cpp	/^int LTexture::getWidth()$/;"	f	class:LTexture
-init	18_key_states.cpp	/^bool init()$/;"	f
-init	main.cpp	/^bool init()$/;"	f
-loadFromFile	18_key_states.cpp	/^bool LTexture::loadFromFile( std::string path )$/;"	f	class:LTexture
-loadFromFile	main.cpp	/^bool LTexture::loadFromFile( std::string path )$/;"	f	class:LTexture
-loadFromRenderedText	18_key_states.cpp	/^bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColor )$/;"	f	class:LTexture
-loadFromRenderedText	main.cpp	/^bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColor )$/;"	f	class:LTexture
-loadMedia	18_key_states.cpp	/^bool loadMedia()$/;"	f
-loadMedia	main.cpp	/^bool loadMedia()$/;"	f
-mHeight	18_key_states.cpp	/^		int mHeight;$/;"	m	class:LTexture	file:
-mHeight	main.cpp	/^		int mHeight;$/;"	m	class:LTexture	file:
-mTexture	18_key_states.cpp	/^		SDL_Texture* mTexture;$/;"	m	class:LTexture	file:
-mTexture	main.cpp	/^		SDL_Texture* mTexture;$/;"	m	class:LTexture	file:
-mWidth	18_key_states.cpp	/^		int mWidth;$/;"	m	class:LTexture	file:
-mWidth	main.cpp	/^		int mWidth;$/;"	m	class:LTexture	file:
-main	18_key_states.cpp	/^int main( int argc, char* args[] )$/;"	f
-main	main.cpp	/^int main( int argc, char* args[] )$/;"	f
-render	18_key_states.cpp	/^void LTexture::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )$/;"	f	class:LTexture
-render	main.cpp	/^void LTexture::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )$/;"	f	class:LTexture
+free	main.cpp	/^void Texture::free()$/;"	f	class:Texture
+gBishop	main.cpp	/^        Texture gBishop;$/;"	m	class:Graphics	file:
+gBoard	main.cpp	/^        Texture gBoard;$/;"	m	class:Graphics	file:
+gButtonSpriteSheetTexture	main.cpp	/^        Texture gButtonSpriteSheetTexture;$/;"	m	class:Graphics	file:
+gButtons	main.cpp	/^        LButton gButtons[ TOTAL_BUTTONS ]; $/;"	m	class:Graphics	file:
+gCheckTexture	main.cpp	/^        Texture gCheckTexture;$/;"	m	class:Graphics	file:
+gRenderer	main.cpp	/^        SDL_Renderer* gRenderer = NULL;$/;"	m	class:Graphics	file:
+gSpriteClips	main.cpp	/^        SDL_Rect gSpriteClips[ BUTTON_SPRITE_TOTAL ]; $/;"	m	class:Graphics	file:
+gWindow	main.cpp	/^        SDL_Window* gWindow = NULL;$/;"	m	class:Graphics	file:
+gameState	main.cpp	/^        GameMode gameState;$/;"	m	class:GameState	file:
+getGameState	main.cpp	/^GameMode GameState::getGameState(){$/;"	f	class:GameState
+getHeight	main.cpp	/^int Texture::getHeight()$/;"	f	class:Texture
+getWidth	main.cpp	/^int Texture::getWidth()$/;"	f	class:Texture
+handleEvent	main.cpp	/^void LButton::handleEvent( SDL_Event* e , GameState *gm)$/;"	f	class:LButton
+init	main.cpp	/^bool Graphics::init(){$/;"	f	class:Graphics
+loadFromFile	main.cpp	/^bool Texture::loadFromFile( std::string path )$/;"	f	class:Texture
+loadMedia	main.cpp	/^bool Graphics::loadMedia()                                                                                                                                                                    $/;"	f	class:Graphics
+mCurrentSprite	main.cpp	/^        LButtonSprite mCurrentSprite;$/;"	m	class:LButton	file:
+mHeight	main.cpp	/^        int mHeight;$/;"	m	class:Texture	file:
+mPosition	main.cpp	/^        SDL_Point mPosition;$/;"	m	class:LButton	file:
+mTexture	main.cpp	/^        SDL_Texture* mTexture;$/;"	m	class:Texture	file:
+mWidth	main.cpp	/^        int mWidth;$/;"	m	class:Texture	file:
+main	main.cpp	/^int main( int argc, char* args[] ){$/;"	f
+pause	main.cpp	/^        int pause = 0;$/;"	m	class:GameState	file:
+render	main.cpp	/^void LButton::render()$/;"	f	class:LButton
+render	main.cpp	/^void Texture::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )$/;"	f	class:Texture
+renderCPU	main.cpp	/^void GameState::renderCPU(){$/;"	f	class:GameState
+renderEditMode	main.cpp	/^void GameState::renderEditMode(){$/;"	f	class:GameState
+renderMainMenu	main.cpp	/^void GameState::renderMainMenu(){$/;"	f	class:GameState
+renderPVP	main.cpp	/^void GameState::renderPVP(){$/;"	f	class:GameState
+renderPauseMenu	main.cpp	/^void GameState::renderPauseMenu(){$/;"	f	class:GameState
 returnPiece	Board.cpp	/^char Board::returnPiece(int x, int y)$/;"	f	class:Board
-setAlpha	18_key_states.cpp	/^void LTexture::setAlpha( Uint8 alpha )$/;"	f	class:LTexture
-setAlpha	main.cpp	/^void LTexture::setAlpha( Uint8 alpha )$/;"	f	class:LTexture
-setBlendMode	18_key_states.cpp	/^void LTexture::setBlendMode( SDL_BlendMode blending )$/;"	f	class:LTexture
-setBlendMode	main.cpp	/^void LTexture::setBlendMode( SDL_BlendMode blending )$/;"	f	class:LTexture
-setColor	18_key_states.cpp	/^void LTexture::setColor( Uint8 red, Uint8 green, Uint8 blue )$/;"	f	class:LTexture
-setColor	main.cpp	/^void LTexture::setColor( Uint8 red, Uint8 green, Uint8 blue )$/;"	f	class:LTexture
+setCurrentSprite	main.cpp	/^void LButton::setCurrentSprite(LButtonSprite sprite){$/;"	f	class:LButton
+setGameState	main.cpp	/^void GameState::setGameState(GameMode gameMode){$/;"	f	class:GameState
+setPosition	main.cpp	/^void LButton::setPosition( int x, int y )$/;"	f	class:LButton
+startStateMachine	main.cpp	/^void GameState::startStateMachine(GameMode gameMode){$/;"	f	class:GameState
+whitePieces	main.cpp	/^        Texture whitePieces[7];$/;"	m	class:Graphics	file:
 ~Bishop	Bishop.cpp	/^Bishop::~Bishop()$/;"	f	class:Bishop
 ~Board	Board.cpp	/^Board::~Board()$/;"	f	class:Board
 ~King	King.cpp	/^King::~King()$/;"	f	class:King
 ~Knight	Knight.cpp	/^Knight::~Knight()$/;"	f	class:Knight
-~LTexture	18_key_states.cpp	/^LTexture::~LTexture()$/;"	f	class:LTexture
-~LTexture	main.cpp	/^LTexture::~LTexture()$/;"	f	class:LTexture
 ~Pawn	Pawn.cpp	/^Pawn::~Pawn()$/;"	f	class:Pawn
 ~Piece	Piece.cpp	/^Piece::~Piece()$/;"	f	class:Piece
 ~Queen	Queen.cpp	/^Queen::~Queen()$/;"	f	class:Queen
 ~Rook	Rook.cpp	/^Rook::~Rook()$/;"	f	class:Rook
+~Texture	main.cpp	/^Texture::~Texture()$/;"	f	class:Texture
