@@ -28,3 +28,17 @@ Modularizei as classes criadas para a interface. Ainda tem dependencias de varia
 
 Data 03/07
 Hora de trabalho 19:30 a 19:51 
+
+Criei os sprites para o menu principal no gimp
+Data 06/07
+Hora de trabalho 18:43 a 19:38
+
+
+Fiz os recursos da interface para cortar blocos do spritesheet criado no gimp e carregar no programa e criei o menu principal,
+tive alguns problemas com a modularização prévia e tive um pouco de retrabalho.
+Data 06/07
+Hora de trabalho 20:15 as 23:40
+
+Fiz a máquina de estados para o menu principal, agora a transição de estados está 100%. Modularizei, consertei conflitos, etc.
+Data 07/07
+9 da manhã até o final do dia
