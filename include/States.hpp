@@ -6,7 +6,7 @@
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -14,9 +14,9 @@
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -24,7 +24,7 @@
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -34,7 +34,7 @@ enum class Level{Easy, Medium, Hard};
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -42,9 +42,9 @@ enum class Level{Easy, Medium, Hard};
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -52,7 +52,7 @@ enum class Level{Easy, Medium, Hard};
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -65,7 +65,7 @@ struct PiecesValues
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -73,9 +73,9 @@ struct PiecesValues
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -83,7 +83,7 @@ struct PiecesValues
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -94,7 +94,7 @@ class States
     void EatPiece(int, int);    //Mata a peça da posição x, y.
     bool pieceTurn;  //True - vez da branca, False - vez da preta.
     void TransformPawn(Piece * piece);
-
+    Piece * emptyPiece = new Piece();
 
   public:
     //Vetor que guarda as melhores jogadas de cada peça:
