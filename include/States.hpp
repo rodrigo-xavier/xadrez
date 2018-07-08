@@ -2,6 +2,7 @@
 #define STATES_HPP_INCLUDED
 
 #include "Piece.hpp"
+#include "GameState.hpp"
 
 enum class Obstacles{Empty,Friend,Enemy};
 enum class GameResult{WhiteWins,BlackWins,Draw,NoContest};
@@ -44,8 +45,9 @@ class States
     void UpdateBestMoves(void); //Função que atualiza os melhores movimentos para as peças brancas e pretas.
     void SetPieceTurn(bool);  //Seta a vez da peça que vai jogar (para a função de Load)
     bool GetPieceTurn(void);
-    void SaveGame(void); //Salva o jogo em um arquivo PGN de acordo com o modo de jogo.
-    void LoadGame(void); //Faz o load do arquivo PGN para o jogo.
+    void SaveGame(GameMode); //Salva o jogo em um arquivo PGN de acordo com o modo de jogo.
+    void LoadGame(GameMode); //Faz o load do arquivo PGN para o jogo.
+    PiecesValues GetPieceBestMove(Piece *);  //Função recebe uma peça e retorna a melhor jogada para a peça. Caso retorne uma posição x,y -1 e -1, a peça não pode mover (não há jogadas pra ela)
 };
 
 #endif
