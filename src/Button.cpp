@@ -123,7 +123,6 @@ void Button::handleEvent( SDL_Event* e , GameState *gm)
         int x, y;
         SDL_GetMouseState( &x, &y );
 
-        //g if mouse is in button
         bool inside = true;
 
         //Mouse is left of the button
@@ -179,12 +178,12 @@ void Button::handleEvent( SDL_Event* e , GameState *gm)
                             break;
                         case ButtonSprite::BUTTON_SPRITE_SAVE:
                              gm->pause = 0;
-                             //gm->setGameState(GAME_MODE_SAVE);
+                             gm->setGameState(GameMode::GAME_MODE_SAVE);
                  //           *gm = GAME_MODE_SAVE;
                             break;
                         case ButtonSprite::BUTTON_SPRITE_LOAD:
                              gm->pause = 0;
-                             //gm->setGameState(GAME_MODE_LOAD);
+                             gm->setGameState(GameMode::GAME_MODE_LOAD);
                   //          *gm = GAME_MODE_LOAD;
                             break;
                         case ButtonSprite::BUTTON_SPRITE_MAIN_MENU:

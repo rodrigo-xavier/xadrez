@@ -333,10 +333,10 @@ bool GUIBoard::choosePieceTurn(GameState *gm, States *states){
 
         while(SDL_PollEvent(&e) != 0){
         
-            /*//Usuario pede pra sair
+            //Usuario pede pra sair
             if( e.type == SDL_QUIT ) {
                 gm->setGameState(GameMode::GAME_MODE_QUIT);
-            } else if(e.type == SDL_MOUSEBUTTONDOWN){
+            } else if(e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION){
                 switch(e.type){
                     case SDL_MOUSEBUTTONDOWN:
                         selected = true;
@@ -346,53 +346,13 @@ bool GUIBoard::choosePieceTurn(GameState *gm, States *states){
                             white = false;
                         } 
                         break;
-                }
-            } else if(e.type == SDL_MOUSEMOTION){
-
-                switch(e.type){
-                    case SDL_MOUSEMOTION:
+                    case SDL_MOUSEMOTION: 
                         SDL_GetMouseState(&x,&y);
                         break;
                 }
-            }*/
-            switch(e.type){
-                case SDL_QUIT: 
-                    gm->setGameState(GameMode::GAME_MODE_QUIT);
-                    break;
-                case SDL_MOUSEMOTION:
-                    SDL_GetMouseState(&x,&y);
-                    break;
-                case SDL_MOUSEBUTTONDOWN:
-                    selected = true;
-                    if(y > 340){
-                        white = true;
-                    } else{
-                        white = false;
-                    } 
-                    break; 
-            }
-            /*
-            if( e.type == SDL_QUIT ) {
-                gm->setGameState(GameMode::GAME_MODE_QUIT);
-            } else if(e.type == SDL_MOUSEBUTTONDOWN){
-                switch(e.type){
-                    case SDL_MOUSEBUTTONDOWN:
-                        selected = true;
-                        if(y > 340){
-                            white = true;
-                        } else{
-                            white = false;
-                        } 
-                        break;
-                }
-            } else if(e.type == SDL_MOUSEMOTION){
+            } 
 
-                switch(e.type){
-                    case SDL_MOUSEMOTION:
-                        SDL_GetMouseState(&x,&y);
-                        break;
-                }
-            }*/
+            
 
 
            SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
