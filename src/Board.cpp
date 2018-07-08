@@ -1,24 +1,24 @@
 #include "../include/Board.hpp"
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
 *Contrato na especificação: 
 *
@@ -29,25 +29,25 @@ Board::Board(void)
     states = new States();
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
 *Contrato na especificação: 
 *
@@ -59,25 +59,25 @@ Board::~Board()
     destroy_board();
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
 *Contrato na especificação: 
 *
@@ -92,25 +92,25 @@ void Board::destroy_board()
             board[i][j] = '0';
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
 *Contrato na especificação: 
 *
@@ -121,25 +121,25 @@ char Board::return_piece(int x, int y)
     return board[x][y];
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
 *Contrato na especificação: 
 *
@@ -150,25 +150,25 @@ void Board::insert_piece(int x, int y, char c)
     board[x][y] = c;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
 *Contrato na especificação: 
 *

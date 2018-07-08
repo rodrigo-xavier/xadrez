@@ -131,7 +131,7 @@ int Piece::GetPositionY()
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: Este método dois parâmetros que indicam a posição X e Y da peça no tabuleiro
+*Parâmetros: Este método contém dois parâmetros que indicam a posição X e Y da peça no tabuleiro
 *
 *Tratamento de Erros: Este método não contém nenhum tratamento de erros
 *
@@ -143,14 +143,14 @@ int Piece::GetPositionY()
 *
 *Hipóteses: As posições X e Y serem posições do tabuleiro e o método retornar um booleano indicando a 
 *
-*Assertivas de saida: inteiro position_Y
+*Assertivas de saida: booleano false
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: int FinalPosition_X, int FinalPosition_Y
 *
 *Interface implicita: Não há interface implicita.
 *
-*Contrato na especificação: O método apenas retorna um inteiro
-*que indica a posição da peça no eixo Y do tabuleiro
+*Contrato na especificação: O método apenas retorna um booleano
+*que indica se é possível a peça se mover para a nova posição
 *
 */
 
@@ -159,55 +159,34 @@ bool Piece::IsMovementPossible(int FinalPosition_X, int FinalPosition_Y)
   return false;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
-*
-*Parâmetros: 
-*
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos: 
-*
-*Hipóteses: 
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação: 
-*
-*/
-
 void Piece::SetDiagonalEnemy(bool hasDiagonalEnemyRight, bool hasDiagonalEnemyLeft)
 {
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Método que seta as posições X e Y da peça no tabuleiro
 *
-*Parâmetros: 
+*Parâmetros: dois inteiros que indicam as posições X e Y
 *
-*Tratamento de Erros:
+*Tratamento de Erros: É verifica do a peça está viva
 *
-*Descrição:
+*Descrição: O método insere na peça as suas respectivas posições no eixo X e Y do tabuleiro
 *
-*Assertivas de entrada:
+*Assertivas de entrada: dois inteiros indicando as posições X e Y
 *
-*Requisitos: 
+*Requisitos: O método deve receber dois inteiros que pertençam à posições do tabuleiro
+* e seta-los nas posições X e Y da classe peça
 *
-*Hipóteses: 
+*Hipóteses: O valor dos inteiros pertence à alguma posição do tabuleiro,
+* a peça deve estar viva e as posições da peça devem ser inseridas na variável da classe
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: int position_X, int position_Y
 *
-*Interface implicita:
+*Interface implicita: Não há interface implicita
 *
-*Contrato na especificação: 
+*Contrato na especificação: O método apenas insere as posições X e Y da 
+*peça na variável da classe
 *
 */
 
@@ -220,27 +199,27 @@ void Piece::SetPosition(int position_X, int position_Y)
   }
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Método que diz se a peça está viva ou não
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: O método retorna um booleano que indica se a peça está ou não está viva
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos: 
+*Requisitos: o valor retornado deve ser um booleano
 *
-*Hipóteses: 
+*Hipóteses: O valor retornado é um booleano
 *
-*Assertivas de saida:
+*Assertivas de saida: bool isAlive
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação: 
+*Contrato na especificação: O método deve retornar um booleano que indica se a peça está viva
 *
 */
 
@@ -249,27 +228,30 @@ bool Piece::GetIsAlive()
   return isAlive;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Método que mata a peça
 *
-*Parâmetros: 
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: Este método mata a peça setando suas posições para -1 e atribuindo 
+*false à variável da classe que indica se a peça está viva
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos: 
+*Requisitos: O método deve atribuir -1 às posições X e Y da variável da classe e false à 
+*variável da classe que indica se a peça está viva ou morta
 *
-*Hipóteses: 
+*Hipóteses: São atribuídas posições inválidas às variáveis da peça
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação: 
+*Contrato na especificação: O método apenas insere posições inválidas à 
+*peça morta e diz que ela está realmente morta
 *
 */
 
