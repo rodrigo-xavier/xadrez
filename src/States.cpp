@@ -7,6 +7,7 @@
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
 #include "../include/States.hpp"
+#include "../include/GameState.hpp"
 #include <algorithm>
 #include <bits/stdc++.h>
 
@@ -68,6 +69,7 @@ States::States(void)
   black_pieces[14] = new Knight(false, 6, 0);
   black_pieces[15] = new Rook(false, 7, 0);
 
+  pieceTurn = true;
 }
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
@@ -279,7 +281,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
   Obstacles isIntheSpot = IsInTheSpot(piece, position_X, position_Y);
   if(piece->IsMovementPossible(position_X, position_Y) &&
   (IsInTheWay(piece, position_X, position_Y) == Obstacles::Empty) &&
-  (isIntheSpot != Obstacles::Friend))
+  (isIntheSpot != Obstacles::Friend) && (pieceTurn == piece->GetColor()))
   {
     SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos diagonais do peão
 
@@ -295,7 +297,8 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
       EatPiece(position_X, position_Y);
 
     piece->SetPosition(position_X, position_Y);
-
+    TransformPawn(piece);
+    pieceTurn = !pieceTurn;
     return true;
   }
   SetPawnDiagonalEnemies(false, piece, -1, -1); //Remove os inimigos diagonais do peão
@@ -793,6 +796,176 @@ void States::UpdateBestMoves(void)
       maxValue = -10;
       aux = black_values;
       aux2 = black_pieces;
+    }
+  }
+}
+
+void States::SetPieceTurn(bool pieceTurn)
+{
+  this->pieceTurn = pieceTurn;
+}
+
+bool States::GetPieceTurn(void)
+{
+  return this->pieceTurn;
+}
+
+void States::SaveGame(GameMode mode)
+{
+  FILE *fp = NULL;
+  int i, j;
+  Piece ** aux;
+  char print;
+
+  if(mode == GameMode::GAME_MODE_PVP)
+    fp = fopen("output_PvP.pgn","w");
+  if(mode == GameMode::GAME_MODE_CPU)
+    fp = fopen("output_CPU.pgn","w");
+  if(mode == GameMode::GAME_MODE_EDIT)
+    fp = fopen("output_EDIT.pgn","w");
+
+  if(fp == NULL)
+    return;
+
+  fprintf(fp, "%s", "[Piece Turn]:");
+  fprintf(fp, "%c%c", pieceTurn ? 'w' : 'b', '\n');
+  fprintf(fp, "%s", "[White Piece Board]:");
+  aux = white_pieces;
+  for(j = 0; j < 2; j++)
+  {
+    for(i = 0; i < 16; i++)
+    {
+      if(aux[i]->GetIsAlive())
+      {
+        switch (aux[i]->GetName())
+        {
+          case PieceName::Pawn:
+            print = 'P';
+            break;
+          case PieceName::Bishop:
+            print = 'B';
+            break;
+          case PieceName::Rook:
+            print = 'R';
+            break;
+          case PieceName::Knight:
+            print = 'N';
+            break;
+          case PieceName::Queen:
+            print = 'Q';
+            break;
+          case PieceName::King:
+            print = 'K';
+            break;
+        }
+        fprintf(fp, "%c,%d,%d,%c", print, aux[i]->GetPositionX(), aux[i]->GetPositionY(), '|');
+      }
+      else
+      {
+        fprintf(fp, "%c%c", 'x', '|');
+      }
+    }
+    if(j == 0)
+    {
+      fprintf(fp, "%c", '\n');
+      fprintf(fp, "%s", "[Black Piece Board]:");
+      aux = black_pieces;
+    }
+  }
+  fclose(fp);
+}
+
+void States::LoadGame(GameMode mode)
+{
+  FILE *fp = NULL;
+  int i, j;
+  char read[86];
+  Piece ** aux;
+
+  if(mode == GameMode::GAME_MODE_PVP)
+    fp = fopen("output_PvP.pgn","r");
+  if(mode == GameMode::GAME_MODE_CPU)
+    fp = fopen("output_CPU.pgn","r");
+  if(mode == GameMode::GAME_MODE_EDIT)
+    fp = fopen("output_EDIT.pgn","r");
+
+  if(fp == NULL)
+    return;
+
+  fscanf(fp, "%86[^\n].", read);
+
+  read[13] == 'w' ? pieceTurn = true : pieceTurn = false;
+
+  aux = white_pieces;
+  for(j = 0; j < 2; j++)
+  {
+    fscanf(fp, "%86[^:].", read);
+    read[0] = fgetc(fp);
+
+    for(i = 0; i < 16; i++)
+    {
+      fscanf(fp, "%86[^|].", read);
+      if(read[0] != 'x')
+        aux[i]->SetPosition(atoi(&read[2]), atoi(&read[4]));
+      else
+        aux[i]->SetDead();
+
+      read[0] = fgetc(fp);
+    }
+    aux = black_pieces;
+  }
+
+  fclose(fp);
+}
+
+PiecesValues States::GetPieceBestMove(Piece * piece)
+{
+    int i;
+    Piece ** aux;
+    PiecesValues * pieceValue;
+
+    UpdateBestMoves();
+
+    if(piece->GetColor())
+    {
+      aux = white_pieces;
+      pieceValue = white_values;
+    }
+    else
+    {
+      aux = black_pieces;
+      pieceValue = black_values;
+    }
+
+    for(i = 0; i < 16; i++)
+    {
+      if((piece->GetPositionX() == aux[i]->GetPositionX()) && (piece->GetPositionY() == aux[i]->GetPositionY()))
+        return pieceValue[i];
+    }
+}
+
+void States::TransformPawn(Piece * piece)
+{
+  int x, y, i;
+  bool color;
+  Piece ** aux;
+
+  if(piece->GetName() == PieceName::Pawn)
+  {
+    color = piece->GetColor();
+    y = piece->GetPositionY();
+    if((color && (y == 0)) || (!color && (y == 7)))
+    {
+      x = piece->GetPositionX();
+      color ? aux = white_pieces : aux = black_pieces;
+      for(i = 0; i < 16; i++)
+      {
+        if((aux[i]->GetPositionX() == x) && (aux[i]->GetPositionY() == y))
+        {
+          aux[i] = new Queen(color, x, y);
+          return;
+        }
+      }
     }
   }
 }

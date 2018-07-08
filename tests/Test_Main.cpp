@@ -618,10 +618,12 @@ TEST_CASE("Testando a função 'SetPawnDiagonalEnemies'", "Função seta ou remo
 	REQUIRE(states->MovePiece(states->white_pieces[1], 0, 5) == true); //Peao 1x6 pode mover pq tem inimigo na diagonal esquerda
 	states->black_pieces[0] = new Pawn(false, 0, 5);
 	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
+	states->SetPieceTurn(true);
 	REQUIRE(states->MovePiece(states->white_pieces[1], 1, 5) == true); //peao 1x6 pode mover pq n tem ninguem em sua frente
 	states->white_pieces[1] = new Pawn(true, 1, 6); //Como a peça moveu la em cima, tem que recriar ela no lugar dela...
 	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == false); //peao 1x6 nao pode mover pq nao tem inimigo na diagonal direita
 	states->black_pieces[0] = new Pawn(false, 2, 5);
+	states->SetPieceTurn(true);
 	REQUIRE(states->MovePiece(states->white_pieces[1], 2, 5) == true); //peao 1x6 pode mover pq tem inimigo na diagonal direita
 }
 
@@ -761,6 +763,7 @@ TEST_CASE("Teste da função 'GetPiece'","A função retorna corretamente a peç
 	REQUIRE(piece->GetColor() == false);
 
 	//Mover a peça peao para 1x3
+	states->SetPieceTurn(false);
 	states->MovePiece(piece, 1, 3);
 	REQUIRE(piece->GetPositionX() == 1);
 	REQUIRE(piece->GetPositionY() == 3);
@@ -844,7 +847,7 @@ TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada 
 {
 	States * states;
 	states = new States();
-
+	states->SetPieceTurn(false);
 	states->PlayBestMove(false, Level::Hard);
 	REQUIRE(states->black_pieces[0]->GetPositionX() == 0);
 	REQUIRE(states->black_pieces[0]->GetPositionY() == 2);
@@ -854,7 +857,7 @@ TEST_CASE("Teste da função 'PlayBestMove'", "Função calcula a melhor jogada 
 		states->white_pieces[i] = new Piece();
 		states->black_pieces[i] = new Piece();
 	}
-
+	states->SetPieceTurn(false);
 	states->PlayBestMove(false, Level::Hard);
 	REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
 	REQUIRE(states->black_pieces[8]->GetPositionY() == 7);
@@ -896,4 +899,94 @@ TEST_CASE("Testa o metodo de inserir uma peca na classe do Tabuleiro", "Insere u
     REQUIRE(board->return_piece(2,0) == 'p');
 
     delete board;
+}
+
+TEST_CASE("Testando a função 'SaveGame' e 'LoadGame'", "A função salva/Load a vez e o tabuleiro")
+{
+	States * states;
+	states = new States();
+
+	states->SaveGame(GameMode::GAME_MODE_PVP);
+	states->LoadGame(GameMode::GAME_MODE_PVP);
+
+	// Testa posições X das peças pretas
+  REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
+  REQUIRE(states->black_pieces[9]->GetPositionX() == 1);
+  REQUIRE(states->black_pieces[10]->GetPositionX() == 2);
+  REQUIRE(states->black_pieces[11]->GetPositionX() == 3);
+  REQUIRE(states->black_pieces[12]->GetPositionX() == 4);
+  REQUIRE(states->black_pieces[13]->GetPositionX() == 5);
+  REQUIRE(states->black_pieces[14]->GetPositionX() == 6);
+  REQUIRE(states->black_pieces[15]->GetPositionX() == 7);
+
+	// Testa posições Y dos peões pretos
+  REQUIRE(states->black_pieces[0]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[1]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[2]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[3]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[4]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[5]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[6]->GetPositionY() == 1);
+  REQUIRE(states->black_pieces[7]->GetPositionY() == 1);
+
+	// Testa posições Y dos peões brancos
+  REQUIRE(states->white_pieces[0]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[1]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[2]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[3]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[4]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[5]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[6]->GetPositionY() == 6);
+  REQUIRE(states->white_pieces[7]->GetPositionY() == 6);
+
+	// Testa posições X das peças brancas
+  REQUIRE(states->white_pieces[8]->GetPositionX() == 0);
+  REQUIRE(states->white_pieces[9]->GetPositionX() == 1);
+  REQUIRE(states->white_pieces[10]->GetPositionX() == 2);
+  REQUIRE(states->white_pieces[11]->GetPositionX() == 3);
+  REQUIRE(states->white_pieces[12]->GetPositionX() == 4);
+  REQUIRE(states->white_pieces[13]->GetPositionX() == 5);
+  REQUIRE(states->white_pieces[14]->GetPositionX() == 6);
+  REQUIRE(states->white_pieces[15]->GetPositionX() == 7);
+}
+
+TEST_CASE("Testando a função 'TransformPawn'", "Função transforma o peao em rainha quando ele chega na ultima casa do time adversário")
+{
+	States * states;
+
+	//Pawn branco
+	states = new States();
+	states->black_pieces[0] = new Piece();
+	states->black_pieces[8] = new Piece();
+	states->white_pieces[0] = new Pawn(true, 0, 1);
+	REQUIRE(states->white_pieces[0]->GetName() == PieceName::Pawn);
+	REQUIRE(states->MovePiece(states->white_pieces[0], 0, 0) == true);
+	REQUIRE(states->white_pieces[0]->GetName() == PieceName::Queen);
+
+	//Pawn preto
+	states = new States();
+	states->white_pieces[0] = new Piece();
+	states->white_pieces[8] = new Piece();
+	states->black_pieces[0] = new Pawn(false, 0, 6);
+	REQUIRE(states->black_pieces[0]->GetName() == PieceName::Pawn);
+	REQUIRE(states->GetPieceTurn() == true);
+	states->SetPieceTurn(false);
+	REQUIRE(states->GetPieceTurn() == false);
+	REQUIRE(states->MovePiece(states->black_pieces[0], 0, 7) == true);
+	REQUIRE(states->black_pieces[0]->GetName() == PieceName::Queen);
+}
+
+TEST_CASE("Teste da função 'GetPieceBestMove'", "Função retorna o melhor movimento para a peça")
+{
+	States * states;
+	states = new States();
+	PiecesValues value;
+
+	value = states->GetPieceBestMove(states->white_pieces[0]);
+	REQUIRE(value.max_Value_X == 0);
+	REQUIRE(value.max_Value_Y == 4);
+
+	value = states->GetPieceBestMove(states->black_pieces[0]);
+	REQUIRE(value.max_Value_X == 0);
+	REQUIRE(value.max_Value_Y == 2);
 }

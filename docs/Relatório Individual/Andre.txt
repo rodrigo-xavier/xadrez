@@ -143,3 +143,41 @@ Refactoring 'IsPositionValid' + metodo de jogar para testes na Main
 
 Data: 06/07
 Hora de trabalho: 13:50 - 14:40  ~  17:50 ~ 18:00
+
+Implementar variavel e estado de quem é a vez de jogar (branca ou preta)
+
+Data: 07/07
+Hora de trabalho: 13:03 - 13:18
+
+Implementação da função de salvar 'SaveGame'
+
+Data: 07/07
+Hora de trabalho: 14:42 - 16:28
+
+Refactoring das Funções de Load e de Save do jogo
+
+Data: 08/07
+Hora de trabalho: 9:51 - 10:17
+
+Arrumado o render das possíveis jogadas (UI)
+
+Data: 08/07
+Hora de trabalho: 10:45 - 10:50
+
+
+Metodo 'GetPieceBestMove' para pegar o melhor movimento da peça
+
+Data: 08/07
+Hora de trabalho: 10:50 - 11:10
+
+Metodo 'GetPieceTurn' para saber de quem é a jogada
+
+Data: 08/07
+Hora de trabalho: 11:50 - 11:56
+
+Transformar o Peão em Rainha quando ele chega na ultima casa do adversário
+
+Data: 08/07
+Hora de trabalho: 11:58 - 12:31
+
+

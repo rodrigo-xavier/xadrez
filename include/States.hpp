@@ -2,6 +2,7 @@
 #define STATES_HPP_INCLUDED
 
 #include "Piece.hpp"
+#include "GameState.hpp"
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
@@ -91,6 +92,8 @@ class States
   private:
     void SetPawnDiagonalEnemies(bool, Piece *, int, int);  //Se true, ele checa se ha inimigos e seta as flags, se false ele bota false nas flags de inimigo nas diagonais.
     void EatPiece(int, int);    //Mata a peça da posição x, y.
+    bool pieceTurn;  //True - vez da branca, False - vez da preta.
+    void TransformPawn(Piece * piece);
 
 
   public:
@@ -112,6 +115,11 @@ class States
     bool SetPiece(Piece *, int, int); //Função que seta a peça em uma posição X,Y, retorna true se a peça foi colocada la e false caso não tenha sido (pois o local já continha outra peça ou estava fora do tabuleiro).
     void PlayBestMove(bool, Level);   //Função que joga o melhor movimento da cor da peça passado para ela (de acordo com Level de dificultade. dificil, medio, facil).
     void UpdateBestMoves(void); //Função que atualiza os melhores movimentos para as peças brancas e pretas.
+    void SetPieceTurn(bool);  //Seta a vez da peça que vai jogar (para a função de Load)
+    bool GetPieceTurn(void);
+    void SaveGame(GameMode); //Salva o jogo em um arquivo PGN de acordo com o modo de jogo.
+    void LoadGame(GameMode); //Faz o load do arquivo PGN para o jogo.
+    PiecesValues GetPieceBestMove(Piece *);  //Função recebe uma peça e retorna a melhor jogada para a peça. Caso retorne uma posição x,y -1 e -1, a peça não pode mover (não há jogadas pra ela)
 };
 
 #endif

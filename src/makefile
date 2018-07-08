@@ -19,7 +19,7 @@ DIR_GCOV = ../docs/gcov
 
 CC = g++ -std=c++11
 CFLAGS = -I$(DIR_HEADERS) -ftest-coverage -fprofile-arcs
-LIBS = -lm -lSDL2 -lSDL2_image -lSDL2_ttf
+LIBS = -lm -lSDL2 -lSDL2_image
 
 # Flags que vou precisar para o SDL (o usuário terá que instalar esses 4 pacotes)
 # Descomentar quando interface tiver pronta
@@ -30,10 +30,10 @@ LIBS = -lm -lSDL2 -lSDL2_image -lSDL2_ttf
 ########################## Listas com nomes dos arquivos de código ##########################
 # Define o local dos arquivos de código e arquivos de cabeçalho de código
 
-_HEADERS = Piece.hpp Board.hpp Pawn.hpp Knight.hpp Bishop.hpp Rook.hpp Queen.hpp King.hpp States.hpp Texture.hpp Graphics.hpp
+_HEADERS = Piece.hpp Board.hpp Pawn.hpp Knight.hpp Bishop.hpp Rook.hpp Queen.hpp King.hpp States.hpp Texture.hpp Button.hpp Graphics.hpp GameState.hpp GUIBoard.hpp
 HEADERS = $(patsubst %,$(DIR_HEADERS)/%,$(_HEADERS))
 
-_OBJECTS = main.o Piece.o Board.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o States.o Texture.o Graphics.o
+_OBJECTS = main.o Piece.o Board.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o States.o Texture.o Button.o Graphics.o GameState.o GUIBoard.o
 OBJECTS = $(patsubst %,$(DIR_OBJECTS)/%,$(_OBJECTS))
 
 _TESTS = Test_Main.cpp
