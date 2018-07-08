@@ -311,8 +311,8 @@ void GameState::renderPVP(){
             gBoard.render(0,0);
 
             //renderiza todas as peças
-            tabuleiro->renderAllPieces(states);
             tabuleiro->renderPossibleMoves(states);
+            tabuleiro->renderAllPieces(states);
 
             //t->renderPieceOnBoard(PieceName::Knight,1,1,1);
 
