@@ -20,5 +20,6 @@ extern Texture whitePieces[7];
 extern Texture blackPieces[7];
 extern Texture gBishop;
 extern Texture casaVerde;
+extern Texture pieceSelected;
 
 #endif

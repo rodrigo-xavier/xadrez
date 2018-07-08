@@ -309,7 +309,13 @@ void GameState::renderPVP(){
 
             //renderiza tabuleiro
             gBoard.render(0,0);
+            
+            if(tabuleiro->focusedPiece != NULL){
 
+                if(tabuleiro->focusedPiece->GetName() != PieceName::Empty){
+                    pieceSelected.render(tabuleiro->indexToPixel(tabuleiro->focus.x),tabuleiro->indexToPixel(tabuleiro->focus.y)+2);
+                }
+            }
             //renderiza todas as peças
             tabuleiro->renderPossibleMoves(states);
             tabuleiro->renderAllPieces(states);

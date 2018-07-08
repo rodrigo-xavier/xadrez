@@ -22,6 +22,11 @@ bool Graphics::loadMedia() {
         success = false;
     }
 
+    if( !pieceSelected.loadFromFile( "../assets/pieceSelected.png" ) ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
+
     if( !gBishop.loadFromFile( "../assets/BishopB.png" ) ) {
         printf( "Failed to load texture!\n" );
         success = false;

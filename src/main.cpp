@@ -45,6 +45,7 @@ Texture casaVerde;
 Texture whitePieces[7];
 Texture blackPieces[7];
 Texture gBishop;
+Texture pieceSelected;
 
 
 int main( int argc, char* args[] ){
