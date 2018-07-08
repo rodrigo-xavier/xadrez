@@ -37,8 +37,7 @@
 *
 */
 
-class Texture
-{
+
 #ifndef TEXTURE_HPP
 #define TEXTURE_HPP
 

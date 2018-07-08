@@ -12,32 +12,6 @@ bool Graphics::loadMedia() {
         success = false;
     }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
-*
-*Parâmetros: 
-*
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos: 
-*
-*Hipóteses: 
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação: 
-*
-*/
-
-Graphics::Graphics(void){
-
     if( !gCheckTexture.loadFromFile( "../assets/check2.png" ) ) {
         printf( "Failed to load texture!\n" );
         success = false;
@@ -216,84 +190,6 @@ bool Graphics::init(){
             }
         }
     }
-
-/**@brief Método que retorna um booleano indicando se o movimento é possível
-*
-*Parâmetros: 
-*
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos: 
-*
-*Hipóteses: 
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação: 
-*
-*/
-
-bool Graphics::loadMedia()
-{
-	bool success = true;
-
-	//carrega a textura
-	if( !gBoard.loadFromFile( "../assets/Chess_Wood.png" ) )
-	{
-		printf( "Failed to load press texture!\n" );
-		success = false;
-	}
-	
-	return success;
-}
-
-/**@brief Método que retorna um booleano indicando se o movimento é possível
-*
-*Parâmetros: 
-*
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos: 
-*
-*Hipóteses: 
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação: 
-*
-*/
-
-void Graphics::close()
-{
-	//libera imagens
-	gBoard.free();
-
-	//destroi janela
-	SDL_DestroyRenderer( gRenderer );
-	SDL_DestroyWindow( gWindow );
-	gWindow = NULL;
-	gRenderer = NULL;
-
-	//Quit SDL subsystems
-    TTF_Quit();
-	IMG_Quit();
-	SDL_Quit();
     return success;
 }
 
