@@ -48,6 +48,7 @@ Texture gBishop;
 Texture pieceSelected;
 Texture bestMove;
 Texture endGame[3];
+Texture selection;
 
 
 int main( int argc, char* args[] ){

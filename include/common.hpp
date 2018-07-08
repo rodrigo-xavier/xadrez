@@ -23,5 +23,6 @@ extern Texture casaVerde;
 extern Texture pieceSelected;
 extern Texture bestMove;
 extern Texture endGame[3];
+extern Texture selection;
 
 #endif

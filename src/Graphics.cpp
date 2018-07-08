@@ -37,6 +37,11 @@ bool Graphics::loadMedia() {
         printf( "Failed to load texture!\n" );
         success = false;
     }
+    
+    if( !selection.loadFromFile( "../assets/Selection.png" ) ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
 
     //Texturas de endGame
     //brancas ganham
@@ -56,6 +61,8 @@ bool Graphics::loadMedia() {
         printf( "Failed to load texture!\n" );
         success = false;
     }
+
+
     
     
     //peças brancas
