@@ -906,8 +906,8 @@ TEST_CASE("Testando a função 'SaveGame'", "A função salva a vez e o tabuleir
 	States * states;
 	states = new States();
 
-	states->SaveGame(GameMode::GAME_MODE_PVP);
-	states->LoadGame(GameMode::GAME_MODE_PVP);
+	states->SaveGame();
+	states->LoadGame();
 
 	// Testa posições X das peças pretas
   REQUIRE(states->black_pieces[8]->GetPositionX() == 0);
@@ -950,27 +950,26 @@ TEST_CASE("Testando a função 'SaveGame'", "A função salva a vez e o tabuleir
   REQUIRE(states->white_pieces[15]->GetPositionX() == 7);
 }
 
-TEST_CASE("Teste da função 'GetPieceBestMove'", "Função retorna o melhor movimento para a peça")
+TEST_CASE("Testando a função 'TransformPawn'", "Função transforma o peao em rainha quando ele chega na ultima casa do time adversário")
 {
 	States * states;
+
+	//Pawn branco
 	states = new States();
-	PiecesValues value;
+	states->black_pieces[0] = new Piece();
+	states->black_pieces[8] = new Piece();
+	states->white_pieces[0] = new Pawn(true, 0, 1);
+	REQUIRE(states->white_pieces[0]->GetName() == PieceName::Pawn);
+	REQUIRE(states->MovePiece(states->white_pieces[0], 0, 0) == true);
+	REQUIRE(states->white_pieces[0]->GetName() == PieceName::Queen);
 
-	value = states->GetPieceBestMove(states->white_pieces[0]);
-	REQUIRE(value.max_Value_X == 0);
-	REQUIRE(value.max_Value_Y == 4);
-
-	value = states->GetPieceBestMove(states->black_pieces[0]);
-	REQUIRE(value.max_Value_X == 0);
-	REQUIRE(value.max_Value_Y == 2);
-}
-
-TEST_CASE("Teste da função 'GetPieceTurn'", "Função retorna de quem é a vez")
-{
-	States * states;
+	//Pawn preto
 	states = new States();
-
-	REQUIRE(states->GetPieceTurn() == true);
+	states->white_pieces[0] = new Piece();
+	states->white_pieces[8] = new Piece();
+	states->black_pieces[0] = new Pawn(false, 0, 6);
+	REQUIRE(states->black_pieces[0]->GetName() == PieceName::Pawn);
 	states->SetPieceTurn(false);
-	REQUIRE(states->GetPieceTurn() == false);
+	REQUIRE(states->MovePiece(states->black_pieces[0], 0, 7) == true);
+	REQUIRE(states->black_pieces[0]->GetName() == PieceName::Queen);
 }
