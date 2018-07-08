@@ -17,7 +17,7 @@ Lines executed:90.00% of 20
 File 'Rook.cpp'
 Lines executed:88.89% of 18
 File 'States.cpp'
-Lines executed:95.83% of 288
+Lines executed:95.97% of 298
 File '/usr/include/c++/5/bits/predefined_ops.h'
 Lines executed:63.64% of 33
 File '/usr/include/c++/5/bits/stl_algobase.h'
@@ -31,7 +31,7 @@ Lines executed:100.00% of 11
 File '/usr/include/c++/5/bits/stl_algo.h'
 Lines executed:36.26% of 171
 File '../tests/Test_Main.cpp'
-Lines executed:100.00% of 621
+Lines executed:100.00% of 631
 File '/usr/include/c++/5/ext/new_allocator.h'
 Lines executed:92.86% of 14
 File '/usr/include/c++/5/bits/shared_ptr_base.h'
@@ -154,4 +154,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:36.73% of 8511
+Lines executed:36.88% of 8531

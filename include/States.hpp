@@ -45,6 +45,7 @@ class States
     void SetPieceTurn(bool);  //Seta a vez da peça que vai jogar (para a função de Load)
     void SaveGame(GameMode); //Salva o jogo em um arquivo PGN de acordo com o modo de jogo.
     void LoadGame(GameMode); //Faz o load do arquivo PGN para o jogo.
+    PiecesValues GetPieceBestMove(Piece *);  //Função recebe uma peça e retorna a melhor jogada para a peça. Caso retorne uma posição x,y -1 e -1, a peça não pode mover (não há jogadas pra ela)
 };
 
 #endif

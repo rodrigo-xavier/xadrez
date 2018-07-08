@@ -575,3 +575,29 @@ void States::LoadGame(GameMode mode)
 
   fclose(fp);
 }
+
+PiecesValues States::GetPieceBestMove(Piece * piece)
+{
+    int i;
+    Piece ** aux;
+    PiecesValues * pieceValue;
+
+    UpdateBestMoves();
+
+    if(piece->GetColor())
+    {
+      aux = white_pieces;
+      pieceValue = white_values;
+    }
+    else
+    {
+      aux = black_pieces;
+      pieceValue = black_values;
+    }
+
+    for(i = 0; i < 16; i++)
+    {
+      if((piece->GetPositionX() == aux[i]->GetPositionX()) && (piece->GetPositionY() == aux[i]->GetPositionY()))
+        return pieceValue[i];
+    }
+}

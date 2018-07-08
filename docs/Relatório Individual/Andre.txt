@@ -164,3 +164,9 @@ Arrumado o render das possíveis jogadas (UI)
 Data: 08/07
 Hora de trabalho: 10:45 - 10:50
 
+
+Metodo 'GetPieceBestMove' para pegar o melhor movimento da peça
+
+Data: 08/07
+Hora de trabalho: 10:50 - 11:10
+

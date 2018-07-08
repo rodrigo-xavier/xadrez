@@ -949,3 +949,18 @@ TEST_CASE("Testando a função 'SaveGame'", "A função salva a vez e o tabuleir
   REQUIRE(states->white_pieces[14]->GetPositionX() == 6);
   REQUIRE(states->white_pieces[15]->GetPositionX() == 7);
 }
+
+TEST_CASE("Teste da função 'GetPieceBestMove'", "Função retorna o melhor movimento para a peça")
+{
+	States * states;
+	states = new States();
+	PiecesValues value;
+
+	value = states->GetPieceBestMove(states->white_pieces[0]);
+	REQUIRE(value.max_Value_X == 0);
+	REQUIRE(value.max_Value_Y == 4);
+
+	value = states->GetPieceBestMove(states->black_pieces[0]);
+	REQUIRE(value.max_Value_X == 0);
+	REQUIRE(value.max_Value_Y == 2);
+}
