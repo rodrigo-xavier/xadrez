@@ -1,12 +1,12 @@
 #include "../include/Button.hpp"
 
-/**@brief 
+/**@brief Método construtor dos botões do menu
 *
 *Parâmetros: Não há parâmetros
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: Este método 
 *
 *Assertivas de entrada: Não há assertivas de entrada
 *
