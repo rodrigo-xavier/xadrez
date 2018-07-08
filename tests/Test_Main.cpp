@@ -964,3 +964,13 @@ TEST_CASE("Teste da função 'GetPieceBestMove'", "Função retorna o melhor mov
 	REQUIRE(value.max_Value_X == 0);
 	REQUIRE(value.max_Value_Y == 2);
 }
+
+TEST_CASE("Teste da função 'GetPieceTurn'", "Função retorna de quem é a vez")
+{
+	States * states;
+	states = new States();
+
+	REQUIRE(states->GetPieceTurn() == true);
+	states->SetPieceTurn(false);
+	REQUIRE(states->GetPieceTurn() == false);
+}
