@@ -17,7 +17,7 @@ Lines executed:90.00% of 20
 File 'Rook.cpp'
 Lines executed:88.89% of 18
 File 'States.cpp'
-Lines executed:97.22% of 288
+Lines executed:96.55% of 290
 File '/usr/include/c++/5/bits/predefined_ops.h'
 Lines executed:63.64% of 33
 File '/usr/include/c++/5/bits/stl_algobase.h'
@@ -154,4 +154,4 @@ File '/usr/include/c++/5/bits/exception_ptr.h'
 Lines executed:0.00% of 6
 File '/usr/include/c++/5/bits/char_traits.h'
 Lines executed:0.00% of 6
-Lines executed:36.90% of 8528
+Lines executed:36.89% of 8530

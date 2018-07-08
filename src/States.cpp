@@ -468,6 +468,11 @@ void States::SetPieceTurn(bool pieceTurn)
   this->pieceTurn = pieceTurn;
 }
 
+bool States::GetPieceTurn(void)
+{
+  return this->pieceTurn;
+}
+
 void States::SaveGame(void)
 {
   FILE *fp;
