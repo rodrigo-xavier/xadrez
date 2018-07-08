@@ -906,8 +906,8 @@ TEST_CASE("Testando a função 'SaveGame'", "A função salva a vez e o tabuleir
 	States * states;
 	states = new States();
 
-	states->SaveGame();
-	states->LoadGame();
+	states->SaveGame(GameMode::GAME_MODE_PVP);
+	states->LoadGame(GameMode::GAME_MODE_PVP);
 
 	// Testa posições X das peças pretas
   REQUIRE(states->black_pieces[8]->GetPositionX() == 0);

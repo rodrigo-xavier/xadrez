@@ -7,6 +7,7 @@
 #include "../include/King.hpp"
 #include "../include/Board.hpp"
 #include "../include/States.hpp"
+#include "../include/GameState.hpp"
 #include <algorithm>
 #include <bits/stdc++.h>
 
@@ -467,14 +468,19 @@ void States::SetPieceTurn(bool pieceTurn)
   this->pieceTurn = pieceTurn;
 }
 
-void States::SaveGame(void)
+void States::SaveGame(GameMode mode)
 {
-  FILE *fp;
+  FILE *fp = NULL;
   int i, j;
   Piece ** aux;
   char print;
 
-  fp = fopen("output.png","w");
+  if(mode == GameMode::GAME_MODE_PVP)
+    fp = fopen("output_PvP.pgn","w");
+  if(mode == GameMode::GAME_MODE_CPU)
+    fp = fopen("output_CPU.pgn","w");
+  if(mode == GameMode::GAME_MODE_EDIT)
+    fp = fopen("output_EDIT.pgn","w");
 
   if(fp == NULL)
     return;
@@ -527,14 +533,20 @@ void States::SaveGame(void)
   fclose(fp);
 }
 
-void States::LoadGame(void)
+void States::LoadGame(GameMode mode)
 {
-  FILE *fp;
+  FILE *fp = NULL;
   int i, j;
   char read[86];
   Piece ** aux;
 
-  fp = fopen("output.png", "r");
+  if(mode == GameMode::GAME_MODE_PVP)
+    fp = fopen("output_PvP.pgn","r");
+  if(mode == GameMode::GAME_MODE_CPU)
+    fp = fopen("output_CPU.pgn","r");
+  if(mode == GameMode::GAME_MODE_EDIT)
+    fp = fopen("output_EDIT.pgn","r");
+
   if(fp == NULL)
     return;
 
