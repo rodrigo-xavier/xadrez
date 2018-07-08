@@ -42,3 +42,7 @@ Hora de trabalho 20:15 as 23:40
 Fiz a máquina de estados para o menu principal, agora a transição de estados está 100%. Modularizei, consertei conflitos, etc.
 Data 07/07
 9 da manhã até o final do dia
+
+Player vs player funcionado, implementei o GUIBoard que se comunica com a interface gráfica do tabuleiro e alterei o GameState
+Data 08/07
+1:00 às 5:00 da madrugada

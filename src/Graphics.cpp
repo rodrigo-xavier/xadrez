@@ -17,6 +17,11 @@ bool Graphics::loadMedia() {
         success = false;
     }
 
+    if( !casaVerde.loadFromFile( "../assets/CasaVerde.png" ) ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
+
     if( !gBishop.loadFromFile( "../assets/BishopB.png" ) ) {
         printf( "Failed to load texture!\n" );
         success = false;
@@ -31,7 +36,6 @@ bool Graphics::loadMedia() {
         printf( "Failed to load texture!\n" );
         success = false;
     }
-    printf("AAAAA\n");
     if( !whitePieces[(int)PieceName::Knight].loadFromFile( "../assets/KnightW.png") ) {
         printf( "Failed to load texture!\n" );
         success = false;

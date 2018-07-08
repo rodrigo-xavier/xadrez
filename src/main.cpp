@@ -41,6 +41,7 @@ SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 //Scene textures
 Texture gBoard;
+Texture casaVerde;
 Texture whitePieces[7];
 Texture blackPieces[7];
 Texture gBishop;

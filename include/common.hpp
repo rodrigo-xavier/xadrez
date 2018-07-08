@@ -19,5 +19,6 @@ extern Texture gBoard;
 extern Texture whitePieces[7];
 extern Texture blackPieces[7];
 extern Texture gBishop;
+extern Texture casaVerde;
 
 #endif
