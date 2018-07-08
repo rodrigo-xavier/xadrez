@@ -180,4 +180,8 @@ Transformar o Peão em Rainha quando ele chega na ultima casa do adversário
 Data: 08/07
 Hora de trabalho: 11:58 - 12:31
 
+Pequeno refactoring em 'GetPiece'
+
+Data: 08/07
+Hora de trabalho: 18:00 - 18:04
 

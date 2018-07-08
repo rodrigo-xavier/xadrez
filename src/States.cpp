@@ -15,7 +15,7 @@ using namespace std;
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -23,9 +23,9 @@ using namespace std;
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -33,7 +33,7 @@ using namespace std;
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -74,7 +74,7 @@ States::States(void)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -82,9 +82,9 @@ States::States(void)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -92,7 +92,7 @@ States::States(void)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -161,7 +161,7 @@ Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -169,9 +169,9 @@ Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -179,7 +179,7 @@ Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -212,7 +212,7 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -220,9 +220,9 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -230,7 +230,7 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -253,7 +253,7 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -261,9 +261,9 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -271,7 +271,7 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -307,7 +307,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -315,9 +315,9 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -325,7 +325,7 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -349,7 +349,7 @@ void States::EatPiece(int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -357,9 +357,9 @@ void States::EatPiece(int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -367,7 +367,7 @@ void States::EatPiece(int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -401,7 +401,7 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX,
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -409,9 +409,9 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX,
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -419,7 +419,7 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX,
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -461,7 +461,7 @@ bool States::IsCheckMate(bool kingColor)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -469,9 +469,9 @@ bool States::IsCheckMate(bool kingColor)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -479,7 +479,7 @@ bool States::IsCheckMate(bool kingColor)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -515,7 +515,7 @@ GameResult States::WhoWon(void)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -523,9 +523,9 @@ GameResult States::WhoWon(void)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -533,7 +533,7 @@ GameResult States::WhoWon(void)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -569,7 +569,7 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -577,9 +577,9 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -587,7 +587,7 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -603,12 +603,12 @@ Piece * States::GetPiece(int position_X, int position_Y)
         return black_pieces[i];
     }
   }
-  return new Piece();
+  return emptyPiece;
 }
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -616,9 +616,9 @@ Piece * States::GetPiece(int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -626,7 +626,7 @@ Piece * States::GetPiece(int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -644,7 +644,7 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -652,9 +652,9 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -662,7 +662,7 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -729,7 +729,7 @@ void States::PlayBestMove(bool color, Level difficulty)
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -737,9 +737,9 @@ void States::PlayBestMove(bool color, Level difficulty)
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -747,7 +747,7 @@ void States::PlayBestMove(bool color, Level difficulty)
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
