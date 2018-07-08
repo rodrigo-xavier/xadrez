@@ -154,3 +154,8 @@ Implementação da função de salvar 'SaveGame'
 Data: 07/07
 Hora de trabalho: 14:42 - 16:28
 
+Refactoring das Funções de Load e de Save do jogo
+
+Data: 08/07
+Hora de trabalho: 9:51 - 10:17
+
