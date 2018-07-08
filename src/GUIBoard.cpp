@@ -1,6 +1,29 @@
 #include "../include/GUIBoard.hpp"
 #include "../include/GameState.hpp"
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 GUIBoard::GUIBoard(){
     int i=0, j=0;
@@ -13,6 +36,30 @@ GUIBoard::GUIBoard(){
         }
     }
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 void GUIBoard::updateFocus(int x, int y){
 
@@ -28,6 +75,30 @@ void GUIBoard::updateFocus(int x, int y){
     }
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 int GUIBoard::indexToPixel(int index){
 
     if((index < 0) || (index > 7)){
@@ -38,6 +109,30 @@ int GUIBoard::indexToPixel(int index){
     return (index * 80 + 20);
 
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 void GUIBoard::renderPieceOnBoard(PieceName piece, int cor, int ix, int iy){
 
@@ -52,6 +147,30 @@ void GUIBoard::renderPieceOnBoard(PieceName piece, int cor, int ix, int iy){
     }
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 void GUIBoard::renderAllPieces(States* states){
     int i = 0;
     //Renderiza brancas
@@ -65,6 +184,30 @@ void GUIBoard::renderAllPieces(States* states){
     }
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 bool GUIBoard::checkMovement(States* states){
     bool move = false;
     if(focusedPiece != NULL){
@@ -74,6 +217,30 @@ bool GUIBoard::checkMovement(States* states){
     }
     return move;
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 
 void GUIBoard::renderPossibleMoves(States *states){
@@ -93,6 +260,30 @@ void GUIBoard::renderPossibleMoves(States *states){
     }
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 void GUIBoard::renderBestMove(States *states){
 
     if(focusedPiece != NULL){
@@ -106,6 +297,30 @@ void GUIBoard::renderBestMove(States *states){
         }
     }
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 //escolhe qual lado começar
 bool GUIBoard::choosePieceTurn(GameState *gm, States *states){

@@ -13,27 +13,28 @@
 
 using namespace std;
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Método construtor de estados do jogo
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: Este método faz uma alocação das peças no tabuleiro
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: Deve haver memória suficiente para alocar todas as peças
 *
-*Hipóteses:
+*Hipóteses: As peças são alocadas, suas posições definidas e suas cores também
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Manipulação de ponteiros na alocação de novas peças
 *
-*Contrato na especificação:
+*Contrato na especificação: O método deve criar novas peças, 
+*setando-as no tabuleiro, definindo suas posições e suas cores
 *
 */
 
@@ -72,27 +73,28 @@ States::States(void)
   pieceTurn = true;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Método que define se há uma peça no caminho
 *
-*Parâmetros:
+*Parâmetros: Um ponteiro para um objeto da classe 
+*Piece e dois inteiros que indicam a posição da peça no tabuleiro
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -159,27 +161,27 @@ Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
   }
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -210,27 +212,27 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
   return Obstacles::Empty;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -251,27 +253,27 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
   return false;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -305,27 +307,27 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
   return false;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -347,27 +349,27 @@ void States::EatPiece(int position_X, int position_Y)
   }
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -399,27 +401,27 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX,
   }
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -459,27 +461,27 @@ bool States::IsCheckMate(bool kingColor)
   return false;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -513,27 +515,27 @@ GameResult States::WhoWon(void)
   return GameResult::NoContest;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -567,27 +569,27 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
   return false;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -606,27 +608,27 @@ Piece * States::GetPiece(int position_X, int position_Y)
   return emptyPiece;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -642,27 +644,27 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
   return false;
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -727,27 +729,27 @@ void States::PlayBestMove(bool color, Level difficulty)
   }
 }
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief 
 *
-*Parâmetros:
+*Parâmetros: Não há parâmetros
 *
-*Tratamento de Erros:
+*Tratamento de Erros: Não há tratamento de erros
 *
 *Descrição:
 *
-*Assertivas de entrada:
+*Assertivas de entrada: Não há assertivas de entrada
 *
-*Requisitos:
+*Requisitos: 
 *
-*Hipóteses:
+*Hipóteses: 
 *
-*Assertivas de saida:
+*Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita:
+*Interface explicita: Não há interface explicita
 *
-*Interface implicita:
+*Interface implicita: Não há interface implícita
 *
-*Contrato na especificação:
+*Contrato na especificação: 
 *
 */
 
@@ -800,15 +802,87 @@ void States::UpdateBestMoves(void)
   }
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 void States::SetPieceTurn(bool pieceTurn)
 {
   this->pieceTurn = pieceTurn;
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 bool States::GetPieceTurn(void)
 {
   return this->pieceTurn;
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 void States::SaveGame(GameMode mode)
 {
@@ -875,6 +949,30 @@ void States::SaveGame(GameMode mode)
   fclose(fp);
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 void States::LoadGame(GameMode mode)
 {
   FILE *fp = NULL;
@@ -918,6 +1016,30 @@ void States::LoadGame(GameMode mode)
   fclose(fp);
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 PiecesValues States::GetPieceBestMove(Piece * piece)
 {
     int i;
@@ -943,6 +1065,30 @@ PiecesValues States::GetPieceBestMove(Piece * piece)
         return pieceValue[i];
     }
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 void States::TransformPawn(Piece * piece)
 {
