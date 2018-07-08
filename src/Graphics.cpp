@@ -212,7 +212,6 @@ bool Graphics::init(){
         }
     }
 
-<<<<<<< HEAD
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
 *Parâmetros: 
@@ -290,7 +289,6 @@ void Graphics::close()
     TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
-=======
     return success;
 }
 
@@ -316,5 +314,4 @@ void Graphics::close() {
     //Quit SDL subsystems
     IMG_Quit();
     SDL_Quit();
->>>>>>> master
 }
