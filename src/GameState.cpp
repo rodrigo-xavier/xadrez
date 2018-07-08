@@ -262,11 +262,13 @@ void GameState::renderEditMode(){
 void GameState::renderPVP(){
 
     bool quit = false;
+    bool showHint = false;
 
     SDL_Event e;
     States *states = new States();
     GUIBoard *tabuleiro = new GUIBoard();
     GameResult gameResult = GameResult::NoContest;
+
 
     while(gameState == GameMode::GAME_MODE_PVP){
 
@@ -282,6 +284,8 @@ void GameState::renderPVP(){
                             renderPauseMenu();
                             //gameState = GAME_MODE_PAUSE;
                             break;
+                        case SDLK_h:
+                            showHint = !showHint;
                     }
                 } else if(e.type == SDL_MOUSEBUTTONDOWN){
                     switch(e.type){
@@ -323,7 +327,8 @@ void GameState::renderPVP(){
                     }
                 }
                 //renderiza todos os movimentos possiveis
-                tabuleiro->renderPossibleMoves(states);
+                if(showHint) 
+                    tabuleiro->renderPossibleMoves(states);
                 //renderiza todas as peças
                 tabuleiro->renderAllPieces(states);
 
