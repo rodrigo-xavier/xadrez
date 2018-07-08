@@ -969,7 +969,9 @@ TEST_CASE("Testando a função 'TransformPawn'", "Função transforma o peao em 
 	states->white_pieces[8] = new Piece();
 	states->black_pieces[0] = new Pawn(false, 0, 6);
 	REQUIRE(states->black_pieces[0]->GetName() == PieceName::Pawn);
+	REQUIRE(states->GetPieceTurn() == true);
 	states->SetPieceTurn(false);
+	REQUIRE(states->GetPieceTurn() == false);
 	REQUIRE(states->MovePiece(states->black_pieces[0], 0, 7) == true);
 	REQUIRE(states->black_pieces[0]->GetName() == PieceName::Queen);
 }
