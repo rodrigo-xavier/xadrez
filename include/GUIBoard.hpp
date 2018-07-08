@@ -14,8 +14,10 @@ class GUIBoard{
         void renderPieceOnBoard(PieceName piece, int cor, int ix, int iy); //renderiza peça no indice do tabuleiro
         void renderAllPieces(States* states);
         bool checkMovement(States* states); //checa se ouve alguma jogada, condicao: usa movePiece se a ultima peça clicada não for vazia
-        void renderPossibleMoves(States *states);
-        void renderBestMove(States *states);
+        void renderPossibleMoves(States *states); //pinta casas com jogadas possiveis
+        void renderBestMove(States *states); //pinta casa com a melhor jogada
+        bool choosePieceTurn(GameState *gm, States* states);
+
 
 
         SDL_Rect board[8][8]; //matriz de retangulos (tabuleiro)

@@ -1,4 +1,6 @@
 #include "../include/GUIBoard.hpp"
+#include "../include/GameState.hpp"
+
 
 GUIBoard::GUIBoard(){
     int i=0, j=0;
@@ -105,4 +107,53 @@ void GUIBoard::renderBestMove(States *states){
     }
 }
 
+//escolhe qual lado começar
+bool GUIBoard::choosePieceTurn(GameState *gm, States *states){
+    bool selected = false;
+    bool white = true;
+    int x=-1,y=-1;
+    SDL_Event e;
 
+    while(selected == false){
+
+        while(SDL_PollEvent(&e) != 0){
+        
+            //Usuario pede pra sair
+            if( e.type == SDL_QUIT ) {
+                gm->setGameState(GameMode::GAME_MODE_QUIT);
+            } else {//if (( e.type == SDL_MOUSEMOTION) || (e.type == SDL_MOUSEMOTION)){
+
+                switch(e.type){
+                    case SDL_MOUSEMOTION:
+                        SDL_GetMouseState(&x,&y);
+                        break;
+                    case SDL_MOUSEBUTTONDOWN:
+                        selected = true;
+                        if(y > 340){
+                            white = true;
+                        } else{
+                            white = false;
+                        } 
+                }
+            }
+
+           SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+           SDL_RenderClear( gRenderer );
+
+           //renderiza tabuleiro
+           gBoard.render(0,0);
+
+           renderAllPieces(states);
+
+           //renderiza selecao
+           if(y < 340){
+               selection.render(20,22);
+           } else{
+               selection.render(20,342);
+           }
+
+            SDL_RenderPresent( gRenderer );
+        } 
+    }
+    return white;
+}

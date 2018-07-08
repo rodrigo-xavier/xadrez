@@ -45,6 +45,7 @@ class GameState{
         GameMode getGameState();
         void setGameState(GameMode gameMode);
         void startStateMachine(GameMode gameMode);
+        void renderPauseMenu();
 
 
     private: 
@@ -54,7 +55,6 @@ class GameState{
         void renderPVP();
         void renderMainMenu();
         void renderEditMode();
-        void renderPauseMenu();
         void renderCPU();
 };
 
