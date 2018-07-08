@@ -48,6 +48,11 @@ Graphics::Graphics(void){
         success = false;
     }
 
+    if( !bestMove.loadFromFile( "../assets/bestMove.png" ) ) {
+        printf( "Failed to load texture!\n" );
+        success = false;
+    }
+
     if( !pieceSelected.loadFromFile( "../assets/pieceSelected.png" ) ) {
         printf( "Failed to load texture!\n" );
         success = false;

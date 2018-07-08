@@ -46,6 +46,7 @@ Texture whitePieces[7];
 Texture blackPieces[7];
 Texture gBishop;
 Texture pieceSelected;
+Texture bestMove;
 Texture endGame[3];
 
 

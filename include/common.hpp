@@ -21,6 +21,7 @@ extern Texture blackPieces[7];
 extern Texture gBishop;
 extern Texture casaVerde;
 extern Texture pieceSelected;
+extern Texture bestMove;
 extern Texture endGame[3];
 
 #endif
