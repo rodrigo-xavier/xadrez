@@ -52,4 +52,9 @@ Data 08/07
 10:00 as 14:00
 
 implementando a melhor jogada possivel na interface apertando b
+Data 08/07
 14:30 as 15:10
+
+Terminei os modos de jogador vs jogador e jogador vs cpu
+16:34 às 19:19
+
