@@ -1,15 +1,87 @@
 #include "../include/Board.hpp"
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 Board::Board(void)
 {
     states = new States();
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 Board::~Board()
 {
     delete states;
     destroy_board();
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 void Board::destroy_board()
 {
@@ -20,15 +92,87 @@ void Board::destroy_board()
             board[i][j] = '0';
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 char Board::return_piece(int x, int y)
 {
     return board[x][y];
 }
 
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
+
 void Board::insert_piece(int x, int y, char c)
 {
     board[x][y] = c;
 }
+
+/**@brief 
+*
+*Parâmetros: Não há parâmetros
+*
+*Tratamento de Erros: Não há tratamento de erros
+*
+*Descrição:
+*
+*Assertivas de entrada: Não há assertivas de entrada
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida: Não há assertivas de saída
+*
+*Interface explicita: Não há interface explicita
+*
+*Interface implicita: Não há interface implícita
+*
+*Contrato na especificação: 
+*
+*/
 
 void Board::update_board(States *states)
 {

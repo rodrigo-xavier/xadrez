@@ -13,6 +13,30 @@
 
 using namespace std;
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 States::States(void)
 {
   int i;
@@ -47,6 +71,30 @@ States::States(void)
 
   pieceTurn = true;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
 {
@@ -111,6 +159,30 @@ Obstacles States::IsInTheWay(Piece * piece, int position_X, int position_Y)
   }
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
 {
   int i,j;
@@ -138,6 +210,30 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
   return Obstacles::Empty;
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 {
   Piece ** aux;
@@ -154,6 +250,30 @@ bool States::IsCheck(bool kingColor, int position_X, int position_Y)
 
   return false;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool States::MovePiece(Piece * piece, int position_X, int position_Y)
 {
@@ -185,6 +305,30 @@ bool States::MovePiece(Piece * piece, int position_X, int position_Y)
   return false;
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 void States::EatPiece(int position_X, int position_Y)
 {
   Piece ** aux;
@@ -202,6 +346,30 @@ void States::EatPiece(int position_X, int position_Y)
     aux = black_pieces;
   }
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX, int futureEnemyY)
 {
@@ -230,6 +398,30 @@ void States::SetPawnDiagonalEnemies(bool check, Piece * piece, int futureEnemyX,
     piece->SetDiagonalEnemy(left, right);
   }
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool States::IsCheckMate(bool kingColor)
 {
@@ -267,6 +459,30 @@ bool States::IsCheckMate(bool kingColor)
   return false;
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 GameResult States::WhoWon(void)
 {
   bool white = false, black = false;
@@ -296,6 +512,30 @@ GameResult States::WhoWon(void)
 
   return GameResult::NoContest;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
 {
@@ -327,6 +567,30 @@ bool States::IsPositionValid(Piece * piece, int position_X, int position_Y)
   return false;
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 Piece * States::GetPiece(int position_X, int position_Y)
 {
   if((position_X >= 0) && (position_Y >=0) && (position_X < 8) && (position_Y < 8))
@@ -342,6 +606,30 @@ Piece * States::GetPiece(int position_X, int position_Y)
   return new Piece();
 }
 
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
+
 bool States::SetPiece(Piece *piece, int position_X, int position_Y)
 {
   if((position_X >= 0) && (position_Y >=0) && (position_X < 8) && (position_Y < 8))
@@ -353,6 +641,30 @@ bool States::SetPiece(Piece *piece, int position_X, int position_Y)
 
   return false;
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void States::PlayBestMove(bool color, Level difficulty)
 {
@@ -414,6 +726,30 @@ void States::PlayBestMove(bool color, Level difficulty)
     }
   }
 }
+
+/**@brief Método que retorna um booleano indicando se o movimento é possível
+*
+*Parâmetros: 
+*
+*Tratamento de Erros:
+*
+*Descrição:
+*
+*Assertivas de entrada:
+*
+*Requisitos: 
+*
+*Hipóteses: 
+*
+*Assertivas de saida:
+*
+*Interface explicita:
+*
+*Interface implicita:
+*
+*Contrato na especificação: 
+*
+*/
 
 void States::UpdateBestMoves(void)
 {

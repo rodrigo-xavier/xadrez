@@ -12,7 +12,6 @@ bool Graphics::loadMedia() {
         success = false;
     }
 
-
     if( !gCheckTexture.loadFromFile( "../assets/check2.png" ) ) {
         printf( "Failed to load texture!\n" );
         success = false;
@@ -198,7 +197,6 @@ bool Graphics::init(){
             }
         }
     }
-
     return success;
 }
 
