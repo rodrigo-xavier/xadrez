@@ -80,21 +80,24 @@ States::States(void)
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: O método verífica se existem obstáculos no caminho da peça, 
+*e se existir é retornado um objeto do tipo Obstáculo
 *
-*Assertivas de entrada: Não há assertivas de entrada
+*Assertivas de entrada: Ponteiro para um objeto da classe Piece e 
+*dois inteiros que indicam a posição da peça no tabuleiro
 *
-*Requisitos: 
+*Requisitos: A peça deve estar viva e suas posições devem pertencer ao tabuleiro
 *
-*Hipóteses: 
+*Hipóteses: Se houver um obstáculo, O método deve indicar o tipo desse obstáculo
 *
-*Assertivas de saida: Não há assertivas de saída
+*Assertivas de saida: Obstacles Empty or Obstacles Friend or Obstacles Enemy
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: Piece * piece, int position_X, int position_Y
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações com ponteiros da classe Piece
 *
-*Contrato na especificação: 
+*Contrato na especificação: Com relação a posição atual da peça, 
+*é verificado se existem obstáculos para os seus respectivos movimentos
 *
 */
 
@@ -212,21 +215,25 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
   return Obstacles::Empty;
 }
 
-/**@brief 
+/**@brief Método que verifica se o rei está em cheque
 *
-*Parâmetros: Não há parâmetros
+*Parâmetros: Um booleano que indica a cor do rei e duas 
+*posições que mostram sua posição no tabuleiro
 *
-*Tratamento de Erros: Não há tratamento de erros
+*Tratamento de Erros: É verificado se o movimento até o 
+*rei é possível e se não existem movimentos possíveis para o rei
 *
-*Descrição:
+*Descrição: Este método verifica se o rei está em cheque, verificando se uma peça pode 
 *
-*Assertivas de entrada: Não há assertivas de entrada
+*Assertivas de entrada: um booleano que indica a cor do rei 
+*e dois inteiros que indicam sua posição no tabuleiro
 *
 *Requisitos: 
 *
 *Hipóteses: 
 *
-*Assertivas de saida: Não há assertivas de saída
+*Assertivas de saida: É retornado um booleano true or false
+* indicando se o rei está em cheque
 *
 *Interface explicita: Não há interface explicita
 *
