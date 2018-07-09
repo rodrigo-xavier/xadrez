@@ -228,9 +228,9 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
 *Assertivas de entrada: um booleano que indica a cor do rei 
 *e dois inteiros que indicam sua posição no tabuleiro
 *
-*Requisitos: 
+*Requisitos: as posições do rei devem pertencer ao tabuleiros
 *
-*Hipóteses: 
+*Hipóteses: Se o rei estiver em cheque, então o método deve retornar true
 *
 *Assertivas de saida: É retornado um booleano true or false
 * indicando se o rei está em cheque
@@ -239,7 +239,7 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
 *
 *Interface implicita: Não há interface implícita
 *
-*Contrato na especificação: 
+*Contrato na especificação: Se 
 *
 */
 
