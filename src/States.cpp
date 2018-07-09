@@ -967,7 +967,7 @@ void States::SaveGame(GameMode mode)
 *
 *Interface explicita: Não há interface explicita
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações através de ponteiros do objeto piece
 *
 *Contrato na especificação: 
 *
@@ -1016,9 +1016,9 @@ void States::LoadGame(GameMode mode)
   fclose(fp);
 }
 
-/**@brief 
+/**@brief Método que retorna o melhor movimento para as peças
 *
-*Parâmetros: Não há parâmetros
+*Parâmetros: Ponteiro para um objeto da classe Piece
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
@@ -1032,9 +1032,9 @@ void States::LoadGame(GameMode mode)
 *
 *Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: Piece * piece
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações através de ponteiros do objeto piece
 *
 *Contrato na especificação: 
 *
@@ -1066,27 +1066,31 @@ PiecesValues States::GetPieceBestMove(Piece * piece)
     }
 }
 
-/**@brief 
+/**@brief Método que transforma o peão em rainha
 *
-*Parâmetros: Não há parâmetros
+*Parâmetros: Ponteiro para um objeto da classe Piece
 *
-*Tratamento de Erros: Não há tratamento de erros
+*Tratamento de Erros: É verificado se o nome da peça é o de um peão, 
+*em seguida verifica-se se este peão atravessou todo o tabuleiro
 *
-*Descrição:
+*Descrição: Este método transforma um peão que atravessou todo o tabuleiro em uma rainha
 *
-*Assertivas de entrada: Não há assertivas de entrada
+*Assertivas de entrada: Ponteiro para um objeto da classe Piece
 *
-*Requisitos: 
+*Requisitos: O peão tenha atravessado todo o tabuleiro 
+*e que haja memória para alocar uma nova rainha
 *
-*Hipóteses: 
+*Hipóteses: A peça seja um peão e que esteja na posição final do tabuleiro
 *
 *Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: Piece * piece
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações através de ponteiros do objeto piece
 *
-*Contrato na especificação: 
+*Contrato na especificação: Este método transforma um peão em rainha,
+* verificando se este peão foi capaz de atravessar todo o tabuleiro 
+*e chegar na última posição vertical do tabuleiro
 *
 */
 
