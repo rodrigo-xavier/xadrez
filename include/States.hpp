@@ -4,57 +4,10 @@
 #include "Piece.hpp"
 #include "GameState.hpp"
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
-*
-*Parâmetros:
-*
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos:
-*
-*Hipóteses:
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação:
-*
-*/
 
 enum class Obstacles{Empty,Friend,Enemy};
 enum class GameResult{WhiteWins,BlackWins,Draw,NoContest};
 enum class Level{Easy, Medium, Hard};
-
-/**@brief Método que retorna um booleano indicando se o movimento é possível
-*
-*Parâmetros:
-*
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos:
-*
-*Hipóteses:
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação:
-*
-*/
 
 struct PiecesValues
 {
@@ -63,27 +16,14 @@ struct PiecesValues
   int value = -20;
 };
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Classe que define estados para uma peça
 *
-*Parâmetros:
+*Descrição: Nesta classe estão definidos os mecanismos do jogo de xadrez
+*Como transformar um peão em rainha, comer uma peça, validar se é cheque mate
+*Verificar quem venceu o jogo, salvar o jogo, carregar o jogo, validar quem foi o
+*vencedor da partida, entre outros métodos, aqui basicamente está definida toda a
+*lógica do jogo de xadrez, sendo assim uma das classes mais importantes deste código
 *
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos:
-*
-*Hipóteses:
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação:
 *
 */
 
