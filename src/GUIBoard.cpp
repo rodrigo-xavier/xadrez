@@ -375,3 +375,95 @@ bool GUIBoard::choosePieceTurn(GameState *gm, States *states){
     }
     return white;
 }
+
+void GUIBoard::editBoard(GameState *gm, States* states){
+   
+    bool done = false;
+    Piece *currentPiece = NULL;
+    states->KillAllPieces();
+    int indexPiece = 1;
+    bool black = false;
+    int x = -1, y=-1;
+    SDL_Event e;
+
+    while(done == false){ 
+        while(SDL_PollEvent(&e) != 0){
+        
+            //Usuario pede pra sair
+            if( e.type == SDL_QUIT ) {
+                gm->setGameState(GameMode::GAME_MODE_QUIT);
+            } else if(e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION){
+                switch(e.type){
+                    case SDL_MOUSEBUTTONDOWN:
+                        SDL_GetMouseState(&x,&y);
+
+                        updateFocus((int)x,(int)y);
+                        
+                        if(black == false){
+                            states->SetPiece(states->white_pieces[indexPiece],focus.x,focus.y);
+                        } else{
+                            states->SetPiece(states->black_pieces[indexPiece],focus.x,focus.y); 
+                        }
+
+
+                        //done = true;
+                        break;
+                    case SDL_MOUSEMOTION: 
+                        SDL_GetMouseState(&x,&y);
+                        break;
+                }
+            } else if(e.type == SDL_KEYDOWN){
+                switch(e.key.keysym.sym){
+                    case SDLK_UP:
+                        black = false;
+                        break;
+                    case SDLK_DOWN:
+                        black = true;
+                        break;
+                    case SDLK_LEFT:
+                        if(indexPiece >0){
+                            indexPiece--;
+                        }
+                        else{
+                            indexPiece = 15;
+                        }
+                        break;
+                    case SDLK_RIGHT:
+                        if(indexPiece <15){
+                            indexPiece++;
+                        }else{
+                            indexPiece = 0;
+                        }
+                        break;
+                    case SDLK_d:
+                        done = true;
+                        break;
+
+                }
+            }
+
+           
+
+           SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+           SDL_RenderClear( gRenderer );
+
+
+
+
+           //renderiza tabuleiro
+           gBoard.render(0,0);
+
+           if(black == false){
+               whitePieces[(int)states->white_pieces[indexPiece]->GetName()].render(x,y);
+           } else{
+               blackPieces[(int)states->black_pieces[indexPiece]->GetName()].render(x,y);
+           }
+
+           renderAllPieces(states);
+
+            SDL_RenderPresent( gRenderer );
+        } 
+    }
+
+    return;
+}

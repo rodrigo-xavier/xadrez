@@ -17,6 +17,7 @@ class GUIBoard{
         void renderPossibleMoves(States *states); //pinta casas com jogadas possiveis
         void renderBestMove(States *states); //pinta casa com a melhor jogada
         bool choosePieceTurn(GameState *gm, States* states);
+        void editBoard(GameState *gm, States* states);
 
 
 
