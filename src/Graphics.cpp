@@ -3,6 +3,29 @@
 #include "../include/Piece.hpp"
 #include "../include/States.hpp"
 
+//Variaveis usadas na interface grafica
+
+//Mouse button sprites
+SDL_Rect gSpriteClips[(int) ButtonSprite::BUTTON_SPRITE_TOTAL ];
+Texture gCheckTexture;
+Texture gButtonSpriteSheetTexture;
+//Buttons objects
+Button gButtons[ Button::TOTAL_BUTTONS ];
+//The window we'll be rendering to
+SDL_Window* gWindow = NULL;
+//The window renderer
+SDL_Renderer* gRenderer = NULL;
+//Scene textures
+Texture gBoard;
+Texture casaVerde;
+Texture whitePieces[7];
+Texture blackPieces[7];
+Texture gBishop;
+Texture pieceSelected;
+Texture bestMove;
+Texture endGame[3];
+Texture selection;
+
 /**@brief 
 *
 *Parâmetros: Não há parâmetros
@@ -26,6 +49,8 @@
 *Contrato na especificação: 
 *
 */
+
+
 
 bool Graphics::loadMedia() {
     bool success = true;

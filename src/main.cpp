@@ -9,11 +9,7 @@
 #include "../include/States.hpp"
 
 #include "../include/Graphics.hpp"
-//#include "../include/Button.hpp"
-//#include "../include/GameState.hpp"
-//#include "../include/Texture.hpp"
-
-
+#include "common.hpp"
 
 #ifndef SDL_INCLUDES                                                       
 #define SDL_INCLUDES                                                       
@@ -26,30 +22,6 @@
 
 
 using namespace std;
-
-
-//variaveis
-//Mouse button sprites
-SDL_Rect gSpriteClips[(int) ButtonSprite::BUTTON_SPRITE_TOTAL ];
-Texture gCheckTexture;
-Texture gButtonSpriteSheetTexture;
-//Buttons objects
-Button gButtons[ Button::TOTAL_BUTTONS ];
-//The window we'll be rendering to
-SDL_Window* gWindow = NULL;
-//The window renderer
-SDL_Renderer* gRenderer = NULL;
-//Scene textures
-Texture gBoard;
-Texture casaVerde;
-Texture whitePieces[7];
-Texture blackPieces[7];
-Texture gBishop;
-Texture pieceSelected;
-Texture bestMove;
-Texture endGame[3];
-Texture selection;
-
 
 int main( int argc, char* args[] ){
 

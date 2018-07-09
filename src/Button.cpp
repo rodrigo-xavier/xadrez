@@ -142,13 +142,7 @@ void Button::handleEvent( SDL_Event* e , GameState *gm)
             inside = false;
         }
 
-        //Mouse is outside button
-        if( !inside ) {
-            //mCurrentSprite = BUTTON_SPRITE_MOUSE_OUT;
-            mCurrentSprite = mCurrentSprite;
-        }
-        //Mouse is inside button
-        else {
+        if( inside ) { 
             check = 1;
             //Set mouse over sprite
             switch( e->type )
