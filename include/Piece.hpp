@@ -8,27 +8,16 @@ enum class PieceName {Empty , Pawn , Knight , Bishop , Rook , Queen , King};
 
 using namespace std;
 
-/**@brief Método que retorna um booleano indicando se o movimento é possível
+/**@brief Classe que define uma peça
 *
-*Parâmetros:
+*Parâmetros: Construtor e destrutor de Peça, IsMovementPossible
+* Nome, isWhite, position_X, position_Ym isAlive, PieceValue
+*GetPositionX, getPositionY, SetDiagonalEnemy, SetPosition, GetIsAlive
+*WakeFromDead e SetDead
 *
-*Tratamento de Erros:
-*
-*Descrição:
-*
-*Assertivas de entrada:
-*
-*Requisitos:
-*
-*Hipóteses:
-*
-*Assertivas de saida:
-*
-*Interface explicita:
-*
-*Interface implicita:
-*
-*Contrato na especificação:
+*Descrição: Esta classe define uma peça genérica, com características 
+*comuns à todas as peças na qual outras peças devem herdar seus métodos 
+*e características como posição, cor e nome, entre outros
 *
 */
 
