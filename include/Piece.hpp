@@ -10,7 +10,7 @@ using namespace std;
 
 /**@brief Método que retorna um booleano indicando se o movimento é possível
 *
-*Parâmetros: 
+*Parâmetros:
 *
 *Tratamento de Erros:
 *
@@ -18,9 +18,9 @@ using namespace std;
 *
 *Assertivas de entrada:
 *
-*Requisitos: 
+*Requisitos:
 *
-*Hipóteses: 
+*Hipóteses:
 *
 *Assertivas de saida:
 *
@@ -28,7 +28,7 @@ using namespace std;
 *
 *Interface implicita:
 *
-*Contrato na especificação: 
+*Contrato na especificação:
 *
 */
 
@@ -53,6 +53,7 @@ class Piece
     virtual void SetDiagonalEnemy(bool, bool); //Seta variável privada do peão.
     void SetPosition(int, int); //Seta a posição X e Y da peça respectivamente.
     bool GetIsAlive();    //Retorna True - peça viva / False - Peça morta
+    void WakeFromDead(); //Revive a peça
     void SetDead();       //Seta a flag isAlive para morta. Quando morta, a peça não revive e sua posição vira -1x-1
 };
 

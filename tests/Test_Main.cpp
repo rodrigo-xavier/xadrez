@@ -990,3 +990,17 @@ TEST_CASE("Teste da função 'GetPieceBestMove'", "Função retorna o melhor mov
 	REQUIRE(value.max_Value_X == 0);
 	REQUIRE(value.max_Value_Y == 2);
 }
+
+TEST_CASE("Teste da função 'KillAllPieces'", "Todas as peças morrem")
+{
+	States * states;
+	int i;
+	states = new States();
+
+	states->KillAllPieces();
+	for(i = 0; i < 16; i++)
+	{
+		REQUIRE(states->white_pieces[i]->GetIsAlive() == false);
+		REQUIRE(states->black_pieces[i]->GetIsAlive() == false);
+	}
+}
