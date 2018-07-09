@@ -1,19 +1,20 @@
 #include "../include/GUIBoard.hpp"
 #include "../include/GameState.hpp"
 
-/**@brief 
+/**@brief Método que define o tamanho do tabuleiro e as posições das casas
 *
 *Parâmetros: Não há parâmetros
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: Este método percorre uma determinada quantidade de pixels 
+*definindo o tamanho do tabuleiro e suas casas 
 *
 *Assertivas de entrada: Não há assertivas de entrada
 *
 *Requisitos: 
 *
-*Hipóteses: 
+*Hipóteses: As casas são definidas dentro da imagem do tubleiro
 *
 *Assertivas de saida: Não há assertivas de saída
 *
@@ -21,7 +22,7 @@
 *
 *Interface implicita: Não há interface implícita
 *
-*Contrato na especificação: 
+*Contrato na especificação: A função deve definir corretamente as casas do tabuleiro
 *
 */
 

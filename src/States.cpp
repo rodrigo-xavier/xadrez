@@ -80,21 +80,24 @@ States::States(void)
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
-*Descrição:
+*Descrição: O método verífica se existem obstáculos no caminho da peça, 
+*e se existir é retornado um objeto do tipo Obstáculo
 *
-*Assertivas de entrada: Não há assertivas de entrada
+*Assertivas de entrada: Ponteiro para um objeto da classe Piece e 
+*dois inteiros que indicam a posição da peça no tabuleiro
 *
-*Requisitos: 
+*Requisitos: A peça deve estar viva e suas posições devem pertencer ao tabuleiro
 *
-*Hipóteses: 
+*Hipóteses: Se houver um obstáculo, O método deve indicar o tipo desse obstáculo
 *
-*Assertivas de saida: Não há assertivas de saída
+*Assertivas de saida: Obstacles Empty or Obstacles Friend or Obstacles Enemy
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: Piece * piece, int position_X, int position_Y
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações com ponteiros da classe Piece
 *
-*Contrato na especificação: 
+*Contrato na especificação: Com relação a posição atual da peça, 
+*é verificado se existem obstáculos para os seus respectivos movimentos
 *
 */
 
@@ -212,27 +215,31 @@ Obstacles States::IsInTheSpot(Piece * piece, int position_X, int position_Y)
   return Obstacles::Empty;
 }
 
-/**@brief 
+/**@brief Método que verifica se o rei está em cheque
 *
-*Parâmetros: Não há parâmetros
+*Parâmetros: Um booleano que indica a cor do rei e duas 
+*posições que mostram sua posição no tabuleiro
 *
-*Tratamento de Erros: Não há tratamento de erros
+*Tratamento de Erros: É verificado se o movimento até o 
+*rei é possível e se não existem movimentos possíveis para o rei
 *
-*Descrição:
+*Descrição: Este método verifica se o rei está em cheque, verificando se uma peça pode 
 *
-*Assertivas de entrada: Não há assertivas de entrada
+*Assertivas de entrada: um booleano que indica a cor do rei 
+*e dois inteiros que indicam sua posição no tabuleiro
 *
-*Requisitos: 
+*Requisitos: as posições do rei devem pertencer ao tabuleiros
 *
-*Hipóteses: 
+*Hipóteses: Se o rei estiver em cheque, então o método deve retornar true
 *
-*Assertivas de saida: Não há assertivas de saída
+*Assertivas de saida: É retornado um booleano true or false
+* indicando se o rei está em cheque
 *
 *Interface explicita: Não há interface explicita
 *
 *Interface implicita: Não há interface implícita
 *
-*Contrato na especificação: 
+*Contrato na especificação: Se 
 *
 */
 
@@ -968,7 +975,7 @@ void States::SaveGame(GameMode mode)
 *
 *Interface explicita: Não há interface explicita
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações através de ponteiros do objeto piece
 *
 *Contrato na especificação: 
 *
@@ -1020,9 +1027,9 @@ void States::LoadGame(GameMode mode)
   fclose(fp);
 }
 
-/**@brief 
+/**@brief Método que retorna o melhor movimento para as peças
 *
-*Parâmetros: Não há parâmetros
+*Parâmetros: Ponteiro para um objeto da classe Piece
 *
 *Tratamento de Erros: Não há tratamento de erros
 *
@@ -1036,9 +1043,9 @@ void States::LoadGame(GameMode mode)
 *
 *Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: Piece * piece
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações através de ponteiros do objeto piece
 *
 *Contrato na especificação: 
 *
@@ -1070,27 +1077,31 @@ PiecesValues States::GetPieceBestMove(Piece * piece)
     }
 }
 
-/**@brief 
+/**@brief Método que transforma o peão em rainha
 *
-*Parâmetros: Não há parâmetros
+*Parâmetros: Ponteiro para um objeto da classe Piece
 *
-*Tratamento de Erros: Não há tratamento de erros
+*Tratamento de Erros: É verificado se o nome da peça é o de um peão, 
+*em seguida verifica-se se este peão atravessou todo o tabuleiro
 *
-*Descrição:
+*Descrição: Este método transforma um peão que atravessou todo o tabuleiro em uma rainha
 *
-*Assertivas de entrada: Não há assertivas de entrada
+*Assertivas de entrada: Ponteiro para um objeto da classe Piece
 *
-*Requisitos: 
+*Requisitos: O peão tenha atravessado todo o tabuleiro 
+*e que haja memória para alocar uma nova rainha
 *
-*Hipóteses: 
+*Hipóteses: A peça seja um peão e que esteja na posição final do tabuleiro
 *
 *Assertivas de saida: Não há assertivas de saída
 *
-*Interface explicita: Não há interface explicita
+*Interface explicita: Piece * piece
 *
-*Interface implicita: Não há interface implícita
+*Interface implicita: Manipulações através de ponteiros do objeto piece
 *
-*Contrato na especificação: 
+*Contrato na especificação: Este método transforma um peão em rainha,
+* verificando se este peão foi capaz de atravessar todo o tabuleiro 
+*e chegar na última posição vertical do tabuleiro
 *
 */
 
